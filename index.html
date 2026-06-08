@@ -3,20 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="description" content="Chetan & Nirbighna — Royal Wedding Invitation" />
-  <meta name="theme-color" content="#2b060a" />
+  <meta name="description" content="Chetan & Nirbighna — Royal Train Journey" />
+  <meta name="theme-color" content="#1a0408" />
   <title>Chetan & Nirbighna — Royal Journey</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <!-- Added Tiro Devanagari Hindi for a royal Hindi font experience -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-
-  <!-- Golden Dust Canvas -->
-  <canvas id="steam" aria-hidden="true"></canvas>
 
   <!-- ═══ LANGUAGE SELECTION MODAL ═══ -->
   <div class="lang-modal" id="langModal">
@@ -30,13 +26,19 @@
     </div>
   </div>
 
-  <!-- ═══ INTERACTIVE 3D PALACE DOORS ═══ -->
+  <!-- ═══ EXTRA ROYAL 3D PALACE DOORS ═══ -->
   <div class="palace-gate hidden" id="gate">
     <div class="door door-left" id="doorLeft">
-      <div class="door-pattern"></div>
+      <div class="door-inner-panel">
+        <div class="door-arch"></div>
+        <div class="door-mandala"></div>
+      </div>
     </div>
     <div class="door door-right" id="doorRight">
-      <div class="door-pattern"></div>
+      <div class="door-inner-panel">
+        <div class="door-arch"></div>
+        <div class="door-mandala"></div>
+      </div>
     </div>
     
     <div class="gate-center" id="gateCenter">
@@ -49,11 +51,16 @@
     </div>
   </div>
 
-  <!-- Audio Source Updated -->
   <audio id="weddingMusic" loop preload="auto" src="song.mp3"></audio>
 
-  <!-- ═══ MAIN JOURNEY ═══ -->
+  <!-- ═══ MAIN TRAIN JOURNEY APP ═══ -->
   <div class="app" id="app" hidden>
+    
+    <!-- Moving Train Scenery Background -->
+    <div class="train-scenery-bg"></div>
+    <canvas id="steam" aria-hidden="true"></canvas>
+
+    <!-- Side Indicator Route Map -->
     <nav class="route-map" id="routeMap" aria-label="Journey route">
       <div class="route-track"><span class="route-progress" id="routeProgress"></span></div>
       <a href="#stop-1" class="route-stop active" data-stop="1"><i></i></a>
@@ -64,6 +71,7 @@
       <a href="#stop-6" class="route-stop" data-stop="6"><i></i></a>
     </nav>
 
+    <!-- Music Player -->
     <div class="music-bar royal-card" id="musicBar">
       <button class="music-bar-btn" id="musicToggle" aria-label="Toggle music">
         <svg class="icon-play-sm" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
@@ -100,48 +108,45 @@
               <p data-i18n="brideParent">Daughter of<br>Mrs. & Mr. [Parents Name]</p>
             </div>
           </div>
-          <p class="ticket-footer">#ChetanKiNirbighna</p>
+          <p class="ticket-footer">#IshqDiChasni</p>
         </div>
       </section>
 
-      <!-- STOP 2: Interactive Farmaan (Scroll) -->
+      <!-- STOP 2: Interactive Train Ticket (Slide to Validate) -->
       <section class="stop" id="stop-2">
         <header class="stop-header reveal">
-          <span class="stop-code" data-i18n="stop2Code">THE DECREE</span>
-          <h2 class="gold-text" data-i18n="stop2Title">Royal Farmaan</h2>
+          <span class="stop-code" data-i18n="stop2Code">THE BOARDING PASS</span>
+          <h2 class="gold-text" data-i18n="stop2Title">Your Golden Ticket</h2>
         </header>
 
-        <div class="farmaan-container tilt-card reveal" id="farmaanContainer">
+        <div class="ticket-container royal-card tilt-card reveal">
           <div class="card-glare"></div>
-          <div class="farmaan-scroll" id="farmaanScroll">
-            <div class="farmaan-content">
-              <h3 class="gold-text-scroll" data-i18n="scrollTitle">By Royal Appointment</h3>
-              <p class="scroll-text">
-                <span data-i18n="scrollSummon">You are summoned to witness the union of</span><br>
-                <strong class="scroll-names"><span data-i18n="nameGroom">Chetan</span> & <span data-i18n="nameBride">Nirbighna</span></strong><br>
-                <span data-i18n="scrollDate">on the 6th of July, 2026.</span><br><br>
-                <span class="scroll-status" data-i18n="scrollGuest">Guest of Honour</span>
-              </p>
-            </div>
+          
+          <div class="ticket-details">
+            <h3 class="gold-text-scroll" data-i18n="scrollTitle">Love Express</h3>
+            <p class="ticket-route"><span data-i18n="lblFrom">From:</span> <strong>Two Hearts</strong> &nbsp;→&nbsp; <span data-i18n="lblTo">To:</span> <strong>One Soul</strong></p>
+            <p class="ticket-names"><span data-i18n="nameGroom">Chetan</span> & <span data-i18n="nameBride">Nirbighna</span></p>
+            <p class="ticket-date" data-i18n="scrollDate">06 July 2026</p>
           </div>
           
-          <div class="wax-envelope" id="waxEnvelope">
-            <p class="stamp-hint" id="sealHint" data-i18n="sealHint">Drag the seal downwards to open</p>
-            <div class="wax-seal heartbeat" id="waxSeal" role="button" tabindex="0">
-              <span class="seal-initials">C&N</span>
+          <!-- The Hidden Reveal Section -->
+          <div class="ticket-reveal" id="passReveal">
+            <div class="window-countdown">
+              <p class="dep-board-label" data-i18n="countdownLabel">DEPARTURE COUNTDOWN</p>
+              <div class="dep-board">
+                <div class="dep-cell"><b id="days">00</b><small data-i18n="lblDays">Days</small></div>
+                <div class="dep-cell"><b id="hours">00</b><small data-i18n="lblHours">Hrs</small></div>
+                <div class="dep-cell"><b id="minutes">00</b><small data-i18n="lblMins">Min</small></div>
+                <div class="dep-cell"><b id="seconds">00</b><small data-i18n="lblSecs">Sec</small></div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="compartment royal-card tilt-card reveal">
-          <div class="card-glare"></div>
-          <div class="window-countdown">
-            <p class="dep-board-label" data-i18n="countdownLabel">MOMENTS UNTIL FOREVER</p>
-            <div class="dep-board">
-              <div class="dep-cell"><b id="days">00</b><small data-i18n="lblDays">Days</small></div>
-              <div class="dep-cell"><b id="hours">00</b><small data-i18n="lblHours">Hrs</small></div>
-              <div class="dep-cell"><b id="minutes">00</b><small data-i18n="lblMins">Min</small></div>
-              <div class="dep-cell"><b id="seconds">00</b><small data-i18n="lblSecs">Sec</small></div>
+          <!-- Slide Lever -->
+          <div class="slider-track" id="sliderTrack">
+            <p class="slider-hint" id="sliderHint" data-i18n="sealHint">Slide to Board</p>
+            <div class="slider-thumb heartbeat" id="sliderThumb">
+               <span>🚂</span>
             </div>
           </div>
         </div>
@@ -200,7 +205,7 @@
         </div>
       </section>
 
-      <!-- STOP 5: Venue (Bhubaneswar Club) -->
+      <!-- STOP 5: Venue -->
       <section class="stop" id="stop-5">
         <header class="stop-header reveal">
           <span class="stop-code" data-i18n="stop5Code">LOCATION</span>
@@ -250,7 +255,7 @@
         <footer class="journey-end reveal">
           <h3 class="gold-text"><span data-i18n="nameGroom">Chetan</span> <span class="amp heartbeat">&</span> <span data-i18n="nameBride">Nirbighna</span></h3>
           <p class="end-date" data-i18n="footerDate">6 July 2026</p>
-          <p class="end-tag">#ChetanKiNirbighna</p>
+          <p class="end-tag">#IshqDiChasni</p>
         </footer>
       </section>
     </main>

@@ -14,14 +14,14 @@
       inviteText: "With the blessings of the Almighty, we joyfully invite you to witness the beginning of our forever.",
       groomParent: "Son of<br>Mrs. & Mr. [Parents Name]",
       brideParent: "Daughter of<br>Mrs. & Mr. [Parents Name]",
-      stop2Code: "THE DECREE",
-      stop2Title: "Royal Farmaan",
-      scrollTitle: "By Royal Appointment",
-      scrollSummon: "You are summoned to witness the union of",
-      scrollDate: "on the 6th of July, 2026.",
-      scrollGuest: "Guest of Honour",
-      sealHint: "Drag the seal downwards to open",
-      countdownLabel: "MOMENTS UNTIL FOREVER",
+      stop2Code: "THE BOARDING PASS",
+      stop2Title: "Your Golden Ticket",
+      scrollTitle: "Love Express",
+      lblFrom: "From:",
+      lblTo: "To:",
+      scrollDate: "06 July 2026",
+      sealHint: "Slide to Board",
+      countdownLabel: "DEPARTURE COUNTDOWN",
       lblDays: "Days",
       lblHours: "Hrs",
       lblMins: "Min",
@@ -66,14 +66,14 @@
       inviteText: "ईश्वर के आशीर्वाद से, हम आपको हमारे हमेशा के सफर की शुरुआत का गवाह बनने के लिए सहर्ष आमंत्रित करते हैं।",
       groomParent: "सुपुत्र<br>श्रीमती एवं श्री [माता-पिता का नाम]",
       brideParent: "सुपुत्री<br>श्रीमती एवं श्री [माता-पिता का नाम]",
-      stop2Code: "शाही फरमान",
-      stop2Title: "शाही फरमान",
-      scrollTitle: "शाही आमंत्रण",
-      scrollSummon: "आपको इनके शुभ विवाह का साक्षी बनने हेतु आमंत्रित किया जाता है:",
-      scrollDate: "दिनांक 6 जुलाई 2026 को।",
-      scrollGuest: "मुख्य अतिथि",
-      sealHint: "खोलने के लिए मुहर को नीचे खींचें",
-      countdownLabel: "सदाबहार पलों का इंतज़ार",
+      stop2Code: "बोर्डिंग पास",
+      stop2Title: "आपका सुनहरा टिकट",
+      scrollTitle: "लव एक्सप्रेस",
+      lblFrom: "से:",
+      lblTo: "तक:",
+      scrollDate: "06 जुलाई 2026",
+      sealHint: "बोर्ड करने के लिए स्लाइड करें",
+      countdownLabel: "प्रस्थान की उलटी गिनती",
       lblDays: "दिन",
       lblHours: "घंटे",
       lblMins: "मिनट",
@@ -123,35 +123,25 @@
   const musicToggle = document.getElementById("musicToggle");
   const blessingBtn = document.getElementById("blessingBtn");
   
-  const waxSeal = document.getElementById("waxSeal");
-  const waxEnvelope = document.getElementById("waxEnvelope");
-  const farmaanScroll = document.getElementById("farmaanScroll");
-  const sealHint = document.getElementById("sealHint");
-
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lightboxImg");
   const lightboxClose = document.getElementById("lightboxClose");
   const copyAddress = document.getElementById("copyAddress");
   const routeProgress = document.getElementById("routeProgress");
-  const routeStops = document.querySelectorAll(".route-stop");
+  const routeStops = Array.from(document.querySelectorAll(".route-stop"));
 
   let isPlaying = false;
-  let scrollOpened = false;
   let gateOpened = false;
 
-  // ═══ LANGUAGE SELECTION & TRANSLATION ═══
+  // ═══ LANGUAGE SELECTION ═══
   langBtns.forEach(btn => {
     btn.addEventListener("click", () => {
       const selectedLang = btn.getAttribute("data-lang");
-      
-      // Update DOM
       htmlTag.setAttribute("lang", selectedLang);
       applyTranslations(selectedLang);
       
-      // We start audio immediately because user just clicked a button (bypasses browser autoplay block!)
       forcePlayAudio();
       
-      // Hide Modal, Show Gate
       langModal.classList.add("fade-out");
       setTimeout(() => {
         langModal.classList.add("hidden");
@@ -165,13 +155,11 @@
     const elements = document.querySelectorAll("[data-i18n]");
     elements.forEach(el => {
       const key = el.getAttribute("data-i18n");
-      if (dict[key]) {
-        el.innerHTML = dict[key];
-      }
+      if (dict[key]) el.innerHTML = dict[key];
     });
   }
 
-  // ═══ GOLDEN FIREFLIES (DUST) PARTICLES ═══
+  // ═══ GOLDEN FIREFLIES ═══
   function initSteam() {
     const canvas = document.getElementById("steam");
     if (!canvas) return;
@@ -230,7 +218,6 @@
       const drop = document.createElement('div');
       drop.classList.add('shower-item');
       drop.innerText = items[Math.floor(Math.random() * items.length)];
-      
       drop.style.left = Math.random() * 100 + 'vw';
       drop.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
       drop.style.animationDuration = (Math.random() * 3 + 2.5) + 's';
@@ -289,36 +276,33 @@
     setTimeout(() => {
       gate.style.display = "none";
       app.hidden = false;
-      initWaxSeal();
+      initSlider();
       initReveal();
       initRouteMap();
       initTiltCards();
     }, 1800);
   });
 
-  // ═══ 3D PARALLAX TILT EFFECT FOR CARDS ═══
+  // ═══ 3D PARALLAX TILT EFFECT ═══
   function initTiltCards() {
     const cards = document.querySelectorAll('.tilt-card');
-    
     cards.forEach(card => {
       const glare = card.querySelector('.card-glare');
-      
       card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
-        
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
         
-        const rotateX = ((y - centerY) / centerY) * -6;
-        const rotateY = ((x - centerX) / centerX) * 6;
+        const rotateX = ((y - centerY) / centerY) * -5;
+        const rotateY = ((x - centerX) / centerX) * 5;
         
         card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
         
         if(glare) {
           glare.style.opacity = '1';
-          glare.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.15), transparent 60%)`;
+          glare.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.12), transparent 60%)`;
         }
       });
       
@@ -329,67 +313,65 @@
     });
   }
 
-  // ═══ WAX SEAL (FARMAAN SCROLL) DRAG ═══
-  function initWaxSeal() {
-    if (!waxSeal || !waxEnvelope) return;
+  // ═══ HORIZONTAL SLIDER (BOARDING PASS) ═══
+  function initSlider() {
+    const thumb = document.getElementById("sliderThumb");
+    const track = document.getElementById("sliderTrack");
+    const passReveal = document.getElementById("passReveal");
+    const sliderHint = document.getElementById("sliderHint");
+    
+    if (!thumb || !track) return;
 
     let dragging = false;
-    let startY;
+    let startX, maxDrag;
+    let unlocked = false;
 
     function onStart(e) {
-      if (scrollOpened) return;
+      if (unlocked) return;
       dragging = true;
-      const p = getPoint(e);
-      startY = p.y;
-      waxSeal.style.transition = "none";
-      waxSeal.classList.remove("heartbeat");
+      startX = e.touches ? e.touches[0].clientX : e.clientX;
+      maxDrag = track.offsetWidth - thumb.offsetWidth - 10;
+      thumb.style.transition = "none";
+      thumb.classList.remove("heartbeat");
     }
 
     function onMove(e) {
       if (!dragging) return;
       e.preventDefault();
-      const p = getPoint(e);
-      const dy = p.y - startY;
+      const currentX = e.touches ? e.touches[0].clientX : e.clientX;
+      let dx = currentX - startX;
       
-      if (dy > 0 && dy < 150) {
-        waxSeal.style.transform = `translateY(${dy}px)`;
-      }
+      if (dx < 0) dx = 0;
+      if (dx > maxDrag) dx = maxDrag;
+      
+      thumb.style.transform = `translateX(${dx}px)`;
 
-      if (dy > 80) {
-        openScroll();
+      if (dx >= maxDrag * 0.95) {
+        unlockPass();
       }
     }
 
     function onEnd() {
-      if (!dragging || scrollOpened) return;
+      if (!dragging || unlocked) return;
       dragging = false;
-      waxSeal.style.transition = "transform 0.4s ease";
-      waxSeal.style.transform = "translateY(0)";
-      waxSeal.classList.add("heartbeat");
+      thumb.style.transition = "transform 0.4s ease";
+      thumb.style.transform = "translateX(0)";
+      thumb.classList.add("heartbeat");
     }
 
-    function getPoint(e) {
-      return { y: e.touches ? e.touches[0].clientY : e.clientY };
-    }
-
-    function openScroll() {
-      if (scrollOpened) return;
-      scrollOpened = true;
+    function unlockPass() {
+      unlocked = true;
       dragging = false;
-      
-      if(navigator.vibrate) navigator.vibrate(50); 
-      triggerHeartShower(); 
-      
-      sealHint.style.opacity = "0";
-      waxEnvelope.classList.add("broken");
-      
-      setTimeout(() => {
-        farmaanScroll.classList.add("open");
-      }, 400);
+      if(navigator.vibrate) navigator.vibrate(50);
+      sliderHint.style.opacity = "0";
+      thumb.style.transform = `translateX(${maxDrag}px)`;
+      thumb.classList.add("unlocked");
+      passReveal.classList.add("open");
+      triggerHeartShower(); // Small celebration when unlocked
     }
 
-    waxSeal.addEventListener("mousedown", onStart);
-    waxSeal.addEventListener("touchstart", onStart, { passive: false });
+    thumb.addEventListener("mousedown", onStart);
+    thumb.addEventListener("touchstart", onStart, { passive: false });
     window.addEventListener("mousemove", onMove);
     window.addEventListener("touchmove", onMove, { passive: false });
     window.addEventListener("mouseup", onEnd);
@@ -401,7 +383,7 @@
     const diff = WEDDING_DATE - new Date();
     const ids = ["days", "hours", "minutes", "seconds"];
     if (diff <= 0) {
-      ids.forEach(id => document.getElementById(id).textContent = "00");
+      ids.forEach(id => { const el = document.getElementById(id); if(el) el.textContent = "00"; });
       return;
     }
     const vals = [
@@ -434,25 +416,32 @@
     document.querySelectorAll(".reveal").forEach((el) => obs.observe(el));
   }
 
-  // ═══ ROUTE MAP ═══
+  // ═══ ROUTE MAP (FIXED SCROLL LISTENER) ═══
   function initRouteMap() {
-    const stops = document.querySelectorAll(".stop[id]");
-    const obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (!e.isIntersecting) return;
-          const num = parseInt(e.target.id.replace("stop-", ""), 10);
-          routeStops.forEach((s) => {
-            const sn = parseInt(s.dataset.stop, 10);
-            s.classList.toggle("active", sn === num);
-          });
-          const pct = ((num - 1) / (stops.length - 1)) * 100;
-          routeProgress.style.height = pct + "%";
-        });
-      },
-      { threshold: 0.3, rootMargin: "-20% 0px -60% 0px" }
-    );
-    stops.forEach((s) => obs.observe(s));
+    const stops = Array.from(document.querySelectorAll(".stop[id]"));
+    if (stops.length === 0) return;
+
+    window.addEventListener('scroll', () => {
+      let current = 0;
+      let minDiff = Infinity;
+      const scrollY = window.scrollY + window.innerHeight / 2.5; // Center target
+
+      stops.forEach((stop, index) => {
+         const top = stop.offsetTop;
+         const diff = Math.abs(scrollY - top);
+         if (diff < minDiff) {
+             minDiff = diff;
+             current = index;
+         }
+      });
+
+      routeStops.forEach((s, idx) => {
+         s.classList.toggle("active", idx === current);
+      });
+
+      const pct = (current / (stops.length - 1)) * 100;
+      routeProgress.style.height = pct + "%";
+    }, { passive: true });
   }
 
   // ═══ GALLERY LIGHTBOX ═══
@@ -492,6 +481,5 @@
     });
   }
 
-  // Initialize Canvas
   initSteam();
 })();
