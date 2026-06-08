@@ -25,6 +25,7 @@
 
   let isPlaying = false;
   let scrollOpened = false;
+  let gateOpened = false;
 
   // ═══ GOLDEN FIREFLIES (DUST) PARTICLES ═══
   function initSteam() {
@@ -41,14 +42,14 @@
     resize();
     window.addEventListener("resize", resize);
 
-    for (let i = 0; i < 40; i++) {
+    for (let i = 0; i < 50; i++) {
       puffs.push({
         x: Math.random() * w,
         y: Math.random() * h,
         r: Math.random() * 3 + 1,
-        speed: Math.random() * 0.4 + 0.1,
-        drift: (Math.random() - 0.5) * 0.4,
-        opacity: Math.random() * 0.5 + 0.2,
+        speed: Math.random() * 0.5 + 0.1,
+        drift: (Math.random() - 0.5) * 0.5,
+        opacity: Math.random() * 0.6 + 0.2,
       });
     }
 
@@ -56,7 +57,6 @@
       ctx.clearRect(0, 0, w, h);
       puffs.forEach((p) => {
         p.y -= p.speed;
-        // Sine wave drift for realistic firefly motion
         p.x += Math.sin(p.y * 0.05) * 0.5 + p.drift; 
         
         if (p.y < -p.r) {
@@ -65,8 +65,8 @@
         }
 
         const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 2);
-        grad.addColorStop(0, `rgba(249, 215, 126, ${p.opacity})`); // Bright Gold
-        grad.addColorStop(0.4, `rgba(212, 175, 55, ${p.opacity * 0.5})`); // Deep Gold
+        grad.addColorStop(0, `rgba(249, 215, 126, ${p.opacity})`);
+        grad.addColorStop(0.4, `rgba(212, 175, 55, ${p.opacity * 0.5})`);
         grad.addColorStop(1, "rgba(0, 0, 0, 0)");
 
         ctx.beginPath();
@@ -79,7 +79,7 @@
     draw();
   }
 
-  // ═══ AUDIO AUTOPLAY LOGIC ═══
+  // ═══ AUDIO LOGIC ═══
   async function forcePlayAudio() {
     if (isPlaying) return;
     try {
@@ -89,18 +89,9 @@
       musicToggle.querySelector(".icon-play-sm").classList.add("hidden");
       musicToggle.querySelector(".icon-pause-sm").classList.remove("hidden");
     } catch (err) {
-      console.log("Autoplay prevented by browser. Waiting for user interaction.");
+      console.log("Autoplay prevented.");
     }
   }
-
-  window.addEventListener('load', forcePlayAudio);
-  
-  const interactionEvents = ['click', 'touchstart', 'scroll'];
-  const onFirstInteract = () => {
-    forcePlayAudio();
-    interactionEvents.forEach(evt => document.removeEventListener(evt, onFirstInteract));
-  };
-  interactionEvents.forEach(evt => document.addEventListener(evt, onFirstInteract, { once: true, passive: true }));
 
   function pauseMusic() {
     audio.pause();
@@ -116,18 +107,59 @@
     else forcePlayAudio();
   });
 
-  // ═══ GATE TO APP TRANSITION ═══
+  // ═══ INTERACTIVE 3D PALACE DOORS ═══
   openBtn.addEventListener("click", () => {
-    forcePlayAudio();
-    gate.classList.add("fade-out");
+    if(gateOpened) return;
+    gateOpened = true;
+    
+    forcePlayAudio(); // Start music instantly on lock tap
+    
+    // Add open class to swing doors in 3D
+    gate.classList.add("open");
+    
+    // Wait for door animation to finish, then hide gate and show app
     setTimeout(() => {
-      gate.hidden = true;
+      gate.style.display = "none";
       app.hidden = false;
       initWaxSeal();
       initReveal();
       initRouteMap();
-    }, 1500);
+      initTiltCards();
+    }, 1800);
   });
+
+  // ═══ 3D PARALLAX TILT EFFECT FOR CARDS ═══
+  function initTiltCards() {
+    const cards = document.querySelectorAll('.tilt-card');
+    
+    cards.forEach(card => {
+      const glare = card.querySelector('.card-glare');
+      
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = ((y - centerY) / centerY) * -6; // Max 6 deg tilt
+        const rotateY = ((x - centerX) / centerX) * 6;
+        
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+        
+        if(glare) {
+          glare.style.opacity = '1';
+          glare.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.15), transparent 60%)`;
+        }
+      });
+      
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+        if(glare) glare.style.opacity = '0';
+      });
+    });
+  }
 
   // ═══ WAX SEAL (FARMAAN SCROLL) DRAG ═══
   function initWaxSeal() {
@@ -278,11 +310,11 @@
   // ═══ COPY ADDRESS ═══
   if (copyAddress) {
     copyAddress.addEventListener("click", async () => {
-      const text = "Grand Heritage Hall, 123 Celebration Avenue, Jaipur, Rajasthan";
+      const text = "Bhubaneswar Club, Bhubaneswar, Odisha";
       try {
         await navigator.clipboard.writeText(text);
         copyAddress.textContent = "Copied!";
-        setTimeout(() => { copyAddress.textContent = "Copy"; }, 2000);
+        setTimeout(() => { copyAddress.textContent = "Copy Address"; }, 2000);
       } catch {
         copyAddress.textContent = "Failed";
       }

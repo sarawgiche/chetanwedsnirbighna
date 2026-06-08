@@ -3,45 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="description" content="Chetan & Nirbighna — An Ethereal Journey" />
-  <meta name="theme-color" content="#0a0a0c" />
-  <title>Chetan & Nirbighna — Royal Love Express</title>
+  <meta name="description" content="Chetan & Nirbighna — Royal Wedding Invitation" />
+  <meta name="theme-color" content="#2b060a" />
+  <title>Chetan & Nirbighna — Royal Journey</title>
   
-  <!-- Elegant Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- Golden Fireflies Canvas -->
+  <!-- Golden Dust Canvas -->
   <canvas id="steam" aria-hidden="true"></canvas>
 
-  <!-- Ambient Glowing Background -->
-  <div class="ambient-bg" aria-hidden="true">
-    <div class="glow-orb orb-1"></div>
-    <div class="glow-orb orb-2"></div>
-    <div class="glow-orb orb-3"></div>
-  </div>
-
-  <!-- ═══ STATION GATE — FROSTED GLASS DOORS ═══ -->
-  <div class="station-gate" id="gate">
-    <div class="gate-content glass-panel">
-      <p class="gate-subtitle">You are invited to a beautiful beginning</p>
-      <h1 class="gate-title">Chetan <span>&</span> Nirbighna</h1>
-      <p class="gate-date">06 · 07 · 2026</p>
-      
-      <div class="gate-cta">
-        <button class="btn-glow" id="openInvitation">
-          Enter the Journey
-        </button>
-        <p class="gate-hint">Tap anywhere to begin</p>
-      </div>
+  <!-- ═══ INTERACTIVE 3D PALACE DOORS ═══ -->
+  <div class="palace-gate" id="gate">
+    <div class="door door-left" id="doorLeft">
+      <div class="door-pattern"></div>
+    </div>
+    <div class="door door-right" id="doorRight">
+      <div class="door-pattern"></div>
+    </div>
+    
+    <div class="gate-center" id="gateCenter">
+      <p class="gate-subtitle">The Royal Wedding Of</p>
+      <h1 class="gate-title">Chetan<br><span>&</span><br>Nirbighna</h1>
+      <button class="door-lock" id="openInvitation">
+        <span class="lock-ring"></span>
+        <span class="lock-text">Tap to Unlock</span>
+      </button>
     </div>
   </div>
 
-  <!-- Relative Audio Source (Same Folder) -->
+  <!-- Audio Source (Local File) -->
   <audio id="weddingMusic" loop preload="auto" src="05 - Dil Na Jaaneya - Good Newwz (2019).mp3"></audio>
 
   <!-- ═══ MAIN JOURNEY ═══ -->
@@ -56,7 +51,7 @@
       <a href="#stop-6" class="route-stop" data-stop="6"><i></i></a>
     </nav>
 
-    <div class="music-bar glass-panel" id="musicBar">
+    <div class="music-bar royal-card" id="musicBar">
       <button class="music-bar-btn" id="musicToggle" aria-label="Toggle music">
         <svg class="icon-play-sm" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
         <svg class="icon-pause-sm hidden" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
@@ -69,25 +64,26 @@
     </div>
 
     <main class="carriage">
-      <!-- STOP 1: Platform -->
+      <!-- STOP 1: The Royal Invitation -->
       <section class="stop" id="stop-1">
-        <div class="ticket-card glass-panel reveal">
+        <div class="royal-card tilt-card reveal">
+          <div class="card-glare"></div>
           <header class="stop-header">
             <span class="stop-code">THE INVITATION</span>
-            <h2 class="rose-gold-text">A Celebration of Love</h2>
+            <h2 class="gold-text">A Royal Celebration</h2>
           </header>
-          <p class="invite-text">Together with our families, we invite you to share our joy as we step into forever.</p>
+          <p class="invite-text">With the blessings of the Almighty, we joyfully invite you to witness the beginning of our forever.</p>
 
-          <div class="couple-ticket reveal">
+          <div class="couple-ticket">
             <div class="passenger">
               <div class="passenger-photo passenger-photo--groom"></div>
-              <h1 class="rose-gold-text">Chetan</h1>
+              <h1 class="gold-text">Chetan</h1>
               <p>Son of<br>Mrs. & Mr. [Parents Name]</p>
             </div>
             <div class="passenger-link">&</div>
             <div class="passenger">
               <div class="passenger-photo passenger-photo--bride"></div>
-              <h1 class="rose-gold-text">Nirbighna</h1>
+              <h1 class="gold-text">Nirbighna</h1>
               <p>Daughter of<br>Mrs. & Mr. [Parents Name]</p>
             </div>
           </div>
@@ -95,14 +91,15 @@
         </div>
       </section>
 
-      <!-- STOP 2: The Royal Farmaan & Countdown -->
+      <!-- STOP 2: Interactive Farmaan (Scroll) -->
       <section class="stop" id="stop-2">
         <header class="stop-header reveal">
           <span class="stop-code">THE DECREE</span>
-          <h2 class="rose-gold-text">Royal Farmaan</h2>
+          <h2 class="gold-text">Royal Farmaan</h2>
         </header>
 
-        <div class="farmaan-container reveal" id="farmaanContainer">
+        <div class="farmaan-container tilt-card reveal" id="farmaanContainer">
+          <div class="card-glare"></div>
           <!-- The Scroll Content -->
           <div class="farmaan-scroll" id="farmaanScroll">
             <div class="farmaan-content">
@@ -118,23 +115,22 @@
           
           <!-- The Wax Seal Envelope -->
           <div class="wax-envelope" id="waxEnvelope">
-            <p class="stamp-hint" id="sealHint">Drag the seal to open the decree</p>
+            <p class="stamp-hint" id="sealHint">Drag the seal downwards to open</p>
             <div class="wax-seal" id="waxSeal" role="button" tabindex="0">
               <span class="seal-initials">C&N</span>
             </div>
           </div>
         </div>
 
-        <div class="compartment reveal">
-          <div class="interior-window glass-panel">
-            <div class="window-countdown">
-              <p class="dep-board-label">MOMENTS UNTIL FOREVER</p>
-              <div class="dep-board">
-                <div class="dep-cell"><b id="days">00</b><small>Days</small></div>
-                <div class="dep-cell"><b id="hours">00</b><small>Hrs</small></div>
-                <div class="dep-cell"><b id="minutes">00</b><small>Min</small></div>
-                <div class="dep-cell"><b id="seconds">00</b><small>Sec</small></div>
-              </div>
+        <div class="compartment royal-card tilt-card reveal">
+          <div class="card-glare"></div>
+          <div class="window-countdown">
+            <p class="dep-board-label">MOMENTS UNTIL FOREVER</p>
+            <div class="dep-board">
+              <div class="dep-cell"><b id="days">00</b><small>Days</small></div>
+              <div class="dep-cell"><b id="hours">00</b><small>Hrs</small></div>
+              <div class="dep-cell"><b id="minutes">00</b><small>Min</small></div>
+              <div class="dep-cell"><b id="seconds">00</b><small>Sec</small></div>
             </div>
           </div>
         </div>
@@ -144,9 +140,10 @@
       <section class="stop" id="stop-3">
         <header class="stop-header reveal">
           <span class="stop-code">ITINERARY</span>
-          <h2 class="rose-gold-text">Wedding Festivities</h2>
+          <h2 class="gold-text">Wedding Festivities</h2>
         </header>
-        <div class="schedule-board glass-panel reveal">
+        <div class="schedule-board royal-card tilt-card reveal">
+          <div class="card-glare"></div>
           <article class="schedule-item">
             <span class="schedule-time">11:00</span>
             <div class="schedule-info">
@@ -175,9 +172,10 @@
       <section class="stop" id="stop-4">
         <header class="stop-header reveal">
           <span class="stop-code">OUR STORY</span>
-          <h2 class="rose-gold-text">How It Began</h2>
+          <h2 class="gold-text">How It Began</h2>
         </header>
-        <div class="stations-timeline glass-panel reveal">
+        <div class="stations-timeline royal-card tilt-card reveal">
+          <div class="card-glare"></div>
           <article class="st-stop"><span class="st-name">First Glance</span><p>Two strangers on parallel tracks — until one moment changed the map forever.</p></article>
           <article class="st-stop"><span class="st-name">Shared Journey</span><p>Laughter, trust, and countless miles traveled side by side.</p></article>
           <article class="st-stop"><span class="st-name">The Proposal</span><p>A question asked as the sun painted the sky gold — she said yes.</p></article>
@@ -185,20 +183,21 @@
         </div>
       </section>
 
-      <!-- STOP 5: Venue -->
+      <!-- STOP 5: Venue (Bhubaneswar Club) -->
       <section class="stop" id="stop-5">
         <header class="stop-header reveal">
           <span class="stop-code">LOCATION</span>
-          <h2 class="rose-gold-text">The Grand Venue</h2>
+          <h2 class="gold-text">The Grand Venue</h2>
         </header>
-        <div class="destination-card glass-panel reveal">
+        <div class="destination-card royal-card tilt-card reveal">
+          <div class="card-glare"></div>
           <div class="dest-img"></div>
           <div class="dest-body">
-            <h3>Grand Heritage Hall</h3>
-            <p>123 Celebration Avenue, Jaipur, Rajasthan</p>
+            <h3>Bhubaneswar Club</h3>
+            <p>Bhubaneswar, Odisha</p>
             <div class="dest-actions">
-              <a href="https://maps.google.com/?q=Jaipur+Rajasthan" target="_blank" rel="noopener" class="btn-outline">Open Maps</a>
-              <button type="button" class="btn-outline" id="copyAddress">Copy</button>
+              <a href="https://maps.google.com/?q=Bhubaneswar+Club,+Bhubaneswar,+Odisha" target="_blank" rel="noopener" class="btn-outline">Open in Maps</a>
+              <button type="button" class="btn-outline" id="copyAddress">Copy Address</button>
             </div>
           </div>
         </div>
@@ -208,25 +207,25 @@
       <section class="stop" id="stop-6">
         <header class="stop-header reveal">
           <span class="stop-code">GALLERY</span>
-          <h2 class="rose-gold-text">Captured Memories</h2>
+          <h2 class="gold-text">Captured Memories</h2>
         </header>
         <div class="polaroid-wall reveal">
-          <button class="polaroid glass-panel" data-full="https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=85">
+          <button class="polaroid royal-card tilt-card" data-full="https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=85">
             <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400&q=80" alt="Couple" loading="lazy"/>
           </button>
-          <button class="polaroid glass-panel polaroid--tilt" data-full="https://images.unsplash.com/photo-1606800052052-a08af8348865?w=1200&q=85">
+          <button class="polaroid royal-card tilt-card polaroid--tilt" data-full="https://images.unsplash.com/photo-1606800052052-a08af8348865?w=1200&q=85">
             <img src="https://images.unsplash.com/photo-1606800052052-a08af8348865?w=400&q=80" alt="Rings" loading="lazy"/>
           </button>
-          <button class="polaroid glass-panel" data-full="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1200&q=85">
+          <button class="polaroid royal-card tilt-card" data-full="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1200&q=85">
             <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=400&q=80" alt="Decor" loading="lazy"/>
           </button>
-          <button class="polaroid glass-panel polaroid--tilt-r" data-full="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=1200&q=85">
+          <button class="polaroid royal-card tilt-card polaroid--tilt-r" data-full="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=1200&q=85">
             <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=400&q=80" alt="Portrait" loading="lazy"/>
           </button>
         </div>
 
         <footer class="journey-end reveal">
-          <h3 class="rose-gold-text">Chetan <span class="amp">&</span> Nirbighna</h3>
+          <h3 class="gold-text">Chetan <span class="amp">&</span> Nirbighna</h3>
           <p class="end-date">6 July 2026</p>
           <p class="end-tag">#ChetanKiNirbighna</p>
         </footer>
