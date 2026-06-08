@@ -1,7 +1,119 @@
 (function () {
   "use strict";
 
+  // ═══ TRANSLATIONS DICTIONARY ═══
+  const translations = {
+    en: {
+      nameGroom: "Chetan",
+      nameBride: "Nirbighna",
+      gateSubtitle: "The Royal Wedding Of",
+      lockText: "Tap to Unlock",
+      nowPlaying: "Dil Na Jaaneya",
+      stop1Code: "THE INVITATION",
+      stop1Title: "A Royal Celebration",
+      inviteText: "With the blessings of the Almighty, we joyfully invite you to witness the beginning of our forever.",
+      groomParent: "Son of<br>Mrs. & Mr. [Parents Name]",
+      brideParent: "Daughter of<br>Mrs. & Mr. [Parents Name]",
+      stop2Code: "THE DECREE",
+      stop2Title: "Royal Farmaan",
+      scrollTitle: "By Royal Appointment",
+      scrollSummon: "You are summoned to witness the union of",
+      scrollDate: "on the 6th of July, 2026.",
+      scrollGuest: "Guest of Honour",
+      sealHint: "Drag the seal downwards to open",
+      countdownLabel: "MOMENTS UNTIL FOREVER",
+      lblDays: "Days",
+      lblHours: "Hrs",
+      lblMins: "Min",
+      lblSecs: "Sec",
+      stop3Code: "ITINERARY",
+      stop3Title: "Wedding Festivities",
+      event1Title: "Wedding Ceremony",
+      event1Desc: "Sacred vows & blessings",
+      event2Title: "Mehendi & Sangeet",
+      event2Desc: "Music, colour & celebration",
+      event3Title: "Grand Reception",
+      event3Desc: "Dinner & dancing under the stars",
+      stop4Code: "OUR STORY",
+      stop4Title: "How It Began",
+      story1Title: "First Glance",
+      story1Desc: "Two strangers on parallel tracks — until one moment changed the map forever.",
+      story2Title: "Shared Journey",
+      story2Desc: "Laughter, trust, and countless miles traveled side by side.",
+      story3Title: "The Proposal",
+      story3Desc: "A question asked as the sun painted the sky gold — she said yes.",
+      story4Title: "Final Destination",
+      story4Desc: "6 July 2026 — where two hearts arrive as one.",
+      stop5Code: "LOCATION",
+      stop5Title: "The Grand Venue",
+      venueName: "Bhubaneswar Club",
+      venueAddress: "Bhubaneswar, Odisha",
+      btnMap: "Open in Maps",
+      btnCopy: "Copy Address",
+      stop6Code: "GALLERY",
+      stop6Title: "Captured Memories",
+      btnBlessing: "Shower Blessings ✨",
+      footerDate: "6 July 2026"
+    },
+    hi: {
+      nameGroom: "चेतन",
+      nameBride: "निर्विघ्ना",
+      gateSubtitle: "शाही विवाह",
+      lockText: "खोलने के लिए टैप करें",
+      nowPlaying: "दिल ना जानेया",
+      stop1Code: "निमंत्रण",
+      stop1Title: "एक शाही जश्न",
+      inviteText: "ईश्वर के आशीर्वाद से, हम आपको हमारे हमेशा के सफर की शुरुआत का गवाह बनने के लिए सहर्ष आमंत्रित करते हैं।",
+      groomParent: "सुपुत्र<br>श्रीमती एवं श्री [माता-पिता का नाम]",
+      brideParent: "सुपुत्री<br>श्रीमती एवं श्री [माता-पिता का नाम]",
+      stop2Code: "शाही फरमान",
+      stop2Title: "शाही फरमान",
+      scrollTitle: "शाही आमंत्रण",
+      scrollSummon: "आपको इनके शुभ विवाह का साक्षी बनने हेतु आमंत्रित किया जाता है:",
+      scrollDate: "दिनांक 6 जुलाई 2026 को।",
+      scrollGuest: "मुख्य अतिथि",
+      sealHint: "खोलने के लिए मुहर को नीचे खींचें",
+      countdownLabel: "सदाबहार पलों का इंतज़ार",
+      lblDays: "दिन",
+      lblHours: "घंटे",
+      lblMins: "मिनट",
+      lblSecs: "सेकंड",
+      stop3Code: "कार्यक्रम",
+      stop3Title: "विवाह समारोह",
+      event1Title: "विवाह संस्कार",
+      event1Desc: "पवित्र वचन एवं आशीर्वाद",
+      event2Title: "मेहंदी एवं संगीत",
+      event2Desc: "संगीत, रंग और जश्न",
+      event3Title: "भव्य रिसेप्शन",
+      event3Desc: "तारों की छाँव में रात्रिभोज एवं नृत्य",
+      stop4Code: "हमारी कहानी",
+      stop4Title: "कैसे हुई शुरुआत",
+      story1Title: "पहली नज़र",
+      story1Desc: "समानांतर पटरियों पर दो अजनबी — जब तक एक पल ने हमेशा के लिए नक्शा नहीं बदल दिया।",
+      story2Title: "साझा सफर",
+      story2Desc: "हँसी, विश्वास और साथ चले अनगिनत मील।",
+      story3Title: "प्रस्ताव",
+      story3Desc: "सुनहरे आसमान के नीचे पूछा गया एक सवाल — और उसने हाँ कह दिया।",
+      story4Title: "अंतिम मंजिल",
+      story4Desc: "6 जुलाई 2026 — जहाँ दो दिल एक होकर पहुँचते हैं।",
+      stop5Code: "स्थान",
+      stop5Title: "भव्य आयोजन स्थल",
+      venueName: "भुवनेश्वर क्लब",
+      venueAddress: "भुवनेश्वर, ओडिशा",
+      btnMap: "मैप्स में खोलें",
+      btnCopy: "पता कॉपी करें",
+      stop6Code: "गैलरी",
+      stop6Title: "यादों के झरोखे",
+      btnBlessing: "आशीर्वाद दें ✨",
+      footerDate: "6 जुलाई 2026"
+    }
+  };
+
   const WEDDING_DATE = new Date("2026-07-06T11:00:00");
+
+  const htmlTag = document.getElementById("htmlTag");
+  const langModal = document.getElementById("langModal");
+  const langBtns = document.querySelectorAll(".lang-btns button");
 
   const gate = document.getElementById("gate");
   const app = document.getElementById("app");
@@ -9,8 +121,8 @@
   const audio = document.getElementById("weddingMusic");
   const musicBar = document.getElementById("musicBar");
   const musicToggle = document.getElementById("musicToggle");
+  const blessingBtn = document.getElementById("blessingBtn");
   
-  // Farmaan Elements
   const waxSeal = document.getElementById("waxSeal");
   const waxEnvelope = document.getElementById("waxEnvelope");
   const farmaanScroll = document.getElementById("farmaanScroll");
@@ -26,6 +138,38 @@
   let isPlaying = false;
   let scrollOpened = false;
   let gateOpened = false;
+
+  // ═══ LANGUAGE SELECTION & TRANSLATION ═══
+  langBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const selectedLang = btn.getAttribute("data-lang");
+      
+      // Update DOM
+      htmlTag.setAttribute("lang", selectedLang);
+      applyTranslations(selectedLang);
+      
+      // We start audio immediately because user just clicked a button (bypasses browser autoplay block!)
+      forcePlayAudio();
+      
+      // Hide Modal, Show Gate
+      langModal.classList.add("fade-out");
+      setTimeout(() => {
+        langModal.classList.add("hidden");
+        gate.classList.remove("hidden");
+      }, 800);
+    });
+  });
+
+  function applyTranslations(lang) {
+    const dict = translations[lang];
+    const elements = document.querySelectorAll("[data-i18n]");
+    elements.forEach(el => {
+      const key = el.getAttribute("data-i18n");
+      if (dict[key]) {
+        el.innerHTML = dict[key];
+      }
+    });
+  }
 
   // ═══ GOLDEN FIREFLIES (DUST) PARTICLES ═══
   function initSteam() {
@@ -79,6 +223,31 @@
     draw();
   }
 
+  // ═══ SHOWER HEARTS & PETALS ═══
+  function triggerHeartShower() {
+    const items = ['💖', '✨', '🌹', '❤️', '🌸'];
+    for(let i = 0; i < 40; i++) {
+      const drop = document.createElement('div');
+      drop.classList.add('shower-item');
+      drop.innerText = items[Math.floor(Math.random() * items.length)];
+      
+      drop.style.left = Math.random() * 100 + 'vw';
+      drop.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
+      drop.style.animationDuration = (Math.random() * 3 + 2.5) + 's';
+      drop.style.opacity = Math.random() * 0.5 + 0.5;
+      
+      document.body.appendChild(drop);
+      setTimeout(() => drop.remove(), 6000);
+    }
+  }
+
+  if (blessingBtn) {
+    blessingBtn.addEventListener("click", () => {
+      triggerHeartShower();
+      if(navigator.vibrate) navigator.vibrate(30);
+    });
+  }
+
   // ═══ AUDIO LOGIC ═══
   async function forcePlayAudio() {
     if (isPlaying) return;
@@ -112,12 +281,11 @@
     if(gateOpened) return;
     gateOpened = true;
     
-    forcePlayAudio(); // Start music instantly on lock tap
+    forcePlayAudio();
+    triggerHeartShower();
     
-    // Add open class to swing doors in 3D
     gate.classList.add("open");
     
-    // Wait for door animation to finish, then hide gate and show app
     setTimeout(() => {
       gate.style.display = "none";
       app.hidden = false;
@@ -143,7 +311,7 @@
         const centerX = rect.width / 2;
         const centerY = rect.height / 2;
         
-        const rotateX = ((y - centerY) / centerY) * -6; // Max 6 deg tilt
+        const rotateX = ((y - centerY) / centerY) * -6;
         const rotateY = ((x - centerX) / centerX) * 6;
         
         card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
@@ -166,16 +334,15 @@
     if (!waxSeal || !waxEnvelope) return;
 
     let dragging = false;
-    let startY, currentY, handleY;
+    let startY;
 
     function onStart(e) {
       if (scrollOpened) return;
       dragging = true;
       const p = getPoint(e);
-      const rect = waxSeal.getBoundingClientRect();
       startY = p.y;
-      handleY = rect.top;
       waxSeal.style.transition = "none";
+      waxSeal.classList.remove("heartbeat");
     }
 
     function onMove(e) {
@@ -184,7 +351,6 @@
       const p = getPoint(e);
       const dy = p.y - startY;
       
-      // Allow dragging downwards to break the seal
       if (dy > 0 && dy < 150) {
         waxSeal.style.transform = `translateY(${dy}px)`;
       }
@@ -199,6 +365,7 @@
       dragging = false;
       waxSeal.style.transition = "transform 0.4s ease";
       waxSeal.style.transform = "translateY(0)";
+      waxSeal.classList.add("heartbeat");
     }
 
     function getPoint(e) {
@@ -210,7 +377,8 @@
       scrollOpened = true;
       dragging = false;
       
-      if(navigator.vibrate) navigator.vibrate(50); // Haptic feedback on break
+      if(navigator.vibrate) navigator.vibrate(50); 
+      triggerHeartShower(); 
       
       sealHint.style.opacity = "0";
       waxEnvelope.classList.add("broken");
@@ -310,13 +478,16 @@
   // ═══ COPY ADDRESS ═══
   if (copyAddress) {
     copyAddress.addEventListener("click", async () => {
+      const isHi = htmlTag.getAttribute("lang") === "hi";
       const text = "Bhubaneswar Club, Bhubaneswar, Odisha";
       try {
         await navigator.clipboard.writeText(text);
-        copyAddress.textContent = "Copied!";
-        setTimeout(() => { copyAddress.textContent = "Copy Address"; }, 2000);
+        copyAddress.textContent = isHi ? "कॉपी हो गया!" : "Copied!";
+        setTimeout(() => { 
+          copyAddress.textContent = isHi ? "पता कॉपी करें" : "Copy Address"; 
+        }, 2000);
       } catch {
-        copyAddress.textContent = "Failed";
+        copyAddress.textContent = isHi ? "विफल" : "Failed";
       }
     });
   }
