@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════
-   LOVE EXPRESS — Modern Royal Heritage
+   LOVE EXPRESS — Modern Royal Heritage Journey
    ═══════════════════════════════════════════ */
 
 :root {
@@ -11,7 +11,7 @@
   --gold-dim: #997a00;
   --text-main: #fbf5eb;
   --text-muted: #dcbaba;
-  --card-bg: rgba(30, 5, 10, 0.9); 
+  --card-bg: rgba(30, 5, 10, 0.95); 
   
   --font-display: "Cinzel", serif;
   --font-script: "Great Vibes", cursive;
@@ -80,6 +80,11 @@ a { color: inherit; text-decoration: none; }
   100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
 }
 
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* ═══ ROYAL CARDS & 3D TILT ═══ */
 .royal-card {
   background: var(--card-bg);
@@ -90,7 +95,7 @@ a { color: inherit; text-decoration: none; }
   overflow: hidden;
   transform-style: preserve-3d;
   backdrop-filter: blur(8px);
-  /* The Fix for the Dashed border hiding text: using outline instead of absolutely positioned pseudo element */
+  /* Use outline with offset to create inner dashed border without hiding text */
   outline: 1px dashed var(--gold-dim);
   outline-offset: -8px;
 }
@@ -109,11 +114,11 @@ a { color: inherit; text-decoration: none; }
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 .lang-modal.fade-out { opacity: 0; transform: scale(1.1); pointer-events: none; }
-.lang-box { padding: 3rem 2rem; text-align: center; max-width: 400px; width: 100%; outline-offset: -12px;}
+.lang-box { padding: 3rem 2rem; text-align: center; max-width: 400px; width: 100%; }
 .lang-box h2 { font-family: var(--font-display); font-size: clamp(1.5rem, 5vw, 2rem); margin-bottom: 2rem; line-height: 1.4; }
 .lang-btns { display: flex; flex-direction: column; gap: 1rem; align-items: center; }
 
-/* ═══ INTERACTIVE 3D PALACE DOORS (ENHANCED) ═══ */
+/* ═══ INTERACTIVE 3D PALACE DOORS ═══ */
 .palace-gate {
   position: fixed; inset: 0; z-index: 2000; display: flex; perspective: 1200px; background: #000;
 }
@@ -125,23 +130,16 @@ a { color: inherit; text-decoration: none; }
 .door-left { transform-origin: left; border-right: 3px solid var(--gold-bright); }
 .door-right { transform-origin: right; border-left: 3px solid var(--gold-bright); }
 
-/* Intricate Door Styling */
 .door-inner-panel {
-  width: 80%; height: 85%;
-  border: 3px solid var(--gold); border-radius: 200px 200px 10px 10px;
+  width: 80%; height: 85%; border: 3px solid var(--gold); border-radius: 200px 200px 10px 10px;
   position: relative; display: flex; flex-direction: column; align-items: center;
   box-shadow: inset 0 0 30px rgba(0,0,0,0.8), 0 0 15px rgba(212,175,55,0.3);
 }
-.door-arch {
-  width: 90%; height: 25%; margin-top: 5%;
-  border: 2px dashed var(--gold-dim); border-radius: 180px 180px 0 0;
-}
+.door-arch { width: 90%; height: 25%; margin-top: 5%; border: 2px dashed var(--gold-dim); border-radius: 180px 180px 0 0; }
 .door-mandala {
   width: 60px; height: 60px; margin-top: auto; margin-bottom: 20%;
-  background: radial-gradient(circle, var(--gold-bright) 10%, transparent 20%),
-              radial-gradient(circle, var(--gold-dim) 40%, transparent 50%);
-  background-size: 20px 20px; border: 2px solid var(--gold); border-radius: 50%;
-  box-shadow: 0 0 15px var(--gold);
+  background: radial-gradient(circle, var(--gold-bright) 10%, transparent 20%), radial-gradient(circle, var(--gold-dim) 40%, transparent 50%);
+  background-size: 20px 20px; border: 2px solid var(--gold); border-radius: 50%; box-shadow: 0 0 15px var(--gold);
 }
 
 .palace-gate.open .door-left { transform: rotateY(-105deg); }
@@ -161,42 +159,42 @@ a { color: inherit; text-decoration: none; }
   border-radius: 50%; margin: 0 auto; border: 4px solid #fff;
   box-shadow: 0 10px 40px rgba(0,0,0,0.9), inset 0 2px 10px rgba(255,255,255,0.8);
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  transition: transform 0.3s; position: relative;
+  transition: transform 0.3s; position: relative; cursor: pointer;
 }
 .door-lock:active { transform: scale(0.95); animation: none; }
 .lock-text { font-family: var(--font-body); font-size: 0.65rem; font-weight: 700; text-transform: uppercase; color: #2b060a; letter-spacing: 0.1em; margin-top: 5px; }
 .lock-ring { width: 35px; height: 35px; border: 4px solid #2b060a; border-radius: 50%; box-shadow: inset 0 0 5px rgba(0,0,0,0.5); }
 
-/* ═══ APP CONTAINER ═══ */
-.app { position: relative; z-index: 10; max-width: 500px; margin: 0 auto; min-height: 100vh; }
+/* ═══ APP CONTAINER & THE JOURNEY LINE ═══ */
+.app { position: relative; z-index: 10; max-width: 600px; margin: 0 auto; min-height: 100vh; }
 
-/* Route map (Fixed Side Tracker) */
-.route-map {
-  position: fixed; left: max(0.2rem, calc(50% - 260px)); top: 50%; transform: translateY(-50%);
-  z-index: 200; display: flex; flex-direction: column; align-items: center; gap: 1.5rem;
+.carriage { padding-bottom: 8rem; position: relative; }
+/* The Journey Central Dotted Line */
+.carriage::before {
+  content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: 2px; height: calc(100% - 8rem);
+  background: repeating-linear-gradient(to bottom, var(--gold-dim) 0, var(--gold-dim) 10px, transparent 10px, transparent 20px);
+  z-index: 0; opacity: 0.4;
 }
-.route-track {
-  position: absolute; left: 50%; top: 10px; bottom: 10px; width: 2px;
-  background: rgba(212, 175, 55, 0.2); transform: translateX(-50%); z-index: -1;
-}
-.route-progress {
-  display: block; width: 100%; height: 0%; background: var(--gold);
-  transition: height 0.3s ease-out; box-shadow: 0 0 10px var(--gold);
-}
-.route-stop i {
-  display: block; width: 10px; height: 10px; border-radius: 50%;
-  background: var(--bg-base); border: 2px solid var(--gold-dim); transition: all 0.3s;
-}
-.route-stop.active i {
-  background: var(--gold-bright); border-color: var(--gold);
-  box-shadow: 0 0 15px var(--gold); transform: scale(1.5);
+
+/* Route map Side Tracker (Hidden on Mobile) */
+.route-map { display: none; }
+@media(min-width: 1000px) {
+  .route-map {
+    display: flex; position: fixed; left: calc(50% - 350px); top: 50%; transform: translateY(-50%);
+    z-index: 200; flex-direction: column; align-items: center; gap: 1.5rem;
+  }
+  .route-track { position: absolute; left: 50%; top: 10px; bottom: 10px; width: 2px; background: rgba(212, 175, 55, 0.2); transform: translateX(-50%); z-index: -1; }
+  .route-progress { display: block; width: 100%; height: 0%; background: var(--gold); transition: height 0.3s ease-out; box-shadow: 0 0 10px var(--gold); }
+  .route-stop i { display: block; width: 10px; height: 10px; border-radius: 50%; background: var(--bg-base); border: 2px solid var(--gold-dim); transition: all 0.3s; }
+  .route-stop.active i { background: var(--gold-bright); border-color: var(--gold); box-shadow: 0 0 15px var(--gold); transform: scale(1.5); }
 }
 
 /* Music bar */
 .music-bar {
   position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%);
   z-index: 250; width: min(90%, 400px); display: flex; align-items: center; gap: 1rem;
-  padding: 0.75rem 1.25rem; border-radius: 40px; outline: none; /* No outline on rounded bar */
+  padding: 0.75rem 1.25rem; border-radius: 40px; outline: none; 
 }
 .music-bar-btn {
   width: 40px; height: 40px; border-radius: 50%; background: var(--bg-base);
@@ -216,10 +214,22 @@ a { color: inherit; text-decoration: none; }
 .music-bar-artist { font-size: 0.65rem; color: var(--text-muted); }
 
 /* Carriage sections */
-.carriage { padding-bottom: 8rem; }
-.stop { padding: clamp(1rem, 5vw, 2rem); padding-top: 4rem; perspective: 1000px; min-height: 50vh; display: flex; flex-direction: column; justify-content: center;}
+.stop { 
+  padding: clamp(1rem, 5vw, 2rem); 
+  padding-top: 3rem; 
+  perspective: 1000px; 
+  display: flex; flex-direction: column; justify-content: center;
+  position: relative; z-index: 2; /* Sits above the journey line */
+}
 
-.stop-header { text-align: center; margin-bottom: 2rem; }
+/* Journey Node at the top of each stop */
+.stop-node {
+  position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  background: var(--bg-base); padding: 5px; color: var(--gold-bright);
+  font-size: 1.5rem; text-shadow: 0 0 10px var(--gold);
+}
+
+.stop-header { text-align: center; margin-bottom: 2rem; position: relative; }
 .stop-code { display: block; font-size: 0.65rem; letter-spacing: 0.3em; color: var(--gold-dim); margin-bottom: 0.5rem; text-transform: uppercase; }
 .stop-header h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 6vw, 2.2rem); font-weight: 400; line-height: 1.2; }
 
@@ -241,7 +251,7 @@ a { color: inherit; text-decoration: none; }
 .ticket-footer { margin-top: 3rem; font-size: 0.75rem; letter-spacing: 0.2em; color: var(--gold-dim); position: relative; z-index: 2;}
 
 /* ═══ FARMAAN (ROYAL SCROLL & WAX SEAL) ═══ */
-.farmaan-container { position: relative; width: 100%; height: 350px; margin: 0 auto 2rem; outline-offset: -12px;}
+.farmaan-container { position: relative; width: 100%; height: 350px; margin: 0 auto 2rem; }
 .farmaan-scroll {
   position: absolute; inset: 0; background: linear-gradient(135deg, #fdf8ef, #ebdabe);
   border: 8px solid var(--gold-dim); border-radius: 4px; padding: 2rem;
@@ -276,7 +286,7 @@ a { color: inherit; text-decoration: none; }
 .window-countdown { text-align: center; padding: 2rem 1rem; position: relative; z-index: 2;}
 .dep-board-label { font-size: 0.7rem; letter-spacing: 0.2em; color: var(--gold-bright); margin-bottom: 1rem; }
 .dep-board { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;}
-.dep-cell { flex: 1; min-width: 60px; text-align: center; background: rgba(0,0,0,0.4); padding: 0.8rem 0.5rem; border: 1px solid var(--gold-dim); border-radius: 8px; }
+.dep-cell { flex: 1; min-width: 60px; text-align: center; background: rgba(0,0,0,0.4); padding: 0.8rem 0.5rem; border: 1px dashed var(--gold-dim); border-radius: 8px; }
 .dep-cell b { display: block; font-family: var(--font-display); font-size: clamp(1.5rem, 5vw, 2.2rem); font-weight: 600; color: var(--text-main); line-height: 1;}
 .dep-cell small { font-size: 0.55rem; letter-spacing: 0.1em; color: var(--gold); text-transform: uppercase; display: block; margin-top: 5px;}
 
@@ -285,7 +295,7 @@ a { color: inherit; text-decoration: none; }
 .schedule-item { display: flex; flex-direction: column; gap: 0.5rem; padding: 1.5rem 0; border-bottom: 1px solid rgba(212, 175, 55, 0.2); position: relative; z-index: 2;}
 .schedule-item:first-child { padding-top: 0.5rem; }
 .schedule-item:last-child { border-bottom: none; padding-bottom: 0.5rem; }
-.schedule-date { font-family: var(--font-display); font-size: 1.8rem; font-weight: 600; color: var(--gold-bright); border-left: 3px solid var(--gold); padding-left: 10px; line-height: 1.1; margin-bottom: 0.5rem;}
+.schedule-date { font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; color: var(--gold-bright); border-left: 3px solid var(--gold); padding-left: 10px; line-height: 1.1; margin-bottom: 0.5rem;}
 .schedule-info { padding-left: 13px; }
 .schedule-info h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.25rem; color: var(--text-main); }
 .event-time { font-size: 0.85rem; color: var(--gold-dim); font-weight: 600; margin-bottom: 0.2rem; }
@@ -308,14 +318,30 @@ a { color: inherit; text-decoration: none; }
 .polaroid { padding: 0.5rem; border-radius: 8px; transition: transform 0.4s ease; border: 2px solid var(--gold-dim); outline: none; }
 .polaroid img { border-radius: 4px; aspect-ratio: 1; object-fit: cover; }
 
+/* ═══ MINI GAME: THE RING CEREMONY ═══ */
+.game-container { padding: 3rem 1.5rem; text-align: center; }
+.game-hint { font-size: 0.9rem; color: var(--gold-dim); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1.5rem; }
+.ring-track {
+  position: relative; width: 100%; height: 60px; background: rgba(0,0,0,0.5); border: 1px dashed var(--gold-dim);
+  border-radius: 30px; display: flex; align-items: center; justify-content: flex-end; padding-right: 10px;
+}
+.ring-target { font-size: 2rem; opacity: 0.5; filter: grayscale(1); }
+.ring-thumb {
+  position: absolute; left: 5px; width: 50px; height: 50px; background: radial-gradient(circle, var(--gold-bright), var(--gold-dim));
+  border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; cursor: grab; z-index: 2; box-shadow: 0 4px 10px rgba(0,0,0,0.8);
+}
+.ring-thumb:active { cursor: grabbing; }
+
+.game-success { padding: 2rem 0; animation: fadeUp 0.8s ease; }
+.success-icon { font-size: 3rem; margin-bottom: 1rem; display: block; }
+.success-msg { font-size: 0.95rem; color: var(--text-main); margin-top: 0.5rem;}
+
 /* ═══ VENUE ═══ */
 .destination-card { overflow: hidden; height: auto; }
 .dest-img {
   height: 200px;
   background: url("https://images.unsplash.com/photo-1582555172866-f73bb12a2ab3?w=800&q=80") center / cover; 
-  opacity: 0.9;
-  border-bottom: 2px solid var(--gold);
-  position: relative; z-index: 2;
+  opacity: 0.9; border-bottom: 2px solid var(--gold); position: relative; z-index: 2;
 }
 .dest-body { padding: 1.5rem; text-align: center; position: relative; z-index: 2;}
 .dest-body h3 { font-family: var(--font-display); font-size: 1.8rem; color: var(--gold-bright); margin-bottom: 0.5rem; line-height: 1.2;}
@@ -329,7 +355,7 @@ a { color: inherit; text-decoration: none; }
 .btn-outline:hover { background: var(--gold); color: var(--text-main); box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
 
 /* Shower Blessings Button */
-.blessings-section { text-align: center; padding: 2rem 0; border-top: 1px dashed var(--gold-dim); margin-top: 1rem;}
+.blessings-section { text-align: center; padding: 2rem 0; margin-top: 1rem;}
 .btn-blessing {
   padding: 1rem 2.5rem; background: radial-gradient(circle, var(--gold-bright), var(--gold-dim));
   border: 2px solid #fff; border-radius: 50px; color: var(--velvet);

@@ -46,6 +46,11 @@
       stop4Code: "PRE-WEDDING",
       stop4Title: "Glimpses of Us",
       videoText: "Play Pre-Wedding Video",
+
+      gameCode: "THE RINGS",
+      gameTitle: "A Symbol of Forever",
+      gameHint: "Slide the ring to unite two hearts",
+      gameSuccess: "Two hearts, intertwined forever.",
       
       stop5Code: "LOCATION",
       stop5Title: "The Grand Venue",
@@ -100,6 +105,11 @@
       stop4Code: "प्री-वेडिंग",
       stop4Title: "हमारी कुछ झलकियाँ",
       videoText: "प्री-वेडिंग वीडियो देखें",
+
+      gameCode: "अँगूठी की रस्म",
+      gameTitle: "हमेशा का प्रतीक",
+      gameHint: "दो दिलों को मिलाने के लिए अंगूठी को खिसकाएं",
+      gameSuccess: "दो दिल, हमेशा के लिए एक हो गए।",
       
       stop5Code: "स्थान",
       stop5Title: "भव्य आयोजन स्थल",
@@ -288,14 +298,18 @@
       gate.style.display = "none";
       app.hidden = false;
       initWaxSeal();
+      initRingGame();
       initReveal();
       initRouteMap();
       initTiltCards();
     }, 1800);
   });
 
-  // ═══ 3D PARALLAX TILT EFFECT ═══
+  // ═══ 3D PARALLAX TILT EFFECT FOR CARDS ═══
   function initTiltCards() {
+    // Disable parallax on mobile/touch devices for better performance
+    if (window.matchMedia("(max-width: 768px)").matches) return;
+    
     const cards = document.querySelectorAll('.tilt-card');
     cards.forEach(card => {
       const glare = card.querySelector('.card-glare');
@@ -391,6 +405,75 @@
     window.addEventListener("touchend", onEnd);
   }
 
+  // ═══ THE RING CEREMONY MINI GAME ═══
+  function initRingGame() {
+    const thumb = document.getElementById("ringThumb");
+    const track = document.getElementById("ringTrack");
+    const gamePlayArea = document.getElementById("gamePlayArea");
+    const gameSuccessArea = document.getElementById("gameSuccessArea");
+    
+    if (!thumb || !track) return;
+
+    let dragging = false;
+    let startX, maxDrag;
+    let unlocked = false;
+
+    function onStart(e) {
+      if (unlocked) return;
+      dragging = true;
+      startX = e.touches ? e.touches[0].clientX : e.clientX;
+      maxDrag = track.offsetWidth - thumb.offsetWidth - 10;
+      thumb.style.transition = "none";
+      thumb.classList.remove("heartbeat");
+    }
+
+    function onMove(e) {
+      if (!dragging) return;
+      e.preventDefault();
+      const currentX = e.touches ? e.touches[0].clientX : e.clientX;
+      let dx = currentX - startX;
+      
+      if (dx < 0) dx = 0;
+      if (dx > maxDrag) dx = maxDrag;
+      
+      thumb.style.transform = `translateX(${dx}px)`;
+
+      if (dx >= maxDrag * 0.95) {
+        unlockRing();
+      }
+    }
+
+    function onEnd() {
+      if (!dragging || unlocked) return;
+      dragging = false;
+      thumb.style.transition = "transform 0.4s ease";
+      thumb.style.transform = "translateX(0)";
+      thumb.classList.add("heartbeat");
+    }
+
+    function unlockRing() {
+      unlocked = true;
+      dragging = false;
+      if(navigator.vibrate) navigator.vibrate(50);
+      
+      thumb.style.transform = `translateX(${maxDrag}px)`;
+      
+      triggerHeartShower(); // Burst of hearts
+      
+      setTimeout(() => {
+        gamePlayArea.style.display = "none";
+        gameSuccessArea.classList.remove("hidden");
+      }, 400);
+    }
+
+    thumb.addEventListener("mousedown", onStart);
+    thumb.addEventListener("touchstart", onStart, { passive: false });
+    window.addEventListener("mousemove", onMove);
+    window.addEventListener("touchmove", onMove, { passive: false });
+    window.addEventListener("mouseup", onEnd);
+    window.addEventListener("touchend", onEnd);
+  }
+
   // ═══ COUNTDOWN ═══
   function updateCountdown() {
     const diff = WEDDING_DATE - new Date();
@@ -432,7 +515,7 @@
   // ═══ ROUTE MAP (FIXED SCROLL LISTENER) ═══
   function initRouteMap() {
     const stops = Array.from(document.querySelectorAll(".stop[id]"));
-    if (stops.length === 0) return;
+    if (stops.length === 0 || window.matchMedia("(max-width: 1000px)").matches) return;
 
     window.addEventListener('scroll', () => {
       let current = 0;
@@ -481,7 +564,7 @@
   if (copyAddress) {
     copyAddress.addEventListener("click", async () => {
       const isHi = htmlTag.getAttribute("lang") === "hi";
-      const text = "Bhubaneswar Club, Bhubaneswar, Odisha";
+      const text = "Bhubaneswar Club, Bhubaneswar, Odisha[cite: 1]";
       try {
         await navigator.clipboard.writeText(text);
         copyAddress.textContent = isHi ? "कॉपी हो गया!" : "Copied!";

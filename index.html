@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="description" content="Chetan & Nirbighna — A Royal Wedding Celebration" />
+  <meta name="description" content="Chetan & Nirbighna — A Royal Wedding Journey" />
   <meta name="theme-color" content="#1a0408" />
   <title>Chetan & Nirbighna — Royal Wedding</title>
   
@@ -18,7 +18,7 @@
   <div class="lang-modal" id="langModal">
     <div class="royal-card tilt-card lang-box">
       <div class="card-glare"></div>
-      <h2 class="gold-text">Choose Your Language<br><span style="font-size: 0.7em; font-family: 'Tiro Devanagari Hindi', serif;">अपनी भाषा चुनें</span></h2>
+      <h2 class="gold-text">Choose Your Journey<br><span style="font-size: 0.7em; font-family: 'Tiro Devanagari Hindi', serif;">अपनी भाषा चुनें</span></h2>
       <div class="lang-btns">
         <button class="btn-outline heartbeat" data-lang="en">English</button>
         <button class="btn-outline heartbeat" data-lang="hi" style="font-family: 'Tiro Devanagari Hindi', serif; font-size: 1.1rem;">हिंदी</button>
@@ -59,7 +59,7 @@
     <!-- Royal Ambient Background -->
     <canvas id="steam" aria-hidden="true"></canvas>
 
-    <!-- Side Indicator Menu -->
+    <!-- Side Indicator Menu (Desktop Only) -->
     <nav class="route-map" id="routeMap" aria-label="Journey route">
       <div class="route-track"><span class="route-progress" id="routeProgress"></span></div>
       <a href="#stop-1" class="route-stop active" data-stop="1"><i></i></a>
@@ -67,6 +67,8 @@
       <a href="#stop-3" class="route-stop" data-stop="3"><i></i></a>
       <a href="#stop-4" class="route-stop" data-stop="4"><i></i></a>
       <a href="#stop-5" class="route-stop" data-stop="5"><i></i></a>
+      <a href="#stop-6" class="route-stop" data-stop="6"><i></i></a>
+      <a href="#stop-7" class="route-stop" data-stop="7"><i></i></a>
     </nav>
 
     <!-- Music Player -->
@@ -82,10 +84,12 @@
       </div>
     </div>
 
+    <!-- The Journey Line Container -->
     <main class="carriage">
       
       <!-- STOP 1: The Royal Invitation -->
       <section class="stop" id="stop-1">
+        <div class="stop-node">✧</div>
         <div class="royal-card tilt-card reveal">
           <div class="card-glare"></div>
           <header class="stop-header">
@@ -113,6 +117,7 @@
 
       <!-- STOP 2: Interactive Farmaan & Countdown -->
       <section class="stop" id="stop-2">
+        <div class="stop-node">✧</div>
         <header class="stop-header reveal">
           <span class="stop-code" data-i18n="stop2Code">THE DECREE</span>
           <h2 class="gold-text" data-i18n="stop2Title">Royal Farmaan</h2>
@@ -157,6 +162,7 @@
 
       <!-- STOP 3: Events Schedule -->
       <section class="stop" id="stop-3">
+        <div class="stop-node">✧</div>
         <header class="stop-header reveal">
           <span class="stop-code" data-i18n="stop3Code">ITINERARY</span>
           <h2 class="gold-text" data-i18n="stop3Title">Wedding Festivities</h2>
@@ -198,22 +204,20 @@
 
       <!-- STOP 4: Glimpses of Us (Pre-Wedding Photos & Video) -->
       <section class="stop" id="stop-4">
+        <div class="stop-node">✧</div>
         <header class="stop-header reveal">
           <span class="stop-code" data-i18n="stop4Code">PRE-WEDDING</span>
           <h2 class="gold-text" data-i18n="stop4Title">Glimpses of Us</h2>
         </header>
         
-        <!-- Pre-Wedding Video Placeholder -->
         <div class="video-container royal-card tilt-card reveal">
           <div class="card-glare"></div>
-          <!-- Replace this with your actual video or iframe -->
           <div class="video-placeholder">
             <span class="play-icon">▶</span>
             <p data-i18n="videoText">Play Pre-Wedding Video</p>
           </div>
         </div>
 
-        <!-- Pre-Wedding Gallery -->
         <div class="polaroid-wall reveal">
           <button class="polaroid royal-card tilt-card" data-full="https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=85">
             <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400&q=80" alt="Couple" loading="lazy"/>
@@ -230,8 +234,36 @@
         </div>
       </section>
 
-      <!-- STOP 5: Venue -->
+      <!-- STOP 5: THE MINI GAME -->
+      <section class="stop" id="stop-game">
+        <div class="stop-node">✧</div>
+        <header class="stop-header reveal">
+          <span class="stop-code" data-i18n="gameCode">THE RINGS</span>
+          <h2 class="gold-text" data-i18n="gameTitle">A Symbol of Forever</h2>
+        </header>
+        
+        <div class="game-container royal-card tilt-card reveal">
+          <div class="card-glare"></div>
+          
+          <div id="gamePlayArea">
+            <p class="game-hint" data-i18n="gameHint">Slide the ring to unite two hearts</p>
+            <div class="ring-track" id="ringTrack">
+              <div class="ring-target">💍</div>
+              <div class="ring-thumb heartbeat" id="ringThumb">💍</div>
+            </div>
+          </div>
+
+          <div class="game-success hidden" id="gameSuccessArea">
+            <span class="success-icon float-anim">💖</span>
+            <h3 class="gold-text-scroll">#IshqDiChasni</h3>
+            <p class="success-msg" data-i18n="gameSuccess">Two hearts, intertwined forever.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- STOP 6: Venue -->
       <section class="stop" id="stop-5">
+        <div class="stop-node">✧</div>
         <header class="stop-header reveal">
           <span class="stop-code" data-i18n="stop5Code">LOCATION</span>
           <h2 class="gold-text" data-i18n="stop5Title">The Grand Venue</h2>
