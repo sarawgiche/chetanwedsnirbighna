@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="description" content="Chetan & Nirbighna — An Ethereal Journey" />
+  <meta name="theme-color" content="#0a0a0c" />
+  <title>Chetan & Nirbighna — Royal Love Express</title>
+  
+  <!-- Elegant Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&family=Pinyon+Script&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Golden Fireflies Canvas -->
+  <canvas id="steam" aria-hidden="true"></canvas>
+
+  <!-- Ambient Glowing Background -->
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+  </div>
+
+  <!-- ═══ STATION GATE — FROSTED GLASS DOORS ═══ -->
+  <div class="station-gate" id="gate">
+    <div class="gate-content glass-panel">
+      <p class="gate-subtitle">You are invited to a beautiful beginning</p>
+      <h1 class="gate-title">Chetan <span>&</span> Nirbighna</h1>
+      <p class="gate-date">06 · 07 · 2026</p>
+      
+      <div class="gate-cta">
+        <button class="btn-glow" id="openInvitation">
+          Enter the Journey
+        </button>
+        <p class="gate-hint">Tap anywhere to begin</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Local Audio Source -->
+  <audio id="weddingMusic" loop preload="auto" src="file:///C:/Users/anish/.cursor/projects/c-Users-anish-chetan-nirbighna-wedding/05%20-%20Dil%20Na%20Jaaneya%20-%20Good%20Newwz%20(2019).mp3"></audio>
+
+  <!-- ═══ MAIN JOURNEY ═══ -->
+  <div class="app" id="app" hidden>
+    <nav class="route-map" id="routeMap" aria-label="Journey route">
+      <div class="route-track"><span class="route-progress" id="routeProgress"></span></div>
+      <a href="#stop-1" class="route-stop active" data-stop="1"><i></i></a>
+      <a href="#stop-2" class="route-stop" data-stop="2"><i></i></a>
+      <a href="#stop-3" class="route-stop" data-stop="3"><i></i></a>
+      <a href="#stop-4" class="route-stop" data-stop="4"><i></i></a>
+      <a href="#stop-5" class="route-stop" data-stop="5"><i></i></a>
+      <a href="#stop-6" class="route-stop" data-stop="6"><i></i></a>
+    </nav>
+
+    <div class="music-bar glass-panel" id="musicBar">
+      <button class="music-bar-btn" id="musicToggle" aria-label="Toggle music">
+        <svg class="icon-play-sm" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        <svg class="icon-pause-sm hidden" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+        <span class="eq-bars" aria-hidden="true"><i></i><i></i><i></i></span>
+      </button>
+      <div class="music-bar-info">
+        <span class="music-bar-label" id="nowPlaying">Dil Na Jaaneya</span>
+        <span class="music-bar-artist">Chetan & Nirbighna</span>
+      </div>
+    </div>
+
+    <main class="carriage">
+      <!-- STOP 1: Platform -->
+      <section class="stop" id="stop-1">
+        <div class="ticket-card glass-panel reveal">
+          <header class="stop-header">
+            <span class="stop-code">THE INVITATION</span>
+            <h2 class="rose-gold-text">A Celebration of Love</h2>
+          </header>
+          <p class="invite-text">Together with our families, we invite you to share our joy as we step into forever.</p>
+
+          <div class="couple-ticket reveal">
+            <div class="passenger">
+              <div class="passenger-photo passenger-photo--groom"></div>
+              <h1 class="rose-gold-text">Chetan</h1>
+              <p>Son of<br>Mrs. & Mr. [Parents Name]</p>
+            </div>
+            <div class="passenger-link">&</div>
+            <div class="passenger">
+              <div class="passenger-photo passenger-photo--bride"></div>
+              <h1 class="rose-gold-text">Nirbighna</h1>
+              <p>Daughter of<br>Mrs. & Mr. [Parents Name]</p>
+            </div>
+          </div>
+          <p class="ticket-footer">#ChetanKiNirbighna</p>
+        </div>
+      </section>
+
+      <!-- STOP 2: The Royal Farmaan & Countdown -->
+      <section class="stop" id="stop-2">
+        <header class="stop-header reveal">
+          <span class="stop-code">THE DECREE</span>
+          <h2 class="rose-gold-text">Royal Farmaan</h2>
+        </header>
+
+        <div class="farmaan-container reveal" id="farmaanContainer">
+          <!-- The Scroll Content -->
+          <div class="farmaan-scroll" id="farmaanScroll">
+            <div class="farmaan-content">
+              <h3 class="gold-text-scroll">By Royal Appointment</h3>
+              <p class="scroll-text">
+                You are summoned to witness the union of<br>
+                <strong class="scroll-names">Chetan & Nirbighna</strong><br>
+                on the 6th of July, 2026.<br><br>
+                <span class="scroll-status">Guest of Honour</span>
+              </p>
+            </div>
+          </div>
+          
+          <!-- The Wax Seal Envelope -->
+          <div class="wax-envelope" id="waxEnvelope">
+            <p class="stamp-hint" id="sealHint">Drag the seal to open the decree</p>
+            <div class="wax-seal" id="waxSeal" role="button" tabindex="0">
+              <span class="seal-initials">C&N</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="compartment reveal">
+          <div class="interior-window glass-panel">
+            <div class="window-countdown">
+              <p class="dep-board-label">MOMENTS UNTIL FOREVER</p>
+              <div class="dep-board">
+                <div class="dep-cell"><b id="days">00</b><small>Days</small></div>
+                <div class="dep-cell"><b id="hours">00</b><small>Hrs</small></div>
+                <div class="dep-cell"><b id="minutes">00</b><small>Min</small></div>
+                <div class="dep-cell"><b id="seconds">00</b><small>Sec</small></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STOP 3: Events -->
+      <section class="stop" id="stop-3">
+        <header class="stop-header reveal">
+          <span class="stop-code">ITINERARY</span>
+          <h2 class="rose-gold-text">Wedding Festivities</h2>
+        </header>
+        <div class="schedule-board glass-panel reveal">
+          <article class="schedule-item">
+            <span class="schedule-time">11:00</span>
+            <div class="schedule-info">
+              <h3>Wedding Ceremony</h3>
+              <p>Sacred vows & blessings</p>
+            </div>
+          </article>
+          <article class="schedule-item">
+            <span class="schedule-time">16:00</span>
+            <div class="schedule-info">
+              <h3>Mehendi & Sangeet</h3>
+              <p>Music, colour & celebration</p>
+            </div>
+          </article>
+          <article class="schedule-item">
+            <span class="schedule-time">19:00</span>
+            <div class="schedule-info">
+              <h3>Grand Reception</h3>
+              <p>Dinner & dancing under the stars</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- STOP 4: Story -->
+      <section class="stop" id="stop-4">
+        <header class="stop-header reveal">
+          <span class="stop-code">OUR STORY</span>
+          <h2 class="rose-gold-text">How It Began</h2>
+        </header>
+        <div class="stations-timeline glass-panel reveal">
+          <article class="st-stop"><span class="st-name">First Glance</span><p>Two strangers on parallel tracks — until one moment changed the map forever.</p></article>
+          <article class="st-stop"><span class="st-name">Shared Journey</span><p>Laughter, trust, and countless miles traveled side by side.</p></article>
+          <article class="st-stop"><span class="st-name">The Proposal</span><p>A question asked as the sun painted the sky gold — she said yes.</p></article>
+          <article class="st-stop st-stop--finale"><span class="st-name">Final Destination</span><p>6 July 2026 — where two hearts arrive as one.</p></article>
+        </div>
+      </section>
+
+      <!-- STOP 5: Venue -->
+      <section class="stop" id="stop-5">
+        <header class="stop-header reveal">
+          <span class="stop-code">LOCATION</span>
+          <h2 class="rose-gold-text">The Grand Venue</h2>
+        </header>
+        <div class="destination-card glass-panel reveal">
+          <div class="dest-img"></div>
+          <div class="dest-body">
+            <h3>Grand Heritage Hall</h3>
+            <p>123 Celebration Avenue, Jaipur, Rajasthan</p>
+            <div class="dest-actions">
+              <a href="https://maps.google.com/?q=Jaipur+Rajasthan" target="_blank" rel="noopener" class="btn-outline">Open Maps</a>
+              <button type="button" class="btn-outline" id="copyAddress">Copy</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- STOP 6: Gallery -->
+      <section class="stop" id="stop-6">
+        <header class="stop-header reveal">
+          <span class="stop-code">GALLERY</span>
+          <h2 class="rose-gold-text">Captured Memories</h2>
+        </header>
+        <div class="polaroid-wall reveal">
+          <button class="polaroid glass-panel" data-full="https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=85">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400&q=80" alt="Couple" loading="lazy"/>
+          </button>
+          <button class="polaroid glass-panel polaroid--tilt" data-full="https://images.unsplash.com/photo-1606800052052-a08af8348865?w=1200&q=85">
+            <img src="https://images.unsplash.com/photo-1606800052052-a08af8348865?w=400&q=80" alt="Rings" loading="lazy"/>
+          </button>
+          <button class="polaroid glass-panel" data-full="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1200&q=85">
+            <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=400&q=80" alt="Decor" loading="lazy"/>
+          </button>
+          <button class="polaroid glass-panel polaroid--tilt-r" data-full="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=1200&q=85">
+            <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=400&q=80" alt="Portrait" loading="lazy"/>
+          </button>
+        </div>
+
+        <footer class="journey-end reveal">
+          <h3 class="rose-gold-text">Chetan <span class="amp">&</span> Nirbighna</h3>
+          <p class="end-date">6 July 2026</p>
+          <p class="end-tag">#ChetanKiNirbighna</p>
+        </footer>
+      </section>
+    </main>
+  </div>
+
+  <div class="lightbox hidden" id="lightbox" role="dialog">
+    <button class="lightbox-close" id="lightboxClose">×</button>
+    <img id="lightboxImg" src="" alt=""/>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
