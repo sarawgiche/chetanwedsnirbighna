@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="description" content="Chetan & Nirbighna — Royal Train Journey" />
+  <meta name="description" content="Chetan & Nirbighna — A Royal Wedding Celebration" />
   <meta name="theme-color" content="#1a0408" />
-  <title>Chetan & Nirbighna — Royal Journey</title>
+  <title>Chetan & Nirbighna — Royal Wedding</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,7 +18,7 @@
   <div class="lang-modal" id="langModal">
     <div class="royal-card tilt-card lang-box">
       <div class="card-glare"></div>
-      <h2 class="gold-text">Choose Your Journey<br><span style="font-size: 0.7em; font-family: 'Tiro Devanagari Hindi', serif;">अपनी यात्रा चुनें</span></h2>
+      <h2 class="gold-text">Choose Your Language<br><span style="font-size: 0.7em; font-family: 'Tiro Devanagari Hindi', serif;">अपनी भाषा चुनें</span></h2>
       <div class="lang-btns">
         <button class="btn-outline heartbeat" data-lang="en">English</button>
         <button class="btn-outline heartbeat" data-lang="hi" style="font-family: 'Tiro Devanagari Hindi', serif; font-size: 1.1rem;">हिंदी</button>
@@ -26,7 +26,7 @@
     </div>
   </div>
 
-  <!-- ═══ EXTRA ROYAL 3D PALACE DOORS ═══ -->
+  <!-- ═══ ROYAL 3D PALACE DOORS ═══ -->
   <div class="palace-gate hidden" id="gate">
     <div class="door door-left" id="doorLeft">
       <div class="door-inner-panel">
@@ -46,21 +46,20 @@
       <h1 class="gate-title"><span data-i18n="nameGroom">Chetan</span><br><span class="heartbeat">&</span><br><span data-i18n="nameBride">Nirbighna</span></h1>
       <button class="door-lock heartbeat" id="openInvitation">
         <span class="lock-ring"></span>
-        <span class="lock-text" data-i18n="lockText">Tap to Unlock</span>
+        <span class="lock-text" data-i18n="lockText">Tap to Enter</span>
       </button>
     </div>
   </div>
 
   <audio id="weddingMusic" loop preload="auto" src="song.mp3"></audio>
 
-  <!-- ═══ MAIN TRAIN JOURNEY APP ═══ -->
+  <!-- ═══ MAIN INVITATION APP ═══ -->
   <div class="app" id="app" hidden>
     
-    <!-- Moving Train Scenery Background -->
-    <div class="train-scenery-bg"></div>
+    <!-- Royal Ambient Background -->
     <canvas id="steam" aria-hidden="true"></canvas>
 
-    <!-- Side Indicator Route Map -->
+    <!-- Side Indicator Menu -->
     <nav class="route-map" id="routeMap" aria-label="Journey route">
       <div class="route-track"><span class="route-progress" id="routeProgress"></span></div>
       <a href="#stop-1" class="route-stop active" data-stop="1"><i></i></a>
@@ -68,7 +67,6 @@
       <a href="#stop-3" class="route-stop" data-stop="3"><i></i></a>
       <a href="#stop-4" class="route-stop" data-stop="4"><i></i></a>
       <a href="#stop-5" class="route-stop" data-stop="5"><i></i></a>
-      <a href="#stop-6" class="route-stop" data-stop="6"><i></i></a>
     </nav>
 
     <!-- Music Player -->
@@ -85,6 +83,7 @@
     </div>
 
     <main class="carriage">
+      
       <!-- STOP 1: The Royal Invitation -->
       <section class="stop" id="stop-1">
         <div class="royal-card tilt-card reveal">
@@ -112,96 +111,122 @@
         </div>
       </section>
 
-      <!-- STOP 2: Interactive Train Ticket (Slide to Validate) -->
+      <!-- STOP 2: Interactive Farmaan & Countdown -->
       <section class="stop" id="stop-2">
         <header class="stop-header reveal">
-          <span class="stop-code" data-i18n="stop2Code">THE BOARDING PASS</span>
-          <h2 class="gold-text" data-i18n="stop2Title">Your Golden Ticket</h2>
+          <span class="stop-code" data-i18n="stop2Code">THE DECREE</span>
+          <h2 class="gold-text" data-i18n="stop2Title">Royal Farmaan</h2>
         </header>
 
-        <div class="ticket-container royal-card tilt-card reveal">
+        <div class="farmaan-container tilt-card reveal" id="farmaanContainer">
           <div class="card-glare"></div>
           
-          <div class="ticket-details">
-            <h3 class="gold-text-scroll" data-i18n="scrollTitle">Love Express</h3>
-            <p class="ticket-route"><span data-i18n="lblFrom">From:</span> <strong>Two Hearts</strong> &nbsp;→&nbsp; <span data-i18n="lblTo">To:</span> <strong>One Soul</strong></p>
-            <p class="ticket-names"><span data-i18n="nameGroom">Chetan</span> & <span data-i18n="nameBride">Nirbighna</span></p>
-            <p class="ticket-date" data-i18n="scrollDate">06 July 2026</p>
-          </div>
-          
-          <!-- The Hidden Reveal Section -->
-          <div class="ticket-reveal" id="passReveal">
-            <div class="window-countdown">
-              <p class="dep-board-label" data-i18n="countdownLabel">DEPARTURE COUNTDOWN</p>
-              <div class="dep-board">
-                <div class="dep-cell"><b id="days">00</b><small data-i18n="lblDays">Days</small></div>
-                <div class="dep-cell"><b id="hours">00</b><small data-i18n="lblHours">Hrs</small></div>
-                <div class="dep-cell"><b id="minutes">00</b><small data-i18n="lblMins">Min</small></div>
-                <div class="dep-cell"><b id="seconds">00</b><small data-i18n="lblSecs">Sec</small></div>
-              </div>
+          <div class="farmaan-scroll" id="farmaanScroll">
+            <div class="farmaan-content">
+              <h3 class="gold-text-scroll" data-i18n="scrollTitle">By Royal Appointment</h3>
+              <p class="scroll-text">
+                <span data-i18n="scrollSummon">You are summoned to witness the union of</span><br>
+                <strong class="scroll-names"><span data-i18n="nameGroom">Chetan</span> & <span data-i18n="nameBride">Nirbighna</span></strong><br>
+                <span data-i18n="scrollDate">on the 6th of July, 2026.</span><br><br>
+                <span class="scroll-status" data-i18n="scrollGuest">Guest of Honour</span>
+              </p>
             </div>
           </div>
+          
+          <div class="wax-envelope" id="waxEnvelope">
+            <p class="stamp-hint" id="sealHint" data-i18n="sealHint">Drag the seal downwards to open</p>
+            <div class="wax-seal heartbeat" id="waxSeal" role="button" tabindex="0">
+              <span class="seal-initials">C&N</span>
+            </div>
+          </div>
+        </div>
 
-          <!-- Slide Lever -->
-          <div class="slider-track" id="sliderTrack">
-            <p class="slider-hint" id="sliderHint" data-i18n="sealHint">Slide to Board</p>
-            <div class="slider-thumb heartbeat" id="sliderThumb">
-               <span>🚂</span>
+        <div class="compartment royal-card tilt-card reveal">
+          <div class="card-glare"></div>
+          <div class="window-countdown">
+            <p class="dep-board-label" data-i18n="countdownLabel">MOMENTS UNTIL FOREVER</p>
+            <div class="dep-board">
+              <div class="dep-cell"><b id="days">00</b><small data-i18n="lblDays">Days</small></div>
+              <div class="dep-cell"><b id="hours">00</b><small data-i18n="lblHours">Hrs</small></div>
+              <div class="dep-cell"><b id="minutes">00</b><small data-i18n="lblMins">Min</small></div>
+              <div class="dep-cell"><b id="seconds">00</b><small data-i18n="lblSecs">Sec</small></div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- STOP 3: Events -->
+      <!-- STOP 3: Events Schedule -->
       <section class="stop" id="stop-3">
         <header class="stop-header reveal">
           <span class="stop-code" data-i18n="stop3Code">ITINERARY</span>
           <h2 class="gold-text" data-i18n="stop3Title">Wedding Festivities</h2>
         </header>
+        
         <div class="schedule-board royal-card tilt-card reveal">
           <div class="card-glare"></div>
+          
+          <!-- Event 1: July 4 -->
           <article class="schedule-item">
-            <span class="schedule-time">11:00</span>
+            <div class="schedule-date" data-i18n="event1Date">4th July, 2026</div>
             <div class="schedule-info">
-              <h3 data-i18n="event1Title">Wedding Ceremony</h3>
-              <p data-i18n="event1Desc">Sacred vows & blessings</p>
+              <h3 data-i18n="event1Title">Lagan Sagai</h3>
+              <p class="event-time" data-i18n="event1Time">5:00 P.M. Onwards</p>
+              <p class="event-venue" data-i18n="event1Venue">Bhubaneswar Club Banquet Hall</p>
             </div>
           </article>
+          
+          <!-- Event 2: July 5 -->
           <article class="schedule-item">
-            <span class="schedule-time">16:00</span>
+            <div class="schedule-date" data-i18n="event2Date">5th July, 2026</div>
             <div class="schedule-info">
-              <h3 data-i18n="event2Title">Mehendi & Sangeet</h3>
-              <p data-i18n="event2Desc">Music, colour & celebration</p>
+              <h3 data-i18n="event2Title">Haldi, Mehendi & Sangeet</h3>
+              <p class="event-time" data-i18n="event2Time">10:00 A.M. Onwards</p>
+              <p class="event-desc" data-i18n="event2Desc">Haldi at Pool side, followed by Mehendi.<br>DJ Night/Sangeet from 7:00 P.M. onwards.</p>
             </div>
           </article>
+          
+          <!-- Event 3: July 6 -->
           <article class="schedule-item">
-            <span class="schedule-time">19:00</span>
+            <div class="schedule-date" data-i18n="event3Date">6th July, 2026</div>
             <div class="schedule-info">
-              <h3 data-i18n="event3Title">Grand Reception</h3>
-              <p data-i18n="event3Desc">Dinner & dancing under the stars</p>
+              <h3 data-i18n="event3Title">Nikasi & Wedding</h3>
+              <p class="event-venue" data-i18n="event3Venue">Tennis Lawn, Bhubaneswar Club</p>
             </div>
           </article>
         </div>
       </section>
 
-      <!-- STOP 4: Story & Caricature -->
+      <!-- STOP 4: Glimpses of Us (Pre-Wedding Photos & Video) -->
       <section class="stop" id="stop-4">
         <header class="stop-header reveal">
-          <span class="stop-code" data-i18n="stop4Code">OUR STORY</span>
-          <h2 class="gold-text" data-i18n="stop4Title">How It Began</h2>
+          <span class="stop-code" data-i18n="stop4Code">PRE-WEDDING</span>
+          <h2 class="gold-text" data-i18n="stop4Title">Glimpses of Us</h2>
         </header>
         
-        <div class="caricature-frame royal-card tilt-card reveal">
-           <div class="card-glare"></div>
-           <div class="caricature-art float-anim"></div>
+        <!-- Pre-Wedding Video Placeholder -->
+        <div class="video-container royal-card tilt-card reveal">
+          <div class="card-glare"></div>
+          <!-- Replace this with your actual video or iframe -->
+          <div class="video-placeholder">
+            <span class="play-icon">▶</span>
+            <p data-i18n="videoText">Play Pre-Wedding Video</p>
+          </div>
         </div>
 
-        <div class="stations-timeline royal-card tilt-card reveal">
-          <div class="card-glare"></div>
-          <article class="st-stop"><span class="st-name" data-i18n="story1Title">First Glance</span><p data-i18n="story1Desc">Two strangers on parallel tracks — until one moment changed the map forever.</p></article>
-          <article class="st-stop"><span class="st-name" data-i18n="story2Title">Shared Journey</span><p data-i18n="story2Desc">Laughter, trust, and countless miles traveled side by side.</p></article>
-          <article class="st-stop"><span class="st-name" data-i18n="story3Title">The Proposal</span><p data-i18n="story3Desc">A question asked as the sun painted the sky gold — she said yes.</p></article>
-          <article class="st-stop st-stop--finale"><span class="st-name" data-i18n="story4Title">Final Destination</span><p data-i18n="story4Desc">6 July 2026 — where two hearts arrive as one.</p></article>
+        <!-- Pre-Wedding Gallery -->
+        <div class="polaroid-wall reveal">
+          <button class="polaroid royal-card tilt-card" data-full="https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=85">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400&q=80" alt="Couple" loading="lazy"/>
+          </button>
+          <button class="polaroid royal-card tilt-card polaroid--tilt" data-full="https://images.unsplash.com/photo-1606800052052-a08af8348865?w=1200&q=85">
+            <img src="https://images.unsplash.com/photo-1606800052052-a08af8348865?w=400&q=80" alt="Rings" loading="lazy"/>
+          </button>
+          <button class="polaroid royal-card tilt-card" data-full="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1200&q=85">
+            <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=400&q=80" alt="Decor" loading="lazy"/>
+          </button>
+          <button class="polaroid royal-card tilt-card polaroid--tilt-r" data-full="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=1200&q=85">
+            <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=400&q=80" alt="Portrait" loading="lazy"/>
+          </button>
         </div>
       </section>
 
@@ -222,28 +247,6 @@
               <button type="button" class="btn-outline" id="copyAddress" data-i18n="btnCopy">Copy Address</button>
             </div>
           </div>
-        </div>
-      </section>
-
-      <!-- STOP 6: Gallery & Blessings -->
-      <section class="stop" id="stop-6">
-        <header class="stop-header reveal">
-          <span class="stop-code" data-i18n="stop6Code">GALLERY</span>
-          <h2 class="gold-text" data-i18n="stop6Title">Captured Memories</h2>
-        </header>
-        <div class="polaroid-wall reveal">
-          <button class="polaroid royal-card tilt-card" data-full="https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=85">
-            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400&q=80" alt="Couple" loading="lazy"/>
-          </button>
-          <button class="polaroid royal-card tilt-card polaroid--tilt" data-full="https://images.unsplash.com/photo-1606800052052-a08af8348865?w=1200&q=85">
-            <img src="https://images.unsplash.com/photo-1606800052052-a08af8348865?w=400&q=80" alt="Rings" loading="lazy"/>
-          </button>
-          <button class="polaroid royal-card tilt-card" data-full="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1200&q=85">
-            <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=400&q=80" alt="Decor" loading="lazy"/>
-          </button>
-          <button class="polaroid royal-card tilt-card polaroid--tilt-r" data-full="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=1200&q=85">
-            <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=400&q=80" alt="Portrait" loading="lazy"/>
-          </button>
         </div>
 
         <div class="blessings-section reveal">

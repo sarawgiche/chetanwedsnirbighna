@@ -7,51 +7,53 @@
       nameGroom: "Chetan",
       nameBride: "Nirbighna",
       gateSubtitle: "The Royal Wedding Of",
-      lockText: "Tap to Unlock",
+      lockText: "Tap to Enter",
       nowPlaying: "Dil Na Jaaneya",
+      
       stop1Code: "THE INVITATION",
       stop1Title: "A Royal Celebration",
       inviteText: "With the blessings of the Almighty, we joyfully invite you to witness the beginning of our forever.",
       groomParent: "Son of<br>Mrs. & Mr. [Parents Name]",
       brideParent: "Daughter of<br>Mrs. & Mr. [Parents Name]",
-      stop2Code: "THE BOARDING PASS",
-      stop2Title: "Your Golden Ticket",
-      scrollTitle: "Love Express",
-      lblFrom: "From:",
-      lblTo: "To:",
-      scrollDate: "06 July 2026",
-      sealHint: "Slide to Board",
-      countdownLabel: "DEPARTURE COUNTDOWN",
+      
+      stop2Code: "THE DECREE",
+      stop2Title: "Royal Farmaan",
+      scrollTitle: "By Royal Appointment",
+      scrollSummon: "You are summoned to witness the union of",
+      scrollDate: "on the 6th of July, 2026.",
+      scrollGuest: "Guest of Honour",
+      sealHint: "Drag the seal downwards to open",
+      countdownLabel: "MOMENTS UNTIL FOREVER",
       lblDays: "Days",
       lblHours: "Hrs",
       lblMins: "Min",
       lblSecs: "Sec",
+      
       stop3Code: "ITINERARY",
       stop3Title: "Wedding Festivities",
-      event1Title: "Wedding Ceremony",
-      event1Desc: "Sacred vows & blessings",
-      event2Title: "Mehendi & Sangeet",
-      event2Desc: "Music, colour & celebration",
-      event3Title: "Grand Reception",
-      event3Desc: "Dinner & dancing under the stars",
-      stop4Code: "OUR STORY",
-      stop4Title: "How It Began",
-      story1Title: "First Glance",
-      story1Desc: "Two strangers on parallel tracks — until one moment changed the map forever.",
-      story2Title: "Shared Journey",
-      story2Desc: "Laughter, trust, and countless miles traveled side by side.",
-      story3Title: "The Proposal",
-      story3Desc: "A question asked as the sun painted the sky gold — she said yes.",
-      story4Title: "Final Destination",
-      story4Desc: "6 July 2026 — where two hearts arrive as one.",
+      event1Date: "4th July, 2026",
+      event1Title: "Lagan Sagai",
+      event1Time: "5:00 P.M. Onwards",
+      event1Venue: "Bhubaneswar Club Banquet Hall",
+      event2Date: "5th July, 2026",
+      event2Title: "Haldi, Mehendi & Sangeet",
+      event2Time: "10:00 A.M. Onwards",
+      event2Desc: "Haldi at Pool side, followed by Mehendi.<br>DJ Night/Sangeet from 7:00 P.M. onwards.",
+      event3Date: "6th July, 2026",
+      event3Title: "Nikasi & Wedding",
+      event3Venue: "Tennis Lawn, Bhubaneswar Club",
+      
+      stop4Code: "PRE-WEDDING",
+      stop4Title: "Glimpses of Us",
+      videoText: "Play Pre-Wedding Video",
+      
       stop5Code: "LOCATION",
       stop5Title: "The Grand Venue",
       venueName: "Bhubaneswar Club",
       venueAddress: "Bhubaneswar, Odisha",
       btnMap: "Open in Maps",
       btnCopy: "Copy Address",
-      stop6Code: "GALLERY",
-      stop6Title: "Captured Memories",
+      
       btnBlessing: "Shower Blessings ✨",
       footerDate: "6 July 2026"
     },
@@ -59,51 +61,53 @@
       nameGroom: "चेतन",
       nameBride: "निर्विघ्ना",
       gateSubtitle: "शाही विवाह",
-      lockText: "खोलने के लिए टैप करें",
+      lockText: "प्रवेश के लिए टैप करें",
       nowPlaying: "दिल ना जानेया",
+      
       stop1Code: "निमंत्रण",
       stop1Title: "एक शाही जश्न",
       inviteText: "ईश्वर के आशीर्वाद से, हम आपको हमारे हमेशा के सफर की शुरुआत का गवाह बनने के लिए सहर्ष आमंत्रित करते हैं।",
       groomParent: "सुपुत्र<br>श्रीमती एवं श्री [माता-पिता का नाम]",
       brideParent: "सुपुत्री<br>श्रीमती एवं श्री [माता-पिता का नाम]",
-      stop2Code: "बोर्डिंग पास",
-      stop2Title: "आपका सुनहरा टिकट",
-      scrollTitle: "लव एक्सप्रेस",
-      lblFrom: "से:",
-      lblTo: "तक:",
-      scrollDate: "06 जुलाई 2026",
-      sealHint: "बोर्ड करने के लिए स्लाइड करें",
-      countdownLabel: "प्रस्थान की उलटी गिनती",
+      
+      stop2Code: "शाही फरमान",
+      stop2Title: "शाही फरमान",
+      scrollTitle: "शाही आमंत्रण",
+      scrollSummon: "आपको इनके शुभ विवाह का साक्षी बनने हेतु आमंत्रित किया जाता है:",
+      scrollDate: "दिनांक 6 जुलाई 2026 को।",
+      scrollGuest: "मुख्य अतिथि",
+      sealHint: "खोलने के लिए मुहर को नीचे खींचें",
+      countdownLabel: "सदाबहार पलों का इंतज़ार",
       lblDays: "दिन",
       lblHours: "घंटे",
       lblMins: "मिनट",
       lblSecs: "सेकंड",
+      
       stop3Code: "कार्यक्रम",
       stop3Title: "विवाह समारोह",
-      event1Title: "विवाह संस्कार",
-      event1Desc: "पवित्र वचन एवं आशीर्वाद",
-      event2Title: "मेहंदी एवं संगीत",
-      event2Desc: "संगीत, रंग और जश्न",
-      event3Title: "भव्य रिसेप्शन",
-      event3Desc: "तारों की छाँव में रात्रिभोज एवं नृत्य",
-      stop4Code: "हमारी कहानी",
-      stop4Title: "कैसे हुई शुरुआत",
-      story1Title: "पहली नज़र",
-      story1Desc: "समानांतर पटरियों पर दो अजनबी — जब तक एक पल ने हमेशा के लिए नक्शा नहीं बदल दिया।",
-      story2Title: "साझा सफर",
-      story2Desc: "हँसी, विश्वास और साथ चले अनगिनत मील।",
-      story3Title: "प्रस्ताव",
-      story3Desc: "सुनहरे आसमान के नीचे पूछा गया एक सवाल — और उसने हाँ कह दिया।",
-      story4Title: "अंतिम मंजिल",
-      story4Desc: "6 जुलाई 2026 — जहाँ दो दिल एक होकर पहुँचते हैं।",
+      event1Date: "4 जुलाई 2026",
+      event1Title: "लगन सगाई",
+      event1Time: "शाम 5:00 बजे से",
+      event1Venue: "भुवनेश्वर क्लब बैंक्वेट हॉल",
+      event2Date: "5 जुलाई 2026",
+      event2Title: "हल्दी, मेहंदी एवं संगीत",
+      event2Time: "सुबह 10:00 बजे से",
+      event2Desc: "पूल साइड पर हल्दी, तत्पश्चात मेहंदी।<br>शाम 7:00 बजे से डीजे नाइट/संगीत।",
+      event3Date: "6 जुलाई 2026",
+      event3Title: "निकासी एवं विवाह",
+      event3Venue: "टेनिस लॉन, भुवनेश्वर क्लब",
+      
+      stop4Code: "प्री-वेडिंग",
+      stop4Title: "हमारी कुछ झलकियाँ",
+      videoText: "प्री-वेडिंग वीडियो देखें",
+      
       stop5Code: "स्थान",
       stop5Title: "भव्य आयोजन स्थल",
       venueName: "भुवनेश्वर क्लब",
       venueAddress: "भुवनेश्वर, ओडिशा",
       btnMap: "मैप्स में खोलें",
       btnCopy: "पता कॉपी करें",
-      stop6Code: "गैलरी",
-      stop6Title: "यादों के झरोखे",
+      
       btnBlessing: "आशीर्वाद दें ✨",
       footerDate: "6 जुलाई 2026"
     }
@@ -123,14 +127,21 @@
   const musicToggle = document.getElementById("musicToggle");
   const blessingBtn = document.getElementById("blessingBtn");
   
+  const waxSeal = document.getElementById("waxSeal");
+  const waxEnvelope = document.getElementById("waxEnvelope");
+  const farmaanScroll = document.getElementById("farmaanScroll");
+  const sealHint = document.getElementById("sealHint");
+
   const lightbox = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lightboxImg");
   const lightboxClose = document.getElementById("lightboxClose");
   const copyAddress = document.getElementById("copyAddress");
+  
   const routeProgress = document.getElementById("routeProgress");
   const routeStops = Array.from(document.querySelectorAll(".route-stop"));
 
   let isPlaying = false;
+  let scrollOpened = false;
   let gateOpened = false;
 
   // ═══ LANGUAGE SELECTION ═══
@@ -174,12 +185,12 @@
     resize();
     window.addEventListener("resize", resize);
 
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 60; i++) {
       puffs.push({
         x: Math.random() * w,
         y: Math.random() * h,
-        r: Math.random() * 3 + 1,
-        speed: Math.random() * 0.5 + 0.1,
+        r: Math.random() * 2.5 + 0.5,
+        speed: Math.random() * 0.4 + 0.1,
         drift: (Math.random() - 0.5) * 0.5,
         opacity: Math.random() * 0.6 + 0.2,
       });
@@ -276,7 +287,7 @@
     setTimeout(() => {
       gate.style.display = "none";
       app.hidden = false;
-      initSlider();
+      initWaxSeal();
       initReveal();
       initRouteMap();
       initTiltCards();
@@ -313,65 +324,67 @@
     });
   }
 
-  // ═══ HORIZONTAL SLIDER (BOARDING PASS) ═══
-  function initSlider() {
-    const thumb = document.getElementById("sliderThumb");
-    const track = document.getElementById("sliderTrack");
-    const passReveal = document.getElementById("passReveal");
-    const sliderHint = document.getElementById("sliderHint");
-    
-    if (!thumb || !track) return;
+  // ═══ WAX SEAL (FARMAAN SCROLL) DRAG ═══
+  function initWaxSeal() {
+    if (!waxSeal || !waxEnvelope) return;
 
     let dragging = false;
-    let startX, maxDrag;
-    let unlocked = false;
+    let startY;
 
     function onStart(e) {
-      if (unlocked) return;
+      if (scrollOpened) return;
       dragging = true;
-      startX = e.touches ? e.touches[0].clientX : e.clientX;
-      maxDrag = track.offsetWidth - thumb.offsetWidth - 10;
-      thumb.style.transition = "none";
-      thumb.classList.remove("heartbeat");
+      const p = getPoint(e);
+      startY = p.y;
+      waxSeal.style.transition = "none";
+      waxSeal.classList.remove("heartbeat");
     }
 
     function onMove(e) {
       if (!dragging) return;
       e.preventDefault();
-      const currentX = e.touches ? e.touches[0].clientX : e.clientX;
-      let dx = currentX - startX;
+      const p = getPoint(e);
+      const dy = p.y - startY;
       
-      if (dx < 0) dx = 0;
-      if (dx > maxDrag) dx = maxDrag;
-      
-      thumb.style.transform = `translateX(${dx}px)`;
+      if (dy > 0 && dy < 150) {
+        waxSeal.style.transform = `translateY(${dy}px)`;
+      }
 
-      if (dx >= maxDrag * 0.95) {
-        unlockPass();
+      if (dy > 80) {
+        openScroll();
       }
     }
 
     function onEnd() {
-      if (!dragging || unlocked) return;
+      if (!dragging || scrollOpened) return;
       dragging = false;
-      thumb.style.transition = "transform 0.4s ease";
-      thumb.style.transform = "translateX(0)";
-      thumb.classList.add("heartbeat");
+      waxSeal.style.transition = "transform 0.4s ease";
+      waxSeal.style.transform = "translateY(0)";
+      waxSeal.classList.add("heartbeat");
     }
 
-    function unlockPass() {
-      unlocked = true;
-      dragging = false;
-      if(navigator.vibrate) navigator.vibrate(50);
-      sliderHint.style.opacity = "0";
-      thumb.style.transform = `translateX(${maxDrag}px)`;
-      thumb.classList.add("unlocked");
-      passReveal.classList.add("open");
-      triggerHeartShower(); // Small celebration when unlocked
+    function getPoint(e) {
+      return { y: e.touches ? e.touches[0].clientY : e.clientY };
     }
 
-    thumb.addEventListener("mousedown", onStart);
-    thumb.addEventListener("touchstart", onStart, { passive: false });
+    function openScroll() {
+      if (scrollOpened) return;
+      scrollOpened = true;
+      dragging = false;
+      
+      if(navigator.vibrate) navigator.vibrate(50); 
+      triggerHeartShower(); 
+      
+      sealHint.style.opacity = "0";
+      waxEnvelope.classList.add("broken");
+      
+      setTimeout(() => {
+        farmaanScroll.classList.add("open");
+      }, 400);
+    }
+
+    waxSeal.addEventListener("mousedown", onStart);
+    waxSeal.addEventListener("touchstart", onStart, { passive: false });
     window.addEventListener("mousemove", onMove);
     window.addEventListener("touchmove", onMove, { passive: false });
     window.addEventListener("mouseup", onEnd);
@@ -424,7 +437,7 @@
     window.addEventListener('scroll', () => {
       let current = 0;
       let minDiff = Infinity;
-      const scrollY = window.scrollY + window.innerHeight / 2.5; // Center target
+      const scrollY = window.scrollY + window.innerHeight / 2.5; 
 
       stops.forEach((stop, index) => {
          const top = stop.offsetTop;
