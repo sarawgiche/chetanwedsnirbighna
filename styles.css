@@ -530,4 +530,13 @@ img, svg { display: block; max-width: 100%; }
   .nav-row { flex-direction: column; }
   .invite-card { min-height: 360px; }
   .invite-face { padding: 20px 16px; }
+
+  .ganesha-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
 }
