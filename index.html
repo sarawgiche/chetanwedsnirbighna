@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="description" content="Chetan & Nirbighna — A Royal Wedding Journey" />
   <meta name="theme-color" content="#1a0408" />
-  <title>Chetan & Nirbighna — Royal Wedding</title>
+  <title>Chetan & Nirbighna — Royal Wedding Express</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -26,27 +26,25 @@
     </div>
   </div>
 
-  <!-- ═══ ROYAL 3D PALACE DOORS ═══ -->
-  <div class="palace-gate hidden" id="gate">
-    <div class="door door-left" id="doorLeft">
-      <div class="door-inner-panel">
-        <div class="door-arch"></div>
-        <div class="door-mandala"></div>
-      </div>
+  <!-- ═══ TRAIN STATION GATES ═══ -->
+  <div class="train-station" id="gate">
+    <div class="platform-left" id="doorLeft">
+      <div class="platform-beam"></div>
+      <div class="platform-number">I</div>
     </div>
-    <div class="door door-right" id="doorRight">
-      <div class="door-inner-panel">
-        <div class="door-arch"></div>
-        <div class="door-mandala"></div>
-      </div>
+    <div class="platform-right" id="doorRight">
+      <div class="platform-beam"></div>
+      <div class="platform-number">II</div>
     </div>
     
-    <div class="gate-center" id="gateCenter">
-      <p class="gate-subtitle" data-i18n="gateSubtitle">The Royal Wedding Of</p>
-      <h1 class="gate-title"><span data-i18n="nameGroom">Chetan</span><br><span class="heartbeat">&</span><br><span data-i18n="nameBride">Nirbighna</span></h1>
-      <button class="door-lock heartbeat" id="openInvitation">
-        <span class="lock-ring"></span>
-        <span class="lock-text" data-i18n="lockText">Tap to Enter</span>
+    <div class="station-center" id="gateCenter">
+      <div class="station-sign">
+        <p class="station-subtitle" data-i18n="gateSubtitle">Welcome to Love Express Station</p>
+        <h1 class="station-title"><span data-i18n="nameGroom">Chetan</span><br><span class="heartbeat">&</span><br><span data-i18n="nameBride">Nirbighna</span></h1>
+      </div>
+      <button class="ticket-gate heartbeat" id="openInvitation">
+        <span class="ticket-icon">🎫</span>
+        <span class="gate-text" data-i18n="lockText">Board the Train</span>
       </button>
     </div>
   </div>
@@ -56,19 +54,19 @@
   <!-- ═══ MAIN INVITATION APP ═══ -->
   <div class="app" id="app" hidden>
     
-    <!-- Royal Ambient Background -->
+    <!-- Train Track Background -->
     <canvas id="steam" aria-hidden="true"></canvas>
 
-    <!-- Side Indicator Menu (Desktop Only) -->
-    <nav class="route-map" id="routeMap" aria-label="Journey route">
-      <div class="route-track"><span class="route-progress" id="routeProgress"></span></div>
-      <a href="#stop-1" class="route-stop active" data-stop="1"><i></i></a>
-      <a href="#stop-2" class="route-stop" data-stop="2"><i></i></a>
-      <a href="#stop-3" class="route-stop" data-stop="3"><i></i></a>
-      <a href="#stop-4" class="route-stop" data-stop="4"><i></i></a>
-      <a href="#stop-5" class="route-stop" data-stop="5"><i></i></a>
-      <a href="#stop-6" class="route-stop" data-stop="6"><i></i></a>
-      <a href="#stop-7" class="route-stop" data-stop="7"><i></i></a>
+    <!-- Train Progress Tracker (Desktop Only) -->
+    <nav class="train-route" id="routeMap" aria-label="Train route">
+      <div class="track-line"><span class="track-progress" id="routeProgress"></span></div>
+      <a href="#stop-1" class="station-stop active" data-stop="1"><i></i></a>
+      <a href="#stop-2" class="station-stop" data-stop="2"><i></i></a>
+      <a href="#stop-3" class="station-stop" data-stop="3"><i></i></a>
+      <a href="#stop-4" class="station-stop" data-stop="4"><i></i></a>
+      <a href="#stop-5" class="station-stop" data-stop="5"><i></i></a>
+      <a href="#stop-game" class="station-stop" data-stop="6"><i></i></a>
+      <a href="#stop-5" class="station-stop" data-stop="7"><i></i></a>
     </nav>
 
     <!-- Music Player -->
@@ -79,174 +77,195 @@
         <span class="eq-bars" aria-hidden="true"><i></i><i></i><i></i></span>
       </button>
       <div class="music-bar-info">
-        <span class="music-bar-label" id="nowPlaying" data-i18n="nowPlaying">Dil Na Jaaneya</span>
+        <span class="music-bar-label" id="nowPlaying" data-i18n="nowPlaying">Wedding Music</span>
         <span class="music-bar-artist"><span data-i18n="nameGroom">Chetan</span> & <span data-i18n="nameBride">Nirbighna</span></span>
       </div>
     </div>
 
-    <!-- The Journey Line Container -->
-    <main class="carriage">
+    <!-- The Train Journey Container -->
+    <main class="train-journey">
       
-      <!-- STOP 1: The Royal Invitation -->
-      <section class="stop" id="stop-1">
-        <div class="stop-node">✧</div>
-        <div class="royal-card tilt-card reveal">
+      <!-- STOP 1: The Ticket -->
+      <section class="station-stop-section" id="stop-1">
+        <div class="track-marker">🚂</div>
+        <div class="royal-card tilt-card reveal station-card">
           <div class="card-glare"></div>
-          <header class="stop-header">
-            <span class="stop-code" data-i18n="stop1Code">THE INVITATION</span>
-            <h2 class="gold-text" data-i18n="stop1Title">A Royal Celebration</h2>
+          <header class="station-header">
+            <span class="station-code" data-i18n="stop1Code">TICKET</span>
+            <h2 class="gold-text" data-i18n="stop1Title">All Aboard!</h2>
           </header>
-          <p class="invite-text" data-i18n="inviteText">With the blessings of the Almighty, we joyfully invite you to witness the beginning of our forever.</p>
-
-          <div class="couple-ticket">
-            <div class="passenger">
-              <div class="passenger-photo passenger-photo--groom float-anim"></div>
-              <h1 class="gold-text" data-i18n="nameGroom">Chetan</h1>
-              <p data-i18n="groomParent">Son of<br>Mrs. & Mr. [Parents Name]</p>
+          
+          <div class="ticket-container">
+            <div class="ticket-stub">
+              <div class="ticket-row">
+                <span class="ticket-label">FROM:</span>
+                <span class="ticket-value">HEART STATION</span>
+              </div>
+              <div class="ticket-row">
+                <span class="ticket-label">TO:</span>
+                <span class="ticket-value">FOREVER</span>
+              </div>
+              <div class="ticket-row">
+                <span class="ticket-label">GROOM</span>
+                <span class="ticket-value gold-text" data-i18n="nameGroom">Chetan</span>
+              </div>
+              <div class="ticket-row">
+                <span class="ticket-label">PARENTS</span>
+                <span class="ticket-value">Satish Kumar Sarawgi & Manju Devi</span>
+              </div>
             </div>
-            <div class="passenger-link heartbeat">&</div>
-            <div class="passenger">
-              <div class="passenger-photo passenger-photo--bride float-anim-alt"></div>
-              <h1 class="gold-text" data-i18n="nameBride">Nirbighna</h1>
-              <p data-i18n="brideParent">Daughter of<br>Mrs. & Mr. [Parents Name]</p>
+            
+            <div class="ticket-separator">✂️</div>
+            
+            <div class="ticket-stub">
+              <div class="ticket-row">
+                <span class="ticket-label">FROM:</span>
+                <span class="ticket-value">HEART STATION</span>
+              </div>
+              <div class="ticket-row">
+                <span class="ticket-label">TO:</span>
+                <span class="ticket-value">FOREVER</span>
+              </div>
+              <div class="ticket-row">
+                <span class="ticket-label">BRIDE</span>
+                <span class="ticket-value gold-text" data-i18n="nameBride">Nirbighna</span>
+              </div>
+              <div class="ticket-row">
+                <span class="ticket-label">PARENTS</span>
+                <span class="ticket-value">Purna Chandra Shaw & Shipranjali Shaw</span>
+              </div>
             </div>
           </div>
-          <p class="ticket-footer">#IshqDiChasni</p>
+
+          <button class="punch-ticket" id="punchBtn" data-i18n="punchText">
+            👊 PUNCH TICKET TO CONTINUE
+          </button>
         </div>
       </section>
 
       <!-- STOP 2: Interactive Farmaan & Countdown -->
-      <section class="stop" id="stop-2">
-        <div class="stop-node">✧</div>
-        <header class="stop-header reveal">
-          <span class="stop-code" data-i18n="stop2Code">THE DECREE</span>
-          <h2 class="gold-text" data-i18n="stop2Title">Royal Farmaan</h2>
+      <section class="station-stop-section" id="stop-2">
+        <div class="track-marker">🚂</div>
+        <header class="station-header reveal">
+          <span class="station-code" data-i18n="stop2Code">ANNOUNCEMENT</span>
+          <h2 class="gold-text" data-i18n="stop2Title">Station Master's Decree</h2>
         </header>
 
-        <div class="farmaan-container tilt-card reveal" id="farmaanContainer">
+        <div class="decree-box royal-card tilt-card reveal">
           <div class="card-glare"></div>
-          
-          <div class="farmaan-scroll" id="farmaanScroll">
-            <div class="farmaan-content">
-              <h3 class="gold-text-scroll" data-i18n="scrollTitle">By Royal Appointment</h3>
-              <p class="scroll-text">
-                <span data-i18n="scrollSummon">You are summoned to witness the union of</span><br>
-                <strong class="scroll-names"><span data-i18n="nameGroom">Chetan</span> & <span data-i18n="nameBride">Nirbighna</span></strong><br>
-                <span data-i18n="scrollDate">on the 6th of July, 2026.</span><br><br>
-                <span class="scroll-status" data-i18n="scrollGuest">Guest of Honour</span>
-              </p>
-            </div>
+          <div class="decree-content">
+            <h3 class="gold-text-scroll" data-i18n="scrollTitle">📢 ATTENTION PASSENGERS</h3>
+            <p class="decree-text">
+              <span data-i18n="scrollSummon">You are cordially invited to witness the union of</span><br>
+              <strong class="decree-names"><span data-i18n="nameGroom">Chetan</span> & <span data-i18n="nameBride">Nirbighna</span></strong><br>
+              <span data-i18n="scrollDate">on the 6th of July, 2026.</span><br><br>
+              <span class="decree-status" data-i18n="scrollGuest">🎫 VIP Passenger Pass</span>
+            </p>
           </div>
           
-          <div class="wax-envelope" id="waxEnvelope">
-            <p class="stamp-hint" id="sealHint" data-i18n="sealHint">Drag the seal downwards to open</p>
-            <div class="wax-seal heartbeat" id="waxSeal" role="button" tabindex="0">
-              <span class="seal-initials">C&N</span>
-            </div>
-          </div>
+          <button class="decree-btn" id="revealBtn" data-i18n="revealBtnText">
+            👇 TAP TO REVEAL DETAILS
+          </button>
         </div>
 
-        <div class="compartment royal-card tilt-card reveal">
+        <div class="countdown-box royal-card tilt-card reveal">
           <div class="card-glare"></div>
-          <div class="window-countdown">
-            <p class="dep-board-label" data-i18n="countdownLabel">MOMENTS UNTIL FOREVER</p>
-            <div class="dep-board">
-              <div class="dep-cell"><b id="days">00</b><small data-i18n="lblDays">Days</small></div>
-              <div class="dep-cell"><b id="hours">00</b><small data-i18n="lblHours">Hrs</small></div>
-              <div class="dep-cell"><b id="minutes">00</b><small data-i18n="lblMins">Min</small></div>
-              <div class="dep-cell"><b id="seconds">00</b><small data-i18n="lblSecs">Sec</small></div>
+          <div class="countdown-display">
+            <p class="countdown-label" data-i18n="countdownLabel">DEPARTURE COUNTDOWN</p>
+            <div class="countdown-board">
+              <div class="count-cell"><b id="days">00</b><small data-i18n="lblDays">Days</small></div>
+              <div class="count-cell"><b id="hours">00</b><small data-i18n="lblHours">Hrs</small></div>
+              <div class="count-cell"><b id="minutes">00</b><small data-i18n="lblMins">Min</small></div>
+              <div class="count-cell"><b id="seconds">00</b><small data-i18n="lblSecs">Sec</small></div>
             </div>
           </div>
         </div>
       </section>
 
       <!-- STOP 3: Events Schedule -->
-      <section class="stop" id="stop-3">
-        <div class="stop-node">✧</div>
-        <header class="stop-header reveal">
-          <span class="stop-code" data-i18n="stop3Code">ITINERARY</span>
-          <h2 class="gold-text" data-i18n="stop3Title">Wedding Festivities</h2>
+      <section class="station-stop-section" id="stop-3">
+        <div class="track-marker">🚂</div>
+        <header class="station-header reveal">
+          <span class="station-code" data-i18n="stop3Code">ITINERARY</span>
+          <h2 class="gold-text" data-i18n="stop3Title">Station Stops</h2>
         </header>
         
         <div class="schedule-board royal-card tilt-card reveal">
           <div class="card-glare"></div>
           
-          <!-- Event 1: July 4 -->
           <article class="schedule-item">
-            <div class="schedule-date" data-i18n="event1Date">4th July, 2026</div>
-            <div class="schedule-info">
-              <h3 data-i18n="event1Title">Lagan Sagai</h3>
+            <div class="station-time" data-i18n="event1Date">4th July, 2026</div>
+            <div class="station-info">
+              <h3 data-i18n="event1Title">🎯 Lagan Sagai</h3>
               <p class="event-time" data-i18n="event1Time">5:00 P.M. Onwards</p>
               <p class="event-venue" data-i18n="event1Venue">Bhubaneswar Club Banquet Hall</p>
             </div>
           </article>
           
-          <!-- Event 2: July 5 -->
           <article class="schedule-item">
-            <div class="schedule-date" data-i18n="event2Date">5th July, 2026</div>
-            <div class="schedule-info">
-              <h3 data-i18n="event2Title">Haldi, Mehendi & Sangeet</h3>
+            <div class="station-time" data-i18n="event2Date">5th July, 2026</div>
+            <div class="station-info">
+              <h3 data-i18n="event2Title">💛 Haldi, Mehendi & Sangeet</h3>
               <p class="event-time" data-i18n="event2Time">10:00 A.M. Onwards</p>
               <p class="event-desc" data-i18n="event2Desc">Haldi at Pool side, followed by Mehendi.<br>DJ Night/Sangeet from 7:00 P.M. onwards.</p>
             </div>
           </article>
           
-          <!-- Event 3: July 6 -->
           <article class="schedule-item">
-            <div class="schedule-date" data-i18n="event3Date">6th July, 2026</div>
-            <div class="schedule-info">
-              <h3 data-i18n="event3Title">Nikasi & Wedding</h3>
+            <div class="station-time" data-i18n="event3Date">6th July, 2026</div>
+            <div class="station-info">
+              <h3 data-i18n="event3Title">💍 Nikasi & Wedding</h3>
               <p class="event-venue" data-i18n="event3Venue">Tennis Lawn, Bhubaneswar Club</p>
             </div>
           </article>
         </div>
       </section>
 
-      <!-- STOP 4: Glimpses of Us (Pre-Wedding Photos & Video) -->
-      <section class="stop" id="stop-4">
-        <div class="stop-node">✧</div>
-        <header class="stop-header reveal">
-          <span class="stop-code" data-i18n="stop4Code">PRE-WEDDING</span>
-          <h2 class="gold-text" data-i18n="stop4Title">Glimpses of Us</h2>
+      <!-- STOP 4: Glimpses of Us -->
+      <section class="station-stop-section" id="stop-4">
+        <div class="track-marker">🚂</div>
+        <header class="station-header reveal">
+          <span class="station-code" data-i18n="stop4Code">GLIMPSES</span>
+          <h2 class="gold-text" data-i18n="stop4Title">Windows of Love</h2>
         </header>
         
-        <div class="video-container royal-card tilt-card reveal">
+        <div class="video-window royal-card tilt-card reveal">
           <div class="card-glare"></div>
-          <div class="video-placeholder">
-            <span class="play-icon">▶</span>
+          <div class="window-placeholder">
+            <span class="window-icon">🎬</span>
             <p data-i18n="videoText">Play Pre-Wedding Video</p>
           </div>
         </div>
 
-        <div class="polaroid-wall reveal">
-          <button class="polaroid royal-card tilt-card" data-full="https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=85">
+        <div class="window-gallery reveal">
+          <button class="window-pane royal-card tilt-card" data-full="https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=85">
             <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400&q=80" alt="Couple" loading="lazy"/>
           </button>
-          <button class="polaroid royal-card tilt-card polaroid--tilt" data-full="https://images.unsplash.com/photo-1606800052052-a08af8348865?w=1200&q=85">
+          <button class="window-pane royal-card tilt-card window-tilt" data-full="https://images.unsplash.com/photo-1606800052052-a08af8348865?w=1200&q=85">
             <img src="https://images.unsplash.com/photo-1606800052052-a08af8348865?w=400&q=80" alt="Rings" loading="lazy"/>
           </button>
-          <button class="polaroid royal-card tilt-card" data-full="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1200&q=85">
+          <button class="window-pane royal-card tilt-card" data-full="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1200&q=85">
             <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=400&q=80" alt="Decor" loading="lazy"/>
           </button>
-          <button class="polaroid royal-card tilt-card polaroid--tilt-r" data-full="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=1200&q=85">
+          <button class="window-pane royal-card tilt-card window-tilt-r" data-full="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=1200&q=85">
             <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=400&q=80" alt="Portrait" loading="lazy"/>
           </button>
         </div>
       </section>
 
       <!-- STOP 5: THE MINI GAME -->
-      <section class="stop" id="stop-game">
-        <div class="stop-node">✧</div>
-        <header class="stop-header reveal">
-          <span class="stop-code" data-i18n="gameCode">THE RINGS</span>
-          <h2 class="gold-text" data-i18n="gameTitle">A Symbol of Forever</h2>
+      <section class="station-stop-section" id="stop-game">
+        <div class="track-marker">🚂</div>
+        <header class="station-header reveal">
+          <span class="station-code" data-i18n="gameCode">INTERACTIVE</span>
+          <h2 class="gold-text" data-i18n="gameTitle">Unite the Rings</h2>
         </header>
         
-        <div class="game-container royal-card tilt-card reveal">
+        <div class="game-box royal-card tilt-card reveal">
           <div class="card-glare"></div>
           
           <div id="gamePlayArea">
-            <p class="game-hint" data-i18n="gameHint">Slide the ring to unite two hearts</p>
+            <p class="game-instruction" data-i18n="gameHint">💍 SLIDE THE RING TO UNITE TWO HEARTS 💍</p>
             <div class="ring-track" id="ringTrack">
               <div class="ring-target">💍</div>
               <div class="ring-thumb heartbeat" id="ringThumb">💍</div>
@@ -262,28 +281,28 @@
       </section>
 
       <!-- STOP 6: Venue -->
-      <section class="stop" id="stop-5">
-        <div class="stop-node">✧</div>
-        <header class="stop-header reveal">
-          <span class="stop-code" data-i18n="stop5Code">LOCATION</span>
-          <h2 class="gold-text" data-i18n="stop5Title">The Grand Venue</h2>
+      <section class="station-stop-section" id="stop-5">
+        <div class="track-marker">🚂</div>
+        <header class="station-header reveal">
+          <span class="station-code" data-i18n="stop5Code">DESTINATION</span>
+          <h2 class="gold-text" data-i18n="stop5Title">Final Stop</h2>
         </header>
-        <div class="destination-card royal-card tilt-card reveal">
+        <div class="venue-card royal-card tilt-card reveal">
           <div class="card-glare"></div>
-          <div class="dest-img"></div>
-          <div class="dest-body">
+          <div class="venue-image"></div>
+          <div class="venue-details">
             <h3 data-i18n="venueName">Bhubaneswar Club</h3>
             <p data-i18n="venueAddress">Bhubaneswar, Odisha</p>
-            <div class="dest-actions">
-              <a href="https://maps.google.com/?q=Bhubaneswar+Club,+Bhubaneswar,+Odisha" target="_blank" rel="noopener" class="btn-outline" data-i18n="btnMap">Open in Maps</a>
-              <button type="button" class="btn-outline" id="copyAddress" data-i18n="btnCopy">Copy Address</button>
+            <div class="venue-actions">
+              <a href="https://maps.google.com/?q=Bhubaneswar+Club,+Bhubaneswar,+Odisha" target="_blank" rel="noopener" class="btn-outline" data-i18n="btnMap">📍 Open in Maps</a>
+              <button type="button" class="btn-outline" id="copyAddress" data-i18n="btnCopy">📋 Copy Address</button>
             </div>
           </div>
         </div>
 
         <div class="blessings-section reveal">
           <button class="btn-blessing heartbeat" id="blessingBtn" data-i18n="btnBlessing">
-            Shower Blessings ✨
+            🌹 Shower Blessings ✨
           </button>
         </div>
 
