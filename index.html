@@ -2,353 +2,241 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
-  />
-  <meta
-    name="description"
-    content="Chetan & Nirbighna - Shaadi Express Wedding Invitation"
-  />
-  <title>Chetan & Nirbighna | Shaadi Express</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Chetan and Nirbighna wedding invitation" />
+  <title>Chetan & Nirbighna | Royal Wedding Invitation</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Marcellus&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="bg-lights" aria-hidden="true"></div>
-  <div class="bg-steam" aria-hidden="true"></div>
+  <div class="page-glow" aria-hidden="true"></div>
+  <div class="page-grain" aria-hidden="true"></div>
 
-  <div class="boarding-gate" id="boardingGate">
-    <div class="gate-card">
-      <div class="station-badge">SHAADI EXPRESS</div>
-      <p class="eyebrow">Platform No. 06 · Wedding Junction</p>
-      <h1 class="hero-title">
-        Chetan <span>&</span> Nirbighna
-      </h1>
-      <p class="hero-copy">
-        An invitation designed like a royal train journey — full of stops,
-        surprises, and celebrations.
-      </p>
+  <section class="intro-screen" id="introScreen">
+    <div class="intro-card frame-card">
+      <div class="ganesha-mark" aria-hidden="true">
+        <svg viewBox="0 0 160 160" role="img" aria-label="Lord Ganesha symbol">
+          <path d="M80 22c18 0 31 11 31 27 0 10-5 18-14 23 12 4 21 16 21 31 0 20-15 35-38 35-15 0-28-6-35-18" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M82 42c-13 0-22 9-22 20 0 7 4 13 11 16" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M84 70c0 18-6 33-18 45" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
+          <path d="M59 114c8 12 20 18 36 18 24 0 41-15 41-35 0-18-10-31-27-36" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
+          <path d="M92 58c11 0 19-8 19-18 0-11-10-20-23-20" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
+          <circle cx="62" cy="52" r="4.5" fill="currentColor"/>
+          <path d="M94 112c8-1 14-6 18-14" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <p class="kicker">श्री गणेशाय नमः</p>
+      <h1 class="intro-title">Chetan <span>&</span> Nirbighna</h1>
+      <p class="intro-copy">With Lord Ganesha’s blessings, our families invite you to a royal celebration of love and togetherness.</p>
 
-      <div class="gate-instructions">
-        <div class="mini-chip">1. Tap the brass stamp to board</div>
-        <div class="mini-chip">2. Explore each coach</div>
-        <div class="mini-chip">3. Unlock the journey</div>
+      <div class="instruction-banner">
+        <strong>How to open the invitation</strong>
+        <ol>
+          <li>Tap the royal seal below.</li>
+          <li>Follow the instruction shown on every section.</li>
+          <li>Complete the small task to reveal the next detail.</li>
+        </ol>
       </div>
 
-      <button class="primary-btn stamp-btn" id="boardBtn" type="button">
-        Tap the brass stamp to board
-      </button>
+      <button class="primary-btn seal-open-btn" id="enterBtn" type="button">Tap the royal seal to enter</button>
     </div>
-  </div>
+  </section>
 
-  <div class="app hidden" id="app">
-    <header class="topbar">
-      <div class="brand-block">
-        <div class="brand-logo" aria-hidden="true">
-          <svg viewBox="0 0 120 120" role="img" aria-label="Shaadi Express logo">
-            <circle cx="60" cy="60" r="54" fill="none" stroke="currentColor" stroke-width="4"></circle>
-            <path d="M28 68h54c14 0 20-8 20-18 0-7-4-12-10-14H44" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"></path>
-            <path d="M28 68c6-15 18-26 35-34" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"></path>
-            <circle cx="43" cy="82" r="7" fill="currentColor"></circle>
-            <circle cx="83" cy="82" r="7" fill="currentColor"></circle>
-          </svg>
-        </div>
-        <div>
-          <p class="eyebrow">Interactive Wedding Invitation</p>
-          <h2>Shaadi Express</h2>
-        </div>
+  <main class="app hidden" id="app">
+    <header class="topbar frame-card">
+      <div>
+        <p class="tiny-kicker">Royal Wedding Invitation</p>
+        <h2>Chetan & Nirbighna</h2>
       </div>
-
-      <button class="music-btn" id="musicToggle" type="button" aria-pressed="false">
-        <span class="music-icon">♫</span>
-        <span>Wedding Music</span>
-      </button>
+      <button class="music-btn" id="musicToggle" type="button" aria-pressed="false">♫ Music</button>
     </header>
 
-    <main class="journey-layout">
-      <aside class="journey-panel">
-        <div class="info-card">
-          <p class="eyebrow">What to do now</p>
-          <h3 id="instructionTitle">Tap the ticket</h3>
-          <p id="instructionText">
-            Each coach has one small interaction. Complete it, then move to the
-            next stop.
-          </p>
+    <section class="hero-panel frame-card reveal-card">
+      <div class="hero-copy-wrap">
+        <p class="tiny-kicker">With blessings of Lord Ganesha</p>
+        <h3 class="hero-title">A Royal Wedding Celebration</h3>
+        <p class="hero-text">We request the honor of your presence as our two families gather to celebrate this joyous union.</p>
+      </div>
+      <div class="hero-names">
+        <div class="hero-person">
+          <span class="label">Groom</span>
+          <h4>Chetan</h4>
+          <p>Son of Mrs. Manju Devi &amp; Mr. Satish Kumar Sarawgi</p>
+        </div>
+        <div class="hero-divider">✦</div>
+        <div class="hero-person">
+          <span class="label">Bride</span>
+          <h4>Nirbighna</h4>
+          <p>Daughter of Mrs. Shipranjali Shaw &amp; Mr. Purna Chandra Shaw</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="layout-grid">
+      <aside class="side-panel frame-card">
+        <div class="instruction-panel">
+          <p class="tiny-kicker">Current instruction</p>
+          <h3 id="instructionTitle">Tap the royal card</h3>
+          <p id="instructionText">Start by opening the invitation card to reveal the wedding date.</p>
         </div>
 
-        <nav class="stop-nav" aria-label="Journey stops">
-          <button class="stop-dot active" data-step="0" type="button">
-            <span>01</span>
-            <small>Ticket</small>
-          </button>
-          <button class="stop-dot" data-step="1" type="button">
-            <span>02</span>
-            <small>Families</small>
-          </button>
-          <button class="stop-dot" data-step="2" type="button">
-            <span>03</span>
-            <small>Route</small>
-          </button>
-          <button class="stop-dot" data-step="3" type="button">
-            <span>04</span>
-            <small>Memories</small>
-          </button>
-          <button class="stop-dot" data-step="4" type="button">
-            <span>05</span>
-            <small>Arrival</small>
-          </button>
+        <nav class="progress-nav" aria-label="Invitation sections">
+          <button class="progress-step active" data-step="0" type="button"><span>01</span><small>Card</small></button>
+          <button class="progress-step" data-step="1" type="button"><span>02</span><small>Date</small></button>
+          <button class="progress-step" data-step="2" type="button"><span>03</span><small>Countdown</small></button>
+          <button class="progress-step" data-step="3" type="button"><span>04</span><small>Events</small></button>
+          <button class="progress-step" data-step="4" type="button"><span>05</span><small>Venue</small></button>
         </nav>
       </aside>
 
-      <section class="coach-stage" aria-live="polite">
-        <article class="coach active" data-step="0">
-          <div class="coach-card ticket-coach">
-            <div class="coach-head">
-              <p class="coach-code">COACH 01 · BOARDING PASS</p>
-              <h2>The Wedding Ticket</h2>
-              <p class="coach-copy">
-                Tap the ticket below to flip it and reveal the couple and their families.
-              </p>
+      <section class="content-panel">
+        <article class="stage active frame-card" data-step="0">
+          <p class="stage-code">Section 01</p>
+          <h3 class="stage-title">Open the Royal Invitation</h3>
+          <p class="stage-copy">Instruction: tap the card below once to open it.</p>
+
+          <button class="reveal-card-button invitation-card" id="inviteReveal" type="button">
+            <div class="invitation-front">
+              <span class="mini-tag">Tap to open</span>
+              <h4>The Invitation</h4>
+              <p>You are cordially invited to celebrate the wedding of Chetan and Nirbighna.</p>
             </div>
+            <div class="invitation-inside">
+              <p class="mini-tag">Revealed</p>
+              <h4>Wedding Date</h4>
+              <p class="big-date">6 July 2026</p>
+              <p class="soft-text">A beautiful beginning, celebrated with love, blessings, and joy.</p>
+            </div>
+          </button>
 
-            <button class="ticket-shell" id="ticketFlip" type="button" aria-label="Flip invitation ticket">
-              <div class="ticket-face ticket-front">
-                <div class="ticket-topline">
-                  <span>Luxury Heritage Line</span>
-                  <span>Boarding Pass</span>
-                </div>
+          <div class="stage-actions">
+            <button class="ghost-btn" type="button" disabled>Previous</button>
+            <button class="primary-btn next-btn" type="button">Next</button>
+          </div>
+        </article>
 
-                <div class="ticket-center">
-                  <p class="ticket-label">Passengers</p>
-                  <h3>Chetan <span>&</span> Nirbighna</h3>
-                  <p class="ticket-date">6 July 2026</p>
-                </div>
+        <article class="stage frame-card" data-step="1">
+          <p class="stage-code">Section 02</p>
+          <h3 class="stage-title">Reveal the Auspicious Date</h3>
+          <p class="stage-copy">Instruction: drag the golden slider fully to the right.</p>
 
-                <div class="ticket-bottomline">
-                  <span>Bhubaneswar Club</span>
-                  <span>Platform Love</span>
-                </div>
-              </div>
+          <div class="slider-task">
+            <div class="slider-track" id="dateTrack">
+              <div class="slider-fill" id="dateFill"></div>
+              <button class="slider-thumb" id="dateThumb" type="button" aria-label="Slide to reveal date">✦</button>
+              <div class="slider-target">Reveal</div>
+            </div>
+            <div class="reveal-panel hidden" id="dateRevealPanel">
+              <p class="mini-tag">Auspicious Date</p>
+              <h4>Monday, 6 July 2026</h4>
+              <p class="soft-text">Mark your calendar for the wedding celebration.</p>
+            </div>
+          </div>
 
-              <div class="ticket-face ticket-back">
-                <div class="ticket-reveal-block">
-                  <p class="ticket-label">Groom</p>
-                  <h3>Chetan</h3>
-                  <p>Son of Mrs. Manju Devi & Mr. Satish Kumar Sarawgi</p>
-                </div>
+          <div class="stage-actions">
+            <button class="ghost-btn prev-btn" type="button">Previous</button>
+            <button class="primary-btn next-btn" type="button">Next</button>
+          </div>
+        </article>
 
-                <div class="ticket-divider"></div>
+        <article class="stage frame-card" data-step="2">
+          <p class="stage-code">Section 03</p>
+          <h3 class="stage-title">Unlock the Countdown</h3>
+          <p class="stage-copy">Instruction: tap all four diyas to light them up and reveal the countdown.</p>
 
-                <div class="ticket-reveal-block">
-                  <p class="ticket-label">Bride</p>
-                  <h3>Nirbighna</h3>
-                  <p>Daughter of Mrs. Shipranjali Shaw & Mr. Purna Chandra Shaw</p>
-                </div>
-              </div>
+          <div class="diya-grid" id="diyaGrid">
+            <button class="diya-btn" type="button">🪔</button>
+            <button class="diya-btn" type="button">🪔</button>
+            <button class="diya-btn" type="button">🪔</button>
+            <button class="diya-btn" type="button">🪔</button>
+          </div>
+
+          <div class="countdown-panel hidden" id="countdownPanel">
+            <p class="mini-tag">Countdown to the wedding</p>
+            <div class="countdown-grid">
+              <div class="count-box"><b id="days">00</b><span>Days</span></div>
+              <div class="count-box"><b id="hours">00</b><span>Hours</span></div>
+              <div class="count-box"><b id="minutes">00</b><span>Minutes</span></div>
+              <div class="count-box"><b id="seconds">00</b><span>Seconds</span></div>
+            </div>
+          </div>
+
+          <div class="stage-actions">
+            <button class="ghost-btn prev-btn" type="button">Previous</button>
+            <button class="primary-btn next-btn" type="button">Next</button>
+          </div>
+        </article>
+
+        <article class="stage frame-card" data-step="3">
+          <p class="stage-code">Section 04</p>
+          <h3 class="stage-title">Tap Each Celebration</h3>
+          <p class="stage-copy">Instruction: tap any event card to view the details clearly.</p>
+
+          <div class="event-grid">
+            <button class="event-card active" data-event="0" type="button">
+              <span class="mini-tag">4 July 2026</span>
+              <h4>Lagan Sagai</h4>
             </button>
+            <button class="event-card" data-event="1" type="button">
+              <span class="mini-tag">5 July 2026</span>
+              <h4>Haldi · Mehendi · Sangeet</h4>
+            </button>
+            <button class="event-card" data-event="2" type="button">
+              <span class="mini-tag">6 July 2026</span>
+              <h4>Nikasi & Wedding</h4>
+            </button>
+          </div>
 
-            <div class="coach-actions">
-              <button class="ghost-btn prev-btn" type="button" disabled>Previous</button>
-              <button class="primary-btn next-btn" type="button">Next coach</button>
-            </div>
+          <div class="event-detail royal-surface" id="eventDetail">
+            <p class="mini-tag">Event details</p>
+            <h4>Lagan Sagai</h4>
+            <p><strong>Time:</strong> 5:00 P.M. Onwards</p>
+            <p><strong>Venue:</strong> Bhubaneswar Club Banquet Hall</p>
+          </div>
+
+          <div class="stage-actions">
+            <button class="ghost-btn prev-btn" type="button">Previous</button>
+            <button class="primary-btn next-btn" type="button">Next</button>
           </div>
         </article>
 
-        <article class="coach" data-step="1">
-          <div class="coach-card">
-            <div class="coach-head">
-              <p class="coach-code">COACH 02 · FAMILY COMPARTMENT</p>
-              <h2>The Two Families</h2>
-              <p class="coach-copy">
-                Tap each name plaque to light up the family coach.
-              </p>
-            </div>
+        <article class="stage frame-card" data-step="4">
+          <p class="stage-code">Section 05</p>
+          <h3 class="stage-title">Final Arrival</h3>
+          <p class="stage-copy">Instruction: tap the destination plaque to reveal the venue card.</p>
 
-            <div class="family-grid">
-              <button class="family-plaque" type="button">
-                <span class="plaque-side">Groom's Family</span>
-                <strong>Chetan</strong>
-                <small>Mrs. Manju Devi & Mr. Satish Kumar Sarawgi</small>
-              </button>
+          <button class="destination-plaque" id="venueReveal" type="button">
+            <span class="mini-tag">Tap to reveal</span>
+            <h4>The Grand Venue</h4>
+            <p>Bhubaneswar Club</p>
+          </button>
 
-              <button class="family-plaque" type="button">
-                <span class="plaque-side">Bride's Family</span>
-                <strong>Nirbighna</strong>
-                <small>Mrs. Shipranjali Shaw & Mr. Purna Chandra Shaw</small>
-              </button>
-            </div>
-
-            <div class="family-note">
-              <span class="pulse-dot"></span>
-              <p>When both plaques glow, the family coach is complete.</p>
-            </div>
-
-            <div class="coach-actions">
-              <button class="ghost-btn prev-btn" type="button">Previous</button>
-              <button class="primary-btn next-btn" type="button">Next coach</button>
+          <div class="venue-card hidden" id="venueCard">
+            <p class="mini-tag">Venue</p>
+            <h4>Bhubaneswar Club</h4>
+            <p>Bhubaneswar, Odisha</p>
+            <div class="venue-actions">
+              <a class="primary-btn" href="https://maps.google.com?q=Bhubaneswar%20Club,%20Bhubaneswar,%20Odisha" target="_blank" rel="noopener noreferrer">Open Maps</a>
+              <button class="ghost-btn" id="blessingBtn" type="button">Shower Blessings</button>
             </div>
           </div>
-        </article>
 
-        <article class="coach" data-step="2">
-          <div class="coach-card route-coach">
-            <div class="coach-head">
-              <p class="coach-code">COACH 03 · CELEBRATION ROUTE</p>
-              <h2>Tap Each Station</h2>
-              <p class="coach-copy">
-                Select a station stop to reveal that celebration moment.
-              </p>
-            </div>
+          <footer class="final-note">
+            <p>We look forward to celebrating with you.</p>
+          </footer>
 
-            <div class="route-board">
-              <div class="route-line" aria-hidden="true"></div>
-
-              <div class="route-stops">
-                <button class="route-stop active" type="button" data-event="0">
-                  <span class="route-stop-num">01</span>
-                  <span class="route-stop-name">Lagan Sagai</span>
-                  <small>4 July 2026</small>
-                </button>
-
-                <button class="route-stop" type="button" data-event="1">
-                  <span class="route-stop-num">02</span>
-                  <span class="route-stop-name">Haldi · Mehendi · Sangeet</span>
-                  <small>5 July 2026</small>
-                </button>
-
-                <button class="route-stop" type="button" data-event="2">
-                  <span class="route-stop-num">03</span>
-                  <span class="route-stop-name">Nikasi & Wedding</span>
-                  <small>6 July 2026</small>
-                </button>
-              </div>
-
-              <div class="event-display" id="eventDisplay">
-                <p class="event-chip">Station 01</p>
-                <h3>Lagan Sagai</h3>
-                <p class="event-time">5:00 P.M. Onwards</p>
-                <p class="event-place">Bhubaneswar Club Banquet Hall</p>
-                <p class="event-desc">
-                  The journey begins with blessings, warm welcomes, and the first
-                  ceremonial stop.
-                </p>
-              </div>
-            </div>
-
-            <div class="coach-actions">
-              <button class="ghost-btn prev-btn" type="button">Previous</button>
-              <button class="primary-btn next-btn" type="button">Next coach</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="coach" data-step="3">
-          <div class="coach-card memory-coach">
-            <div class="coach-head">
-              <p class="coach-code">COACH 04 · WINDOW MEMORIES</p>
-              <h2>Open the Train Windows</h2>
-              <p class="coach-copy">
-                Tap any window shutter to reveal a memory panel.
-              </p>
-            </div>
-
-            <div class="window-grid">
-              <button class="memory-window" type="button">
-                <div class="window-shutter">Tap to open</div>
-                <img
-                  src="https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=80"
-                  alt="Romantic wedding moment"
-                  loading="lazy"
-                />
-              </button>
-
-              <button class="memory-window" type="button">
-                <div class="window-shutter">Tap to open</div>
-                <img
-                  src="https://images.unsplash.com/photo-1606800052052-a08af8348865?w=1200&q=80"
-                  alt="Wedding rings"
-                  loading="lazy"
-                />
-              </button>
-
-              <button class="memory-window" type="button">
-                <div class="window-shutter">Tap to open</div>
-                <img
-                  src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=1200&q=80"
-                  alt="Couple portrait style moment"
-                  loading="lazy"
-                />
-              </button>
-            </div>
-
-            <div class="coach-actions">
-              <button class="ghost-btn prev-btn" type="button">Previous</button>
-              <button class="primary-btn next-btn" type="button">Next coach</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="coach" data-step="4">
-          <div class="coach-card arrival-coach">
-            <div class="coach-head">
-              <p class="coach-code">COACH 05 · FINAL ARRIVAL</p>
-              <h2>Pull the Chain to Arrive</h2>
-              <p class="coach-copy">
-                Tap the chain to reveal the destination platform and then shower blessings.
-              </p>
-            </div>
-
-            <div class="arrival-layout">
-              <button class="chain-pull" id="chainPull" type="button">
-                <span class="chain-link"></span>
-                <span class="chain-ring"></span>
-                <strong>Pull to arrive</strong>
-              </button>
-
-              <div class="arrival-card hidden" id="arrivalCard">
-                <p class="event-chip">Destination Platform</p>
-                <h3>Bhubaneswar Club</h3>
-                <p class="event-place">Bhubaneswar, Odisha</p>
-                <p class="event-time">Wedding Date · 6 July 2026</p>
-
-                <div class="arrival-actions">
-                  <a
-                    class="primary-btn"
-                    href="https://maps.google.com?q=Bhubaneswar%20Club,%20Bhubaneswar,%20Odisha"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Open Maps
-                  </a>
-                  <button class="ghost-btn" id="blessingsBtn" type="button">
-                    Shower Blessings
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <footer class="journey-footer">
-              <p>With love, from the families of Chetan & Nirbighna</p>
-            </footer>
-
-            <div class="coach-actions">
-              <button class="ghost-btn prev-btn" type="button">Previous</button>
-              <button class="primary-btn" type="button" id="restartBtn">Start Again</button>
-            </div>
+          <div class="stage-actions">
+            <button class="ghost-btn prev-btn" type="button">Previous</button>
+            <button class="primary-btn" id="restartBtn" type="button">Start Again</button>
           </div>
         </article>
       </section>
-    </main>
+    </div>
 
     <audio id="bgMusic" preload="auto" loop src="song.mp3"></audio>
-  </div>
+  </main>
 
   <script src="script.js" defer></script>
 </body>
