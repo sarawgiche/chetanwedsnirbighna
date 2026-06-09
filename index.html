@@ -4,157 +4,166 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Chetan and Nirbighna wedding invitation" />
-  <title>Chetan & Nirbighna | Royal Wedding Invitation</title>
+  <title>Chetan & Nirbighna | Royal Invitation</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Marcellus&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="page-glow" aria-hidden="true"></div>
-  <div class="page-grain" aria-hidden="true"></div>
+  <div class="site-bg" aria-hidden="true"></div>
 
-  <section class="intro-screen" id="introScreen">
-    <div class="intro-card frame-card">
-      <div class="ganesha-mark" aria-hidden="true">
-        <svg viewBox="0 0 160 160" role="img" aria-label="Lord Ganesha symbol">
-          <path d="M80 22c18 0 31 11 31 27 0 10-5 18-14 23 12 4 21 16 21 31 0 20-15 35-38 35-15 0-28-6-35-18" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M82 42c-13 0-22 9-22 20 0 7 4 13 11 16" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M84 70c0 18-6 33-18 45" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
-          <path d="M59 114c8 12 20 18 36 18 24 0 41-15 41-35 0-18-10-31-27-36" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
-          <path d="M92 58c11 0 19-8 19-18 0-11-10-20-23-20" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
-          <circle cx="62" cy="52" r="4.5" fill="currentColor"/>
-          <path d="M94 112c8-1 14-6 18-14" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/>
-        </svg>
+  <section class="cover-screen" id="coverScreen">
+    <div class="portrait-shell cover-shell">
+      <div class="cover-visual">
+        <div class="cover-overlay"></div>
+
+        <img
+          class="ganesha-image"
+          src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Lord-ganesha-22.jpg"
+          alt="Lord Ganesha"
+          loading="eager"
+          width="2000"
+          height="2500"
+        />
+
+        <div class="cover-content">
+          <p class="sanskrit">श्री गणेशाय नमः</p>
+          <p class="cover-kicker">With the blessings of Lord Ganesha</p>
+          <h1 class="cover-title">Chetan <span>&</span> Nirbighna</h1>
+          <p class="cover-subtitle">Together with our families, we invite you to celebrate our wedding.</p>
+
+          <div class="cover-guide">
+            <h2>How to explore</h2>
+            <ul>
+              <li>Tap <strong>Open Invitation</strong>.</li>
+              <li>Follow the instruction banner in each section.</li>
+              <li>Complete the small action to reveal the next detail.</li>
+            </ul>
+          </div>
+
+          <button class="cta-btn" id="openInviteBtn" type="button">Open Invitation</button>
+        </div>
       </div>
-      <p class="kicker">श्री गणेशाय नमः</p>
-      <h1 class="intro-title">Chetan <span>&</span> Nirbighna</h1>
-      <p class="intro-copy">With Lord Ganesha’s blessings, our families invite you to a royal celebration of love and togetherness.</p>
-
-      <div class="instruction-banner">
-        <strong>How to open the invitation</strong>
-        <ol>
-          <li>Tap the royal seal below.</li>
-          <li>Follow the instruction shown on every section.</li>
-          <li>Complete the small task to reveal the next detail.</li>
-        </ol>
-      </div>
-
-      <button class="primary-btn seal-open-btn" id="enterBtn" type="button">Tap the royal seal to enter</button>
     </div>
   </section>
 
   <main class="app hidden" id="app">
-    <header class="topbar frame-card">
-      <div>
-        <p class="tiny-kicker">Royal Wedding Invitation</p>
-        <h2>Chetan & Nirbighna</h2>
-      </div>
-      <button class="music-btn" id="musicToggle" type="button" aria-pressed="false">♫ Music</button>
-    </header>
-
-    <section class="hero-panel frame-card reveal-card">
-      <div class="hero-copy-wrap">
-        <p class="tiny-kicker">With blessings of Lord Ganesha</p>
-        <h3 class="hero-title">A Royal Wedding Celebration</h3>
-        <p class="hero-text">We request the honor of your presence as our two families gather to celebrate this joyous union.</p>
-      </div>
-      <div class="hero-names">
-        <div class="hero-person">
-          <span class="label">Groom</span>
-          <h4>Chetan</h4>
-          <p>Son of Mrs. Manju Devi &amp; Mr. Satish Kumar Sarawgi</p>
+    <div class="portrait-shell app-shell">
+      <header class="top-ribbon">
+        <div>
+          <p class="tiny-label">Royal Wedding Invitation</p>
+          <h2>Chetan & Nirbighna</h2>
         </div>
-        <div class="hero-divider">✦</div>
-        <div class="hero-person">
-          <span class="label">Bride</span>
-          <h4>Nirbighna</h4>
-          <p>Daughter of Mrs. Shipranjali Shaw &amp; Mr. Purna Chandra Shaw</p>
+        <button class="music-btn" id="musicToggle" type="button" aria-pressed="false">♫ Music</button>
+      </header>
+
+      <section class="section hero-card reveal visible">
+        <div class="hero-card-inner">
+          <p class="tiny-label">With family blessings</p>
+          <h3>A joyful celebration of love and togetherness</h3>
+          <p class="hero-text">We request the honor of your presence as our families come together to celebrate this beautiful union.</p>
+          <div class="family-columns">
+            <article class="family-card">
+              <span class="tiny-label">Groom</span>
+              <h4>Chetan</h4>
+              <p>Son of Mrs. Manju Devi &amp; Mr. Satish Kumar Sarawgi</p>
+            </article>
+            <div class="family-divider">✦</div>
+            <article class="family-card">
+              <span class="tiny-label">Bride</span>
+              <h4>Nirbighna</h4>
+              <p>Daughter of Mrs. Shipranjali Shaw &amp; Mr. Purna Chandra Shaw</p>
+            </article>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <div class="layout-grid">
-      <aside class="side-panel frame-card">
-        <div class="instruction-panel">
-          <p class="tiny-kicker">Current instruction</p>
-          <h3 id="instructionTitle">Tap the royal card</h3>
-          <p id="instructionText">Start by opening the invitation card to reveal the wedding date.</p>
-        </div>
+      <nav class="section progress-strip" aria-label="Invitation progress">
+        <button class="progress-pill active" data-step="0" type="button">Card</button>
+        <button class="progress-pill" data-step="1" type="button">Date</button>
+        <button class="progress-pill" data-step="2" type="button">Countdown</button>
+        <button class="progress-pill" data-step="3" type="button">Events</button>
+        <button class="progress-pill" data-step="4" type="button">Venue</button>
+      </nav>
 
-        <nav class="progress-nav" aria-label="Invitation sections">
-          <button class="progress-step active" data-step="0" type="button"><span>01</span><small>Card</small></button>
-          <button class="progress-step" data-step="1" type="button"><span>02</span><small>Date</small></button>
-          <button class="progress-step" data-step="2" type="button"><span>03</span><small>Countdown</small></button>
-          <button class="progress-step" data-step="3" type="button"><span>04</span><small>Events</small></button>
-          <button class="progress-step" data-step="4" type="button"><span>05</span><small>Venue</small></button>
-        </nav>
-      </aside>
+      <section class="section instruction-banner" id="instructionBanner">
+        <p class="tiny-label">Instruction</p>
+        <h3 id="instructionTitle">Tap the royal card</h3>
+        <p id="instructionText">Open the invitation card to reveal the wedding date.</p>
+      </section>
 
-      <section class="content-panel">
-        <article class="stage active frame-card" data-step="0">
-          <p class="stage-code">Section 01</p>
-          <h3 class="stage-title">Open the Royal Invitation</h3>
-          <p class="stage-copy">Instruction: tap the card below once to open it.</p>
+      <section class="stage-stack">
+        <article class="section stage active" data-step="0">
+          <div class="stage-head">
+            <p class="tiny-label">Section 01</p>
+            <h3>Open the royal card</h3>
+            <p>Tap the card once to open it.</p>
+          </div>
 
-          <button class="reveal-card-button invitation-card" id="inviteReveal" type="button">
-            <div class="invitation-front">
-              <span class="mini-tag">Tap to open</span>
+          <button class="invite-card" id="inviteCard" type="button" aria-label="Open invitation card">
+            <div class="invite-face invite-front">
+              <p class="tiny-label">Tap to open</p>
               <h4>The Invitation</h4>
-              <p>You are cordially invited to celebrate the wedding of Chetan and Nirbighna.</p>
+              <p>You are warmly invited to celebrate the wedding of Chetan and Nirbighna.</p>
             </div>
-            <div class="invitation-inside">
-              <p class="mini-tag">Revealed</p>
-              <h4>Wedding Date</h4>
-              <p class="big-date">6 July 2026</p>
-              <p class="soft-text">A beautiful beginning, celebrated with love, blessings, and joy.</p>
+            <div class="invite-face invite-back">
+              <p class="tiny-label">Revealed</p>
+              <h4>Wedding Day</h4>
+              <p class="highlight-date">6 July 2026</p>
+              <p>Save the date for a heartfelt celebration with family and friends.</p>
             </div>
           </button>
 
-          <div class="stage-actions">
-            <button class="ghost-btn" type="button" disabled>Previous</button>
-            <button class="primary-btn next-btn" type="button">Next</button>
+          <div class="nav-row">
+            <button class="secondary-btn" type="button" disabled>Previous</button>
+            <button class="cta-btn next-btn" type="button">Next</button>
           </div>
         </article>
 
-        <article class="stage frame-card" data-step="1">
-          <p class="stage-code">Section 02</p>
-          <h3 class="stage-title">Reveal the Auspicious Date</h3>
-          <p class="stage-copy">Instruction: drag the golden slider fully to the right.</p>
+        <article class="section stage" data-step="1">
+          <div class="stage-head">
+            <p class="tiny-label">Section 02</p>
+            <h3>Reveal the date panel</h3>
+            <p>Drag the golden seal to the right.</p>
+          </div>
 
-          <div class="slider-task">
-            <div class="slider-track" id="dateTrack">
-              <div class="slider-fill" id="dateFill"></div>
-              <button class="slider-thumb" id="dateThumb" type="button" aria-label="Slide to reveal date">✦</button>
-              <div class="slider-target">Reveal</div>
-            </div>
-            <div class="reveal-panel hidden" id="dateRevealPanel">
-              <p class="mini-tag">Auspicious Date</p>
-              <h4>Monday, 6 July 2026</h4>
-              <p class="soft-text">Mark your calendar for the wedding celebration.</p>
+          <div class="seal-task">
+            <div class="seal-track" id="sealTrack">
+              <div class="seal-progress" id="sealProgress"></div>
+              <button class="seal-thumb" id="sealThumb" type="button" aria-label="Slide seal">✦</button>
+              <span class="seal-target">Reveal</span>
             </div>
           </div>
 
-          <div class="stage-actions">
-            <button class="ghost-btn prev-btn" type="button">Previous</button>
-            <button class="primary-btn next-btn" type="button">Next</button>
+          <div class="reveal-panel hidden" id="datePanel">
+            <p class="tiny-label">Auspicious date</p>
+            <h4>Monday, 6 July 2026</h4>
+            <p>Join us for the wedding celebration and blessings.</p>
+          </div>
+
+          <div class="nav-row">
+            <button class="secondary-btn prev-btn" type="button">Previous</button>
+            <button class="cta-btn next-btn" type="button">Next</button>
           </div>
         </article>
 
-        <article class="stage frame-card" data-step="2">
-          <p class="stage-code">Section 03</p>
-          <h3 class="stage-title">Unlock the Countdown</h3>
-          <p class="stage-copy">Instruction: tap all four diyas to light them up and reveal the countdown.</p>
+        <article class="section stage" data-step="2">
+          <div class="stage-head">
+            <p class="tiny-label">Section 03</p>
+            <h3>Light the diyas</h3>
+            <p>Tap all four diyas to reveal the live countdown.</p>
+          </div>
 
-          <div class="diya-grid" id="diyaGrid">
+          <div class="diya-row" id="diyaRow">
             <button class="diya-btn" type="button">🪔</button>
             <button class="diya-btn" type="button">🪔</button>
             <button class="diya-btn" type="button">🪔</button>
             <button class="diya-btn" type="button">🪔</button>
           </div>
 
-          <div class="countdown-panel hidden" id="countdownPanel">
-            <p class="mini-tag">Countdown to the wedding</p>
+          <div class="countdown-wrap hidden" id="countdownWrap">
+            <p class="tiny-label">Countdown to the wedding</p>
             <div class="countdown-grid">
               <div class="count-box"><b id="days">00</b><span>Days</span></div>
               <div class="count-box"><b id="hours">00</b><span>Hours</span></div>
@@ -163,73 +172,78 @@
             </div>
           </div>
 
-          <div class="stage-actions">
-            <button class="ghost-btn prev-btn" type="button">Previous</button>
-            <button class="primary-btn next-btn" type="button">Next</button>
+          <div class="nav-row">
+            <button class="secondary-btn prev-btn" type="button">Previous</button>
+            <button class="cta-btn next-btn" type="button">Next</button>
           </div>
         </article>
 
-        <article class="stage frame-card" data-step="3">
-          <p class="stage-code">Section 04</p>
-          <h3 class="stage-title">Tap Each Celebration</h3>
-          <p class="stage-copy">Instruction: tap any event card to view the details clearly.</p>
+        <article class="section stage" data-step="3">
+          <div class="stage-head">
+            <p class="tiny-label">Section 04</p>
+            <h3>Wedding celebrations</h3>
+            <p>Tap any event to view its details.</p>
+          </div>
 
-          <div class="event-grid">
-            <button class="event-card active" data-event="0" type="button">
-              <span class="mini-tag">4 July 2026</span>
+          <div class="events-grid">
+            <button class="event-tile active" data-event="0" type="button">
+              <span class="tiny-label">4 July 2026</span>
               <h4>Lagan Sagai</h4>
             </button>
-            <button class="event-card" data-event="1" type="button">
-              <span class="mini-tag">5 July 2026</span>
+            <button class="event-tile" data-event="1" type="button">
+              <span class="tiny-label">5 July 2026</span>
               <h4>Haldi · Mehendi · Sangeet</h4>
             </button>
-            <button class="event-card" data-event="2" type="button">
-              <span class="mini-tag">6 July 2026</span>
+            <button class="event-tile" data-event="2" type="button">
+              <span class="tiny-label">6 July 2026</span>
               <h4>Nikasi & Wedding</h4>
             </button>
           </div>
 
-          <div class="event-detail royal-surface" id="eventDetail">
-            <p class="mini-tag">Event details</p>
+          <div class="event-detail" id="eventDetail">
+            <p class="tiny-label">Event details</p>
             <h4>Lagan Sagai</h4>
             <p><strong>Time:</strong> 5:00 P.M. Onwards</p>
             <p><strong>Venue:</strong> Bhubaneswar Club Banquet Hall</p>
           </div>
 
-          <div class="stage-actions">
-            <button class="ghost-btn prev-btn" type="button">Previous</button>
-            <button class="primary-btn next-btn" type="button">Next</button>
+          <div class="nav-row">
+            <button class="secondary-btn prev-btn" type="button">Previous</button>
+            <button class="cta-btn next-btn" type="button">Next</button>
           </div>
         </article>
 
-        <article class="stage frame-card" data-step="4">
-          <p class="stage-code">Section 05</p>
-          <h3 class="stage-title">Final Arrival</h3>
-          <p class="stage-copy">Instruction: tap the destination plaque to reveal the venue card.</p>
+        <article class="section stage" data-step="4">
+          <div class="stage-head">
+            <p class="tiny-label">Section 05</p>
+            <h3>Reveal the venue</h3>
+            <p>Tap the destination plaque to open the venue card.</p>
+          </div>
 
-          <button class="destination-plaque" id="venueReveal" type="button">
-            <span class="mini-tag">Tap to reveal</span>
+          <button class="venue-plaque" id="venuePlaque" type="button">
+            <p class="tiny-label">Tap to reveal</p>
             <h4>The Grand Venue</h4>
             <p>Bhubaneswar Club</p>
           </button>
 
           <div class="venue-card hidden" id="venueCard">
-            <p class="mini-tag">Venue</p>
+            <p class="tiny-label">Venue</p>
             <h4>Bhubaneswar Club</h4>
             <p>Bhubaneswar, Odisha</p>
             <div class="venue-actions">
-              <a class="primary-btn" href="https://maps.google.com?q=Bhubaneswar%20Club,%20Bhubaneswar,%20Odisha" target="_blank" rel="noopener noreferrer">Open Maps</a>
-              <button class="ghost-btn" id="blessingBtn" type="button">Shower Blessings</button>
+              <a class="cta-btn" href="https://maps.google.com?q=Bhubaneswar%20Club,%20Bhubaneswar,%20Odisha" target="_blank" rel="noopener noreferrer">Open Maps</a>
+              <button class="secondary-btn" id="blessingsBtn" type="button">Shower Blessings</button>
             </div>
           </div>
 
-          <footer class="final-note">
-            <p>We look forward to celebrating with you.</p>
+          <footer class="closing-note">
+            <h4>We look forward to celebrating with you</h4>
+            <p>With love from the families of Chetan and Nirbighna.</p>
           </footer>
 
-          <div class="stage-actions">
-            <button class="ghost-btn prev-btn" type="button">Previous</button>
-            <button class="primary-btn" id="restartBtn" type="button">Start Again</button>
+          <div class="nav-row">
+            <button class="secondary-btn prev-btn" type="button">Previous</button>
+            <button class="cta-btn" id="restartBtn" type="button">Start Again</button>
           </div>
         </article>
       </section>
