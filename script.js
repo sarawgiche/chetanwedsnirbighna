@@ -1,222 +1,135 @@
-"use strict";
-
-const WEDDING_DATE = new Date("2026-07-06T11:00:00");
-
-const instructions = [
-  { title: "Tap the royal card", text: "Open the invitation card to reveal the wedding date." },
-  { title: "Slide the golden seal", text: "Drag the seal fully to the right to reveal the date panel." },
-  { title: "Light all four diyas", text: "Tap every diya once to unlock the live countdown." },
-  { title: "Tap an event", text: "Select any celebration card to view its time and venue." },
-  { title: "Reveal the venue", text: "Tap the destination plaque, then use the venue card and blessings button." }
-];
-
-const events = [
-  { title: "Lagan Sagai", time: "5:00 P.M. Onwards", venue: "Bhubaneswar Club Banquet Hall" },
-  { title: "Haldi · Mehendi · Sangeet", time: "10:00 A.M. Onwards · DJ Night / Sangeet from 7:00 P.M.", venue: "Pool Side, Bhubaneswar Club" },
-  { title: "Nikasi & Wedding", time: "Wedding Celebration", venue: "Tennis Lawn, Bhubaneswar Club" }
-];
+const invitationData = {
+  hashtag: "#KeshmatKiRekha",
+  groom: "Keshav",
+  bride: "Rekha",
+  weddingDate: "Add Wedding Date",
+  venue: "Add Venue Name",
+  address: "Add Venue Address",
+  groomParents: "Add groom family details",
+  brideParents: "Add bride family details",
+  mapUrl: "https://maps.google.com",
+  events: [
+    {
+      chip: "Event 01",
+      tab: "Mehendi",
+      title: "Mehendi Ceremony",
+      time: "Add time here",
+      place: "Add venue here",
+      desc: "Add ceremony details here."
+    },
+    {
+      chip: "Event 02",
+      tab: "Sangeet",
+      title: "Sangeet Night",
+      time: "Add time here",
+      place: "Add venue here",
+      desc: "Add celebration details here."
+    },
+    {
+      chip: "Event 03",
+      tab: "Wedding",
+      title: "Wedding Ceremony",
+      time: "Add time here",
+      place: "Add venue here",
+      desc: "Add wedding details here."
+    }
+  ]
+};
 
 const coverScreen = document.getElementById("coverScreen");
-const openInviteBtn = document.getElementById("openInviteBtn");
-const app = document.getElementById("app");
-const musicToggle = document.getElementById("musicToggle");
-const bgMusic = document.getElementById("bgMusic");
+const inviteScreen = document.getElementById("inviteScreen");
+const openInvitationBtn = document.getElementById("openInvitationBtn");
 
-const progressPills = Array.from(document.querySelectorAll(".progress-pill"));
-const stages = Array.from(document.querySelectorAll(".stage"));
-const nextBtns = Array.from(document.querySelectorAll(".next-btn"));
-const prevBtns = Array.from(document.querySelectorAll(".prev-btn"));
-const instructionTitle = document.getElementById("instructionTitle");
-const instructionText = document.getElementById("instructionText");
+const heroHashtag = document.getElementById("heroHashtag");
+const groomName = document.getElementById("groomName");
+const brideName = document.getElementById("brideName");
+const weddingDate = document.getElementById("weddingDate");
+const weddingVenue = document.getElementById("weddingVenue");
+const weddingAddress = document.getElementById("weddingAddress");
+const familyGroom = document.getElementById("familyGroom");
+const familyBride = document.getElementById("familyBride");
+const groomParents = document.getElementById("groomParents");
+const brideParents = document.getElementById("brideParents");
+const footerCouple = document.getElementById("footerCouple");
+const mapLink = document.getElementById("mapLink");
 
-const inviteCard = document.getElementById("inviteCard");
-const sealTrack = document.getElementById("sealTrack");
-const sealProgress = document.getElementById("sealProgress");
-const sealThumb = document.getElementById("sealThumb");
-const datePanel = document.getElementById("datePanel");
-const diyaBtns = Array.from(document.querySelectorAll(".diya-btn"));
-const countdownWrap = document.getElementById("countdownWrap");
-const eventTiles = Array.from(document.querySelectorAll(".event-tile"));
-const eventDetail = document.getElementById("eventDetail");
-const venuePlaque = document.getElementById("venuePlaque");
-const venueCard = document.getElementById("venueCard");
-const blessingsBtn = document.getElementById("blessingsBtn");
-const restartBtn = document.getElementById("restartBtn");
+const eventTabs = document.getElementById("eventTabs");
+const eventPanel = document.getElementById("eventPanel");
+const blessingBtn = document.getElementById("blessingBtn");
 
-let currentStep = 0;
-let musicPlaying = false;
-let dragging = false;
-let startX = 0;
-let currentX = 0;
-let maxX = 0;
+function fillInvitation() {
+  heroHashtag.textContent = invitationData.hashtag;
+  groomName.textContent = invitationData.groom;
+  brideName.textContent = invitationData.bride;
+  weddingDate.textContent = invitationData.weddingDate;
+  weddingVenue.textContent = invitationData.venue;
+  weddingAddress.textContent = invitationData.address;
+  familyGroom.textContent = invitationData.groom;
+  familyBride.textContent = invitationData.bride;
+  groomParents.textContent = invitationData.groomParents;
+  brideParents.textContent = invitationData.brideParents;
+  footerCouple.textContent = `${invitationData.groom} & ${invitationData.bride}`;
+  mapLink.href = invitationData.mapUrl;
 
-function setStep(index) {
-  currentStep = Math.max(0, Math.min(index, stages.length - 1));
-  stages.forEach((stage, i) => stage.classList.toggle("active", i === currentStep));
-  progressPills.forEach((pill, i) => pill.classList.toggle("active", i === currentStep));
-  instructionTitle.textContent = instructions[currentStep].title;
-  instructionText.textContent = instructions[currentStep].text;
+  renderTabs();
+  renderEvent(0);
 }
 
-function playMusic() {
-  if (!bgMusic) return;
-  bgMusic.play().then(() => {
-    musicPlaying = true;
-    musicToggle.classList.add("playing");
-    musicToggle.setAttribute("aria-pressed", "true");
-  }).catch(() => {
-    musicPlaying = false;
-  });
-}
+function renderTabs() {
+  eventTabs.innerHTML = "";
 
-function toggleMusic() {
-  if (!bgMusic) return;
-  if (musicPlaying) {
-    bgMusic.pause();
-    musicPlaying = false;
-    musicToggle.classList.remove("playing");
-    musicToggle.setAttribute("aria-pressed", "false");
-  } else {
-    playMusic();
-  }
-}
-
-function updateCountdown() {
-  const diff = WEDDING_DATE - new Date();
-  const ids = ["days", "hours", "minutes", "seconds"];
-  if (diff <= 0) {
-    ids.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) el.textContent = "00";
-    });
-    return;
-  }
-  const values = [
-    Math.floor(diff / 86400000),
-    Math.floor(diff / 3600000) % 24,
-    Math.floor(diff / 60000) % 60,
-    Math.floor(diff / 1000) % 60
-  ];
-  ids.forEach((id, idx) => {
-    const el = document.getElementById(id);
-    if (el) el.textContent = String(values[idx]).padStart(2, "0");
+  invitationData.events.forEach((event, index) => {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "event-tab";
+    btn.textContent = event.tab;
+    btn.addEventListener("click", () => renderEvent(index));
+    eventTabs.appendChild(btn);
   });
 }
 
 function renderEvent(index) {
-  const item = events[index];
-  if (!item) return;
-  eventTiles.forEach((tile, i) => tile.classList.toggle("active", i === index));
-  eventDetail.innerHTML = `
-    <p class="tiny-label">Event details</p>
-    <h4>${item.title}</h4>
-    <p><strong>Time:</strong> ${item.time}</p>
-    <p><strong>Venue:</strong> ${item.venue}</p>
+  const event = invitationData.events[index];
+  const tabButtons = [...document.querySelectorAll(".event-tab")];
+
+  tabButtons.forEach((btn, i) => {
+    btn.classList.toggle("active", i === index);
+  });
+
+  eventPanel.innerHTML = `
+    <p class="event-chip">${event.chip}</p>
+    <h3>${event.title}</h3>
+    <p class="event-time">${event.time}</p>
+    <p class="event-place">${event.place}</p>
+    <p class="event-desc">${event.desc}</p>
   `;
 }
 
-function unlockDatePanel() {
-  dragging = false;
-  currentX = maxX;
-  sealThumb.style.transform = `translateX(${maxX}px)`;
-  sealProgress.style.width = `${maxX + 56}px`;
-  datePanel.classList.remove("hidden");
-}
-
-function startDrag(clientX) {
-  dragging = true;
-  maxX = sealTrack.offsetWidth - sealThumb.offsetWidth - 20;
-  startX = clientX - currentX;
-}
-
-function moveDrag(clientX) {
-  if (!dragging) return;
-  currentX = clientX - startX;
-  if (currentX < 0) currentX = 0;
-  if (currentX > maxX) currentX = maxX;
-  sealThumb.style.transform = `translateX(${currentX}px)`;
-  sealProgress.style.width = `${currentX + 56}px`;
-  if (currentX >= maxX * 0.95) unlockDatePanel();
-}
-
-function endDrag() {
-  if (!dragging) return;
-  dragging = false;
-  if (currentX < maxX * 0.95) {
-    currentX = 0;
-    sealThumb.style.transform = "translateX(0)";
-    sealProgress.style.width = "0";
-  }
+function openInvitation() {
+  coverScreen.classList.add("hidden");
+  inviteScreen.classList.remove("hidden");
 }
 
 function showerBlessings() {
-  const items = ["✨", "🌸", "💛", "🪔"];
+  const items = ["✨", "💛", "🌸", "🕊️", "💫"];
+
   for (let i = 0; i < 28; i += 1) {
-    const node = document.createElement("div");
-    node.className = "blessing-drop";
-    node.textContent = items[Math.floor(Math.random() * items.length)];
-    node.style.left = `${Math.random() * 100}vw`;
-    node.style.fontSize = `${Math.random() * 18 + 16}px`;
-    node.style.opacity = `${Math.random() * 0.5 + 0.5}`;
-    node.style.animationDuration = `${Math.random() * 2 + 3}s`;
-    document.body.appendChild(node);
-    setTimeout(() => node.remove(), 5200);
+    const piece = document.createElement("div");
+    piece.className = "blessing-piece";
+    piece.textContent = items[Math.floor(Math.random() * items.length)];
+    piece.style.left = `${Math.random() * 100}vw`;
+    piece.style.fontSize = `${14 + Math.random() * 20}px`;
+    piece.style.animationDuration = `${3 + Math.random() * 2}s`;
+    piece.style.opacity = `${0.6 + Math.random() * 0.4}`;
+    document.body.appendChild(piece);
+
+    setTimeout(() => {
+      piece.remove();
+    }, 5200);
   }
 }
 
-openInviteBtn?.addEventListener("click", () => {
-  coverScreen.classList.add("hidden");
-  app.classList.remove("hidden");
-  setStep(0);
-  playMusic();
-});
+openInvitationBtn.addEventListener("click", openInvitation);
+blessingBtn.addEventListener("click", showerBlessings);
 
-musicToggle?.addEventListener("click", toggleMusic);
-progressPills.forEach((pill, i) => pill.addEventListener("click", () => setStep(i)));
-nextBtns.forEach((btn) => btn.addEventListener("click", () => setStep(currentStep + 1)));
-prevBtns.forEach((btn) => btn.addEventListener("click", () => setStep(currentStep - 1)));
-inviteCard?.addEventListener("click", () => inviteCard.classList.toggle("open"));
-
-sealThumb?.addEventListener("mousedown", (e) => startDrag(e.clientX));
-sealThumb?.addEventListener("touchstart", (e) => startDrag(e.touches[0].clientX), { passive: true });
-window.addEventListener("mousemove", (e) => moveDrag(e.clientX));
-window.addEventListener("touchmove", (e) => moveDrag(e.touches[0].clientX), { passive: true });
-window.addEventListener("mouseup", endDrag);
-window.addEventListener("touchend", endDrag);
-
-diyaBtns.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    btn.classList.add("lit");
-    if (diyaBtns.every((node) => node.classList.contains("lit"))) {
-      countdownWrap.classList.remove("hidden");
-    }
-  });
-});
-
-eventTiles.forEach((tile, i) => tile.addEventListener("click", () => renderEvent(i)));
-venuePlaque?.addEventListener("click", () => venueCard.classList.remove("hidden"));
-blessingsBtn?.addEventListener("click", showerBlessings);
-
-restartBtn?.addEventListener("click", () => {
-  setStep(0);
-  inviteCard.classList.remove("open");
-  datePanel.classList.add("hidden");
-  venueCard.classList.add("hidden");
-  countdownWrap.classList.add("hidden");
-  diyaBtns.forEach((btn) => btn.classList.remove("lit"));
-  currentX = 0;
-  sealThumb.style.transform = "translateX(0)";
-  sealProgress.style.width = "0";
-  renderEvent(0);
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
-
-document.addEventListener("keydown", (e) => {
-  if (e.key === "ArrowRight") setStep(currentStep + 1);
-  if (e.key === "ArrowLeft") setStep(currentStep - 1);
-});
-
-renderEvent(0);
-setStep(0);
-updateCountdown();
-setInterval(updateCountdown, 1000);
+fillInvitation();

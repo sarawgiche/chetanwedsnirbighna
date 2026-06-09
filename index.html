@@ -2,256 +2,139 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Chetan and Nirbighna wedding invitation" />
-  <title>Chetan & Nirbighna | Royal Invitation</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+  />
+  <meta
+    name="description"
+    content="Keshav & Rekha Wedding Invitation"
+  />
+  <title>Keshav & Rekha | Wedding Invitation</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Cinzel:wght@400;500;600;700&family=Great+Vibes&display=swap"
+    rel="stylesheet"
+  />
+
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="site-bg" aria-hidden="true"></div>
+  <div class="page-bg"></div>
 
-  <section class="cover-screen" id="coverScreen">
-    <div class="portrait-shell cover-shell">
-      <div class="cover-visual">
-        <div class="cover-overlay"></div>
-
+  <main class="app-shell">
+    <section class="phone-frame">
+      <div class="cover-screen" id="coverScreen">
         <img
-          class="ganesha-image"
-          src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Lord-ganesha-22.jpg"
-          alt="Lord Ganesha"
-          loading="eager"
-          width="2000"
-          height="2500"
+          src="front-page-v2.jpg"
+          alt="Keshav and Rekha wedding invitation cover"
+          class="cover-image"
         />
 
+        <div class="cover-overlay"></div>
+
         <div class="cover-content">
-          <p class="sanskrit">श्री गणेशाय नमः</p>
-          <p class="cover-kicker">With the blessings of Lord Ganesha</p>
-          <h1 class="cover-title">Chetan <span>&</span> Nirbighna</h1>
-          <p class="cover-subtitle">Together with our families, we invite you to celebrate our wedding.</p>
+          <div class="cover-spacer"></div>
 
-          <div class="cover-guide">
-            <h2>How to explore</h2>
-            <ul>
-              <li>Tap <strong>Open Invitation</strong>.</li>
-              <li>Follow the instruction banner in each section.</li>
-              <li>Complete the small action to reveal the next detail.</li>
-            </ul>
+          <div class="cover-bottom">
+            <p class="cover-subtitle">Open Invitation</p>
+            <button id="openInvitationBtn" class="open-btn" type="button">
+              Open Invitation
+            </button>
           </div>
-
-          <button class="cta-btn" id="openInviteBtn" type="button">Open Invitation</button>
         </div>
       </div>
-    </div>
-  </section>
 
-  <main class="app hidden" id="app">
-    <div class="portrait-shell app-shell">
-      <header class="top-ribbon">
-        <div>
-          <p class="tiny-label">Royal Wedding Invitation</p>
-          <h2>Chetan & Nirbighna</h2>
-        </div>
-        <button class="music-btn" id="musicToggle" type="button" aria-pressed="false">♫ Music</button>
-      </header>
+      <div class="invite-screen hidden" id="inviteScreen">
+        <div class="invite-scroll">
+          <header class="hero-section">
+            <div class="hero-badge">Wedding Invitation</div>
+            <p class="hero-hashtag" id="heroHashtag">#KeshmatKiRekha</p>
+            <h1 class="hero-title">
+              <span id="groomName">Keshav</span>
+              <span class="ampersand">&</span>
+              <span id="brideName">Rekha</span>
+            </h1>
+            <p class="hero-copy">
+              Together with our families, we invite you to celebrate our wedding.
+            </p>
+          </header>
 
-      <section class="section hero-card reveal visible">
-        <div class="hero-card-inner">
-          <p class="tiny-label">With family blessings</p>
-          <h3>A joyful celebration of love and togetherness</h3>
-          <p class="hero-text">We request the honor of your presence as our families come together to celebrate this beautiful union.</p>
-          <div class="family-columns">
-            <article class="family-card">
-              <span class="tiny-label">Groom</span>
-              <h4>Chetan</h4>
-              <p>Son of Mrs. Manju Devi &amp; Mr. Satish Kumar Sarawgi</p>
-            </article>
-            <div class="family-divider">✦</div>
-            <article class="family-card">
-              <span class="tiny-label">Bride</span>
-              <h4>Nirbighna</h4>
-              <p>Daughter of Mrs. Shipranjali Shaw &amp; Mr. Purna Chandra Shaw</p>
-            </article>
-          </div>
-        </div>
-      </section>
+          <section class="card save-date-card">
+            <p class="card-label">Save the date</p>
+            <h2 id="weddingDate">Add Wedding Date</h2>
+            <p id="weddingVenue">Add Venue Name</p>
+            <p id="weddingAddress" class="muted">Add Venue Address</p>
+          </section>
 
-      <nav class="section progress-strip" aria-label="Invitation progress">
-        <button class="progress-pill active" data-step="0" type="button">Card</button>
-        <button class="progress-pill" data-step="1" type="button">Date</button>
-        <button class="progress-pill" data-step="2" type="button">Countdown</button>
-        <button class="progress-pill" data-step="3" type="button">Events</button>
-        <button class="progress-pill" data-step="4" type="button">Venue</button>
-      </nav>
+          <section class="card family-card">
+            <p class="card-label">Families</p>
 
-      <section class="section instruction-banner" id="instructionBanner">
-        <p class="tiny-label">Instruction</p>
-        <h3 id="instructionTitle">Tap the royal card</h3>
-        <p id="instructionText">Open the invitation card to reveal the wedding date.</p>
-      </section>
+            <div class="family-grid">
+              <div class="family-box">
+                <span class="family-side">Groom</span>
+                <h3 id="familyGroom">Keshav</h3>
+                <p id="groomParents">Add groom family details</p>
+              </div>
 
-      <section class="stage-stack">
-        <article class="section stage active" data-step="0">
-          <div class="stage-head">
-            <p class="tiny-label">Section 01</p>
-            <h3>Open the royal card</h3>
-            <p>Tap the card once to open it.</p>
-          </div>
-
-          <button class="invite-card" id="inviteCard" type="button" aria-label="Open invitation card">
-            <div class="invite-face invite-front">
-              <p class="tiny-label">Tap to open</p>
-              <h4>The Invitation</h4>
-              <p>You are warmly invited to celebrate the wedding of Chetan and Nirbighna.</p>
+              <div class="family-box">
+                <span class="family-side">Bride</span>
+                <h3 id="familyBride">Rekha</h3>
+                <p id="brideParents">Add bride family details</p>
+              </div>
             </div>
-            <div class="invite-face invite-back">
-              <p class="tiny-label">Revealed</p>
-              <h4>Wedding Day</h4>
-              <p class="highlight-date">6 July 2026</p>
-              <p>Save the date for a heartfelt celebration with family and friends.</p>
+          </section>
+
+          <section class="card events-card">
+            <div class="events-head">
+              <p class="card-label">Celebrations</p>
+              <h2>Wedding Events</h2>
             </div>
-          </button>
 
-          <div class="nav-row">
-            <button class="secondary-btn" type="button" disabled>Previous</button>
-            <button class="cta-btn next-btn" type="button">Next</button>
-          </div>
-        </article>
+            <div class="event-tabs" id="eventTabs"></div>
 
-        <article class="section stage" data-step="1">
-          <div class="stage-head">
-            <p class="tiny-label">Section 02</p>
-            <h3>Reveal the date panel</h3>
-            <p>Drag the golden seal to the right.</p>
-          </div>
-
-          <div class="seal-task">
-            <div class="seal-track" id="sealTrack">
-              <div class="seal-progress" id="sealProgress"></div>
-              <button class="seal-thumb" id="sealThumb" type="button" aria-label="Slide seal">✦</button>
-              <span class="seal-target">Reveal</span>
+            <div class="event-panel" id="eventPanel">
+              <p class="event-chip">Event</p>
+              <h3>Loading...</h3>
+              <p class="event-time"></p>
+              <p class="event-place"></p>
+              <p class="event-desc"></p>
             </div>
-          </div>
+          </section>
 
-          <div class="reveal-panel hidden" id="datePanel">
-            <p class="tiny-label">Auspicious date</p>
-            <h4>Monday, 6 July 2026</h4>
-            <p>Join us for the wedding celebration and blessings.</p>
-          </div>
+          <section class="card message-card">
+            <p class="card-label">A note</p>
+            <blockquote>
+              “Your presence will make our celebration even more special.”
+            </blockquote>
+          </section>
 
-          <div class="nav-row">
-            <button class="secondary-btn prev-btn" type="button">Previous</button>
-            <button class="cta-btn next-btn" type="button">Next</button>
-          </div>
-        </article>
+          <section class="card actions-card">
+            <a
+              id="mapLink"
+              class="action-btn primary"
+              href="https://maps.google.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open Venue Map
+            </a>
 
-        <article class="section stage" data-step="2">
-          <div class="stage-head">
-            <p class="tiny-label">Section 03</p>
-            <h3>Light the diyas</h3>
-            <p>Tap all four diyas to reveal the live countdown.</p>
-          </div>
-
-          <div class="diya-row" id="diyaRow">
-            <button class="diya-btn" type="button">🪔</button>
-            <button class="diya-btn" type="button">🪔</button>
-            <button class="diya-btn" type="button">🪔</button>
-            <button class="diya-btn" type="button">🪔</button>
-          </div>
-
-          <div class="countdown-wrap hidden" id="countdownWrap">
-            <p class="tiny-label">Countdown to the wedding</p>
-            <div class="countdown-grid">
-              <div class="count-box"><b id="days">00</b><span>Days</span></div>
-              <div class="count-box"><b id="hours">00</b><span>Hours</span></div>
-              <div class="count-box"><b id="minutes">00</b><span>Minutes</span></div>
-              <div class="count-box"><b id="seconds">00</b><span>Seconds</span></div>
-            </div>
-          </div>
-
-          <div class="nav-row">
-            <button class="secondary-btn prev-btn" type="button">Previous</button>
-            <button class="cta-btn next-btn" type="button">Next</button>
-          </div>
-        </article>
-
-        <article class="section stage" data-step="3">
-          <div class="stage-head">
-            <p class="tiny-label">Section 04</p>
-            <h3>Wedding celebrations</h3>
-            <p>Tap any event to view its details.</p>
-          </div>
-
-          <div class="events-grid">
-            <button class="event-tile active" data-event="0" type="button">
-              <span class="tiny-label">4 July 2026</span>
-              <h4>Lagan Sagai</h4>
+            <button id="blessingBtn" class="action-btn secondary" type="button">
+              Shower Blessings
             </button>
-            <button class="event-tile" data-event="1" type="button">
-              <span class="tiny-label">5 July 2026</span>
-              <h4>Haldi · Mehendi · Sangeet</h4>
-            </button>
-            <button class="event-tile" data-event="2" type="button">
-              <span class="tiny-label">6 July 2026</span>
-              <h4>Nikasi & Wedding</h4>
-            </button>
-          </div>
+          </section>
 
-          <div class="event-detail" id="eventDetail">
-            <p class="tiny-label">Event details</p>
-            <h4>Lagan Sagai</h4>
-            <p><strong>Time:</strong> 5:00 P.M. Onwards</p>
-            <p><strong>Venue:</strong> Bhubaneswar Club Banquet Hall</p>
-          </div>
-
-          <div class="nav-row">
-            <button class="secondary-btn prev-btn" type="button">Previous</button>
-            <button class="cta-btn next-btn" type="button">Next</button>
-          </div>
-        </article>
-
-        <article class="section stage" data-step="4">
-          <div class="stage-head">
-            <p class="tiny-label">Section 05</p>
-            <h3>Reveal the venue</h3>
-            <p>Tap the destination plaque to open the venue card.</p>
-          </div>
-
-          <button class="venue-plaque" id="venuePlaque" type="button">
-            <p class="tiny-label">Tap to reveal</p>
-            <h4>The Grand Venue</h4>
-            <p>Bhubaneswar Club</p>
-          </button>
-
-          <div class="venue-card hidden" id="venueCard">
-            <p class="tiny-label">Venue</p>
-            <h4>Bhubaneswar Club</h4>
-            <p>Bhubaneswar, Odisha</p>
-            <div class="venue-actions">
-              <a class="cta-btn" href="https://maps.google.com?q=Bhubaneswar%20Club,%20Bhubaneswar,%20Odisha" target="_blank" rel="noopener noreferrer">Open Maps</a>
-              <button class="secondary-btn" id="blessingsBtn" type="button">Shower Blessings</button>
-            </div>
-          </div>
-
-          <footer class="closing-note">
-            <h4>We look forward to celebrating with you</h4>
-            <p>With love from the families of Chetan and Nirbighna.</p>
+          <footer class="invite-footer">
+            <p>With love, <span id="footerCouple">Keshav & Rekha</span></p>
           </footer>
-
-          <div class="nav-row">
-            <button class="secondary-btn prev-btn" type="button">Previous</button>
-            <button class="cta-btn" id="restartBtn" type="button">Start Again</button>
-          </div>
-        </article>
-      </section>
-    </div>
-
-    <audio id="bgMusic" preload="auto" loop src="song.mp3"></audio>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <script src="script.js" defer></script>
+  <script src="script.js"></script>
 </body>
 </html>
