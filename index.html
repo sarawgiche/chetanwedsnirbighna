@@ -23,27 +23,106 @@
 <body>
   <div class="bg-lights" aria-hidden="true"></div>
   <div class="bg-steam" aria-hidden="true"></div>
+  <div class="petal-layer" id="petalLayer" aria-hidden="true"></div>
 
   <div class="boarding-gate" id="boardingGate">
-    <div class="gate-card">
-      <div class="station-badge">SHAADI EXPRESS</div>
+    <div class="gate-card" id="gateCard">
+      <div class="ganesha-door-hero" aria-hidden="true">
+        <div class="door-frame">
+          <div class="ganesha-glow"></div>
+
+          <div class="ganesha-altar">
+            <div class="ganesha-ring"></div>
+
+            <svg class="ganesha-svg" viewBox="0 0 220 240" role="img" aria-label="Lord Ganesha illustration">
+              <defs>
+                <linearGradient id="gStroke" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#f9e8b7" />
+                  <stop offset="100%" stop-color="#d4af37" />
+                </linearGradient>
+              </defs>
+
+              <circle cx="110" cy="115" r="85" fill="rgba(255,240,200,0.06)" stroke="url(#gStroke)" stroke-width="2"></circle>
+
+              <path
+                d="M111 52
+                   C97 54, 87 63, 84 79
+                   C81 95, 88 107, 101 114
+                   C114 121, 123 129, 123 144
+                   C123 160, 111 171, 97 176
+                   C80 182, 73 193, 82 204
+                   C92 216, 121 209, 132 190
+                   C141 174, 143 158, 139 146
+                   C135 131, 125 118, 113 109
+                   C105 103, 100 95, 101 84
+                   C103 72, 113 64, 127 64
+                   C142 63, 151 71, 153 84
+                   C155 95, 149 107, 140 113"
+                fill="none"
+                stroke="url(#gStroke)"
+                stroke-width="8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>
+
+              <path
+                d="M90 88 C82 76, 76 66, 78 54
+                   M133 85 C147 77, 154 65, 154 49"
+                fill="none"
+                stroke="url(#gStroke)"
+                stroke-width="7"
+                stroke-linecap="round"
+              ></path>
+
+              <path
+                d="M95 123 C87 132, 84 143, 88 155
+                   M131 123 C138 131, 141 142, 137 155"
+                fill="none"
+                stroke="url(#gStroke)"
+                stroke-width="6"
+                stroke-linecap="round"
+              ></path>
+
+              <circle cx="101" cy="95" r="4" fill="#f8e6a7"></circle>
+              <circle cx="126" cy="95" r="4" fill="#f8e6a7"></circle>
+
+              <path d="M109 34 L104 24 L110 12 L116 24 Z" fill="#d4af37"></path>
+              <path d="M70 186 C88 198, 132 198, 150 186" fill="none" stroke="url(#gStroke)" stroke-width="6" stroke-linecap="round"></path>
+            </svg>
+
+            <p class="ganesha-caption">Shree Ganeshaya Namah</p>
+          </div>
+
+          <div class="temple-door door-left"></div>
+          <div class="temple-door door-right"></div>
+        </div>
+      </div>
+
       <p class="eyebrow">Platform No. 06 · Wedding Junction</p>
+      <div class="station-badge">SHAADI EXPRESS</div>
+
       <h1 class="hero-title">
         Chetan <span>&</span> Nirbighna
       </h1>
+
       <p class="hero-copy">
         An invitation designed like a royal train journey — full of stops,
-        surprises, and celebrations.
+        surprises, celebrations, and blessings.
+      </p>
+
+      <p class="door-subtitle">
+        Open the sacred doors, take Lord Ganesha’s blessings, and begin the
+        wedding journey.
       </p>
 
       <div class="gate-instructions">
-        <div class="mini-chip">1. Tap the brass stamp to board</div>
+        <div class="mini-chip">1. Open the divine doors</div>
         <div class="mini-chip">2. Explore each coach</div>
-        <div class="mini-chip">3. Unlock the journey</div>
+        <div class="mini-chip">3. Unlock the final arrival</div>
       </div>
 
       <button class="primary-btn stamp-btn" id="boardBtn" type="button">
-        Tap the brass stamp to board
+        Open the doors & board
       </button>
     </div>
   </div>
@@ -60,15 +139,16 @@
             <circle cx="83" cy="82" r="7" fill="currentColor"></circle>
           </svg>
         </div>
+
         <div>
-          <p class="eyebrow">Interactive Wedding Invitation</p>
+          <p class="eyebrow" id="progressEyebrow">Interactive Wedding Invitation</p>
           <h2>Shaadi Express</h2>
         </div>
       </div>
 
       <button class="music-btn" id="musicToggle" type="button" aria-pressed="false">
         <span class="music-icon">♫</span>
-        <span>Wedding Music</span>
+        <span id="musicLabel">Wedding Music</span>
       </button>
     </header>
 
@@ -78,13 +158,17 @@
           <p class="eyebrow">What to do now</p>
           <h3 id="instructionTitle">Tap the ticket</h3>
           <p id="instructionText">
-            Each coach has one small interaction. Complete it, then move to the
-            next stop.
+            Each coach has one small interaction. Complete it, then move to the next stop.
           </p>
+
+          <div class="progress-card">
+            <span class="progress-label">Journey progress</span>
+            <strong id="progressText">Coach 01 of 05</strong>
+          </div>
         </div>
 
         <nav class="stop-nav" aria-label="Journey stops">
-          <button class="stop-dot active" data-step="0" type="button">
+          <button class="stop-dot active" data-step="0" type="button" aria-current="step">
             <span>01</span>
             <small>Ticket</small>
           </button>
@@ -236,8 +320,7 @@
                 <p class="event-time">5:00 P.M. Onwards</p>
                 <p class="event-place">Bhubaneswar Club Banquet Hall</p>
                 <p class="event-desc">
-                  The journey begins with blessings, warm welcomes, and the first
-                  ceremonial stop.
+                  The journey begins with blessings, warm welcomes, and the first ceremonial stop.
                 </p>
               </div>
             </div>
@@ -261,30 +344,30 @@
 
             <div class="window-grid">
               <button class="memory-window" type="button">
-                <div class="window-shutter">Tap to open</div>
                 <img
-                  src="https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=80"
-                  alt="Romantic wedding moment"
+                  src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80"
+                  alt="Wedding celebration memory"
                   loading="lazy"
                 />
+                <div class="window-shutter">Memory One</div>
               </button>
 
               <button class="memory-window" type="button">
-                <div class="window-shutter">Tap to open</div>
                 <img
-                  src="https://images.unsplash.com/photo-1606800052052-a08af8348865?w=1200&q=80"
-                  alt="Wedding rings"
+                  src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=80"
+                  alt="Wedding couple memory"
                   loading="lazy"
                 />
+                <div class="window-shutter">Memory Two</div>
               </button>
 
               <button class="memory-window" type="button">
-                <div class="window-shutter">Tap to open</div>
                 <img
-                  src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=1200&q=80"
-                  alt="Couple portrait style moment"
+                  src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=900&q=80"
+                  alt="Wedding moment memory"
                   loading="lazy"
                 />
+                <div class="window-shutter">Memory Three</div>
               </button>
             </div>
 
@@ -296,58 +379,50 @@
         </article>
 
         <article class="coach" data-step="4">
-          <div class="coach-card arrival-coach">
+          <div class="coach-card">
             <div class="coach-head">
               <p class="coach-code">COACH 05 · FINAL ARRIVAL</p>
-              <h2>Pull the Chain to Arrive</h2>
+              <h2>The Destination Platform</h2>
               <p class="coach-copy">
                 Tap the chain to reveal the destination platform and then shower blessings.
               </p>
             </div>
 
             <div class="arrival-layout">
-              <button class="chain-pull" id="chainPull" type="button">
-                <span class="chain-link"></span>
-                <span class="chain-ring"></span>
-                <strong>Pull to arrive</strong>
+              <button class="chain-pull" id="chainPull" type="button" aria-label="Pull the train chain">
+                <div class="chain-link"></div>
+                <div class="chain-ring"></div>
+                <strong>Pull the chain</strong>
+                <span>Reveal the final platform</span>
               </button>
 
               <div class="arrival-card hidden" id="arrivalCard">
                 <p class="event-chip">Destination Platform</p>
-                <h3>Bhubaneswar Club</h3>
-                <p class="event-place">Bhubaneswar, Odisha</p>
+                <h3>Bhubaneswar, Odisha</h3>
                 <p class="event-time">Wedding Date · 6 July 2026</p>
+                <p class="event-place">With love, blessings, and celebration</p>
+                <p class="event-desc">
+                  The journey arrives at forever. Join us as this beautiful train of love reaches its grandest stop.
+                </p>
 
                 <div class="arrival-actions">
-                  <a
-                    class="primary-btn"
-                    href="https://maps.google.com?q=Bhubaneswar%20Club,%20Bhubaneswar,%20Odisha"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Open Maps
-                  </a>
-                  <button class="ghost-btn" id="blessingsBtn" type="button">
-                    Shower Blessings
-                  </button>
+                  <button class="primary-btn" id="blessingsBtn" type="button">Shower blessings</button>
+                  <button class="ghost-btn" id="restartBtn" type="button">Restart journey</button>
                 </div>
               </div>
             </div>
 
             <footer class="journey-footer">
-              <p>With love, from the families of Chetan & Nirbighna</p>
+              <p>Thank you for being part of our celebration and sacred journey.</p>
             </footer>
-
-            <div class="coach-actions">
-              <button class="ghost-btn prev-btn" type="button">Previous</button>
-              <button class="primary-btn" type="button" id="restartBtn">Start Again</button>
-            </div>
           </div>
         </article>
       </section>
     </main>
 
-    <audio id="bgMusic" preload="auto" loop src="song.mp3"></audio>
+    <audio id="bgMusic" loop preload="none">
+      <source src="https://cdn.pixabay.com/download/audio/2022/11/22/audio_3ef5f0b6e1.mp3?filename=indian-wedding-ambient-128379.mp3" type="audio/mpeg" />
+    </audio>
   </div>
 
   <script src="script.js" defer></script>
