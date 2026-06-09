@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="description" content="Chetan & Nirbighna — A Royal Wedding Journey" />
+  <meta name="description" content="Chetan & Nirbighna — The Wedding Express" />
   <meta name="theme-color" content="#1a0408" />
-  <title>Chetan & Nirbighna — Royal Wedding</title>
+  <title>Chetan & Nirbighna — The Wedding Express</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,9 +16,8 @@
 
   <!-- ═══ LANGUAGE SELECTION MODAL ═══ -->
   <div class="lang-modal" id="langModal">
-    <div class="royal-card tilt-card lang-box">
-      <div class="card-glare"></div>
-      <h2 class="gold-text">Choose Your Journey<br><span style="font-size: 0.7em; font-family: 'Tiro Devanagari Hindi', serif;">अपनी भाषा चुनें</span></h2>
+    <div class="royal-card lang-box">
+      <h2 class="gold-text">Select Your Journey<br><span style="font-size: 0.7em; font-family: 'Tiro Devanagari Hindi', serif;">अपनी भाषा चुनें</span></h2>
       <div class="lang-btns">
         <button class="btn-outline heartbeat" data-lang="en">English</button>
         <button class="btn-outline heartbeat" data-lang="hi" style="font-family: 'Tiro Devanagari Hindi', serif; font-size: 1.1rem;">हिंदी</button>
@@ -26,50 +25,31 @@
     </div>
   </div>
 
-  <!-- ═══ ROYAL 3D PALACE DOORS ═══ -->
+  <!-- ═══ TRAIN CARRIAGE DOORS ═══ -->
   <div class="palace-gate hidden" id="gate">
     <div class="door door-left" id="doorLeft">
-      <div class="door-inner-panel">
-        <div class="door-arch"></div>
-        <div class="door-mandala"></div>
-      </div>
+      <div class="door-inner-panel"><div class="door-window"></div></div>
     </div>
     <div class="door door-right" id="doorRight">
-      <div class="door-inner-panel">
-        <div class="door-arch"></div>
-        <div class="door-mandala"></div>
-      </div>
+      <div class="door-inner-panel"><div class="door-window"></div></div>
     </div>
     
     <div class="gate-center" id="gateCenter">
-      <p class="gate-subtitle" data-i18n="gateSubtitle">The Royal Wedding Of</p>
-      <h1 class="gate-title"><span data-i18n="nameGroom">Chetan</span><br><span class="heartbeat">&</span><br><span data-i18n="nameBride">Nirbighna</span></h1>
+      <p class="gate-subtitle" data-i18n="gateSubtitle">All Aboard The</p>
+      <h1 class="gate-title">Wedding Express</h1>
+      <h2 class="gate-names"><span data-i18n="nameGroom">Chetan</span> <span class="amp">&</span> <span data-i18n="nameBride">Nirbighna</span></h2>
       <button class="door-lock heartbeat" id="openInvitation">
-        <span class="lock-ring"></span>
-        <span class="lock-text" data-i18n="lockText">Tap to Enter</span>
+        <span class="icon-punch">🎟️</span>
+        <span class="lock-text" data-i18n="lockText">Punch Ticket To Enter</span>
       </button>
     </div>
   </div>
 
   <audio id="weddingMusic" loop preload="auto" src="song.mp3"></audio>
 
-  <!-- ═══ MAIN INVITATION APP ═══ -->
+  <!-- ═══ MAIN INTERACTIVE APP (THE CABIN DASHBOARD) ═══ -->
   <div class="app" id="app" hidden>
-    
-    <!-- Royal Ambient Background -->
     <canvas id="steam" aria-hidden="true"></canvas>
-
-    <!-- Side Indicator Menu (Desktop Only) -->
-    <nav class="route-map" id="routeMap" aria-label="Journey route">
-      <div class="route-track"><span class="route-progress" id="routeProgress"></span></div>
-      <a href="#stop-1" class="route-stop active" data-stop="1"><i></i></a>
-      <a href="#stop-2" class="route-stop" data-stop="2"><i></i></a>
-      <a href="#stop-3" class="route-stop" data-stop="3"><i></i></a>
-      <a href="#stop-4" class="route-stop" data-stop="4"><i></i></a>
-      <a href="#stop-5" class="route-stop" data-stop="5"><i></i></a>
-      <a href="#stop-6" class="route-stop" data-stop="6"><i></i></a>
-      <a href="#stop-7" class="route-stop" data-stop="7"><i></i></a>
-    </nav>
 
     <!-- Music Player -->
     <div class="music-bar royal-card" id="musicBar">
@@ -79,99 +59,108 @@
         <span class="eq-bars" aria-hidden="true"><i></i><i></i><i></i></span>
       </button>
       <div class="music-bar-info">
-        <span class="music-bar-label" id="nowPlaying" data-i18n="nowPlaying">Dil Na Jaaneya</span>
-        <span class="music-bar-artist"><span data-i18n="nameGroom">Chetan</span> & <span data-i18n="nameBride">Nirbighna</span></span>
+        <span class="music-bar-label" id="nowPlaying" data-i18n="nowPlaying">Wedding Bells</span>
+        <span class="music-bar-artist">#IshqDiChasni</span>
       </div>
     </div>
 
-    <!-- The Journey Line Container -->
-    <main class="carriage">
-      
-      <!-- STOP 1: The Royal Invitation -->
-      <section class="stop" id="stop-1">
-        <div class="stop-node">✧</div>
-        <div class="royal-card tilt-card reveal">
-          <div class="card-glare"></div>
-          <header class="stop-header">
-            <span class="stop-code" data-i18n="stop1Code">THE INVITATION</span>
-            <h2 class="gold-text" data-i18n="stop1Title">A Royal Celebration</h2>
-          </header>
-          <p class="invite-text" data-i18n="inviteText">With the blessings of the Almighty, we joyfully invite you to witness the beginning of our forever.</p>
+    <!-- The Interactive Dashboard -->
+    <main class="dashboard">
+      <header class="dash-header">
+        <h2 class="gold-text" data-i18n="dashTitle">Select Your Destination</h2>
+        <p class="dash-instr heartbeat" data-i18n="dashInstr">Tap a ticket below to explore</p>
+      </header>
 
-          <div class="couple-ticket">
-            <div class="passenger">
-              <div class="passenger-photo passenger-photo--groom float-anim"></div>
-              <h1 class="gold-text" data-i18n="nameGroom">Chetan</h1>
-              <p data-i18n="groomParent">Son of<br>Mrs. & Mr. [Parents Name]</p>
-            </div>
-            <div class="passenger-link heartbeat">&</div>
-            <div class="passenger">
-              <div class="passenger-photo passenger-photo--bride float-anim-alt"></div>
-              <h1 class="gold-text" data-i18n="nameBride">Nirbighna</h1>
-              <p data-i18n="brideParent">Daughter of<br>Mrs. & Mr. [Parents Name]</p>
-            </div>
+      <div class="dash-grid">
+        <button class="dash-btn royal-card" data-modal="modal-ticket">
+          <span class="dash-icon">🎫</span>
+          <span class="dash-lbl" data-i18n="btnTicket">Boarding Pass</span>
+        </button>
+        <button class="dash-btn royal-card" data-modal="modal-countdown">
+          <span class="dash-icon">⏱️</span>
+          <span class="dash-lbl" data-i18n="btnCountdown">Departure Time</span>
+        </button>
+        <button class="dash-btn royal-card" data-modal="modal-schedule">
+          <span class="dash-icon">🗺️</span>
+          <span class="dash-lbl" data-i18n="btnRoute">Route Map</span>
+        </button>
+        <button class="dash-btn royal-card" data-modal="modal-gallery">
+          <span class="dash-icon">🎞️</span>
+          <span class="dash-lbl" data-i18n="btnGallery">Memories</span>
+        </button>
+        <button class="dash-btn royal-card" data-modal="modal-game">
+          <span class="dash-icon">💍</span>
+          <span class="dash-lbl" data-i18n="btnRings">The Rings</span>
+        </button>
+        <button class="dash-btn royal-card" data-modal="modal-venue">
+          <span class="dash-icon">🚉</span>
+          <span class="dash-lbl" data-i18n="btnVenue">Final Station</span>
+        </button>
+      </div>
+    </main>
+
+    <!-- ═══ MODALS FOR EACH SECTION ═══ -->
+    
+    <!-- MODAL 1: BOARDING PASS & FARMAAN -->
+    <div class="train-modal hidden" id="modal-ticket">
+      <div class="modal-content royal-card">
+        <button class="close-modal">✖</button>
+        <h2 class="gold-text modal-title" data-i18n="stop1Title">The Royal Invitation</h2>
+        <p class="invite-text" data-i18n="inviteText">With the blessings of the Almighty, we joyfully invite you to board the Wedding Express and witness the beginning of our forever.</p>
+        
+        <div class="couple-ticket">
+          <div class="passenger">
+            <h1 class="gold-text" data-i18n="nameGroom">Chetan</h1>
+            <p data-i18n="groomParent">Son of<br>Mrs. Manju Devi & Mr. Satish Kumar Sarawgi</p>
           </div>
-          <p class="ticket-footer">#IshqDiChasni</p>
+          <div class="passenger-link heartbeat">&</div>
+          <div class="passenger">
+            <h1 class="gold-text" data-i18n="nameBride">Nirbighna</h1>
+            <p data-i18n="brideParent">Daughter of<br>Mrs. Shipranjali Shaw & Mr. Purna Chandra Shaw</p>
+          </div>
         </div>
-      </section>
 
-      <!-- STOP 2: Interactive Farmaan & Countdown -->
-      <section class="stop" id="stop-2">
-        <div class="stop-node">✧</div>
-        <header class="stop-header reveal">
-          <span class="stop-code" data-i18n="stop2Code">THE DECREE</span>
-          <h2 class="gold-text" data-i18n="stop2Title">Royal Farmaan</h2>
-        </header>
-
-        <div class="farmaan-container tilt-card reveal" id="farmaanContainer">
-          <div class="card-glare"></div>
-          
+        <div class="farmaan-container" id="farmaanContainer">
           <div class="farmaan-scroll" id="farmaanScroll">
             <div class="farmaan-content">
-              <h3 class="gold-text-scroll" data-i18n="scrollTitle">By Royal Appointment</h3>
               <p class="scroll-text">
-                <span data-i18n="scrollSummon">You are summoned to witness the union of</span><br>
-                <strong class="scroll-names"><span data-i18n="nameGroom">Chetan</span> & <span data-i18n="nameBride">Nirbighna</span></strong><br>
-                <span data-i18n="scrollDate">on the 6th of July, 2026.</span><br><br>
-                <span class="scroll-status" data-i18n="scrollGuest">Guest of Honour</span>
+                <span data-i18n="scrollSummon">You are summoned to witness the union on</span><br>
+                <strong class="scroll-names" data-i18n="scrollDate">6th of July, 2026</strong>
               </p>
             </div>
           </div>
-          
           <div class="wax-envelope" id="waxEnvelope">
-            <p class="stamp-hint" id="sealHint" data-i18n="sealHint">Drag the seal downwards to open</p>
-            <div class="wax-seal heartbeat" id="waxSeal" role="button" tabindex="0">
+            <p class="stamp-hint heartbeat" id="sealHint" data-i18n="sealHint">Drag the seal downwards to reveal date</p>
+            <div class="wax-seal" id="waxSeal">
               <span class="seal-initials">C&N</span>
             </div>
           </div>
         </div>
+      </div>
+    </div>
 
-        <div class="compartment royal-card tilt-card reveal">
-          <div class="card-glare"></div>
-          <div class="window-countdown">
-            <p class="dep-board-label" data-i18n="countdownLabel">MOMENTS UNTIL FOREVER</p>
-            <div class="dep-board">
-              <div class="dep-cell"><b id="days">00</b><small data-i18n="lblDays">Days</small></div>
-              <div class="dep-cell"><b id="hours">00</b><small data-i18n="lblHours">Hrs</small></div>
-              <div class="dep-cell"><b id="minutes">00</b><small data-i18n="lblMins">Min</small></div>
-              <div class="dep-cell"><b id="seconds">00</b><small data-i18n="lblSecs">Sec</small></div>
-            </div>
-          </div>
+    <!-- MODAL 2: DEPARTURE COUNTDOWN -->
+    <div class="train-modal hidden" id="modal-countdown">
+      <div class="modal-content royal-card">
+        <button class="close-modal">✖</button>
+        <h2 class="gold-text modal-title" data-i18n="countdownLabel">Moments Until Departure</h2>
+        <div class="dep-board">
+          <div class="dep-cell"><b id="days">00</b><small data-i18n="lblDays">Days</small></div>
+          <div class="dep-cell"><b id="hours">00</b><small data-i18n="lblHours">Hrs</small></div>
+          <div class="dep-cell"><b id="minutes">00</b><small data-i18n="lblMins">Min</small></div>
+          <div class="dep-cell"><b id="seconds">00</b><small data-i18n="lblSecs">Sec</small></div>
         </div>
-      </section>
+        <p class="ticket-footer" style="margin-top:2rem;">#IshqDiChasni</p>
+      </div>
+    </div>
 
-      <!-- STOP 3: Events Schedule -->
-      <section class="stop" id="stop-3">
-        <div class="stop-node">✧</div>
-        <header class="stop-header reveal">
-          <span class="stop-code" data-i18n="stop3Code">ITINERARY</span>
-          <h2 class="gold-text" data-i18n="stop3Title">Wedding Festivities</h2>
-        </header>
+    <!-- MODAL 3: ROUTE MAP (SCHEDULE) -->
+    <div class="train-modal hidden" id="modal-schedule">
+      <div class="modal-content royal-card">
+        <button class="close-modal">✖</button>
+        <h2 class="gold-text modal-title" data-i18n="stop3Title">Journey Itinerary</h2>
         
-        <div class="schedule-board royal-card tilt-card reveal">
-          <div class="card-glare"></div>
-          
-          <!-- Event 1: July 4 -->
+        <div class="schedule-board">
           <article class="schedule-item">
             <div class="schedule-date" data-i18n="event1Date">4th July, 2026</div>
             <div class="schedule-info">
@@ -180,18 +169,14 @@
               <p class="event-venue" data-i18n="event1Venue">Bhubaneswar Club Banquet Hall</p>
             </div>
           </article>
-          
-          <!-- Event 2: July 5 -->
           <article class="schedule-item">
             <div class="schedule-date" data-i18n="event2Date">5th July, 2026</div>
             <div class="schedule-info">
               <h3 data-i18n="event2Title">Haldi, Mehendi & Sangeet</h3>
               <p class="event-time" data-i18n="event2Time">10:00 A.M. Onwards</p>
-              <p class="event-desc" data-i18n="event2Desc">Haldi at Pool side, followed by Mehendi.<br>DJ Night/Sangeet from 7:00 P.M. onwards.</p>
+              <p class="event-desc" data-i18n="event2Desc">Haldi at Pool side, followed by Mehendi.<br>DJ Night/Sangeet from 7:00 P.M.</p>
             </div>
           </article>
-          
-          <!-- Event 3: July 6 -->
           <article class="schedule-item">
             <div class="schedule-date" data-i18n="event3Date">6th July, 2026</div>
             <div class="schedule-info">
@@ -200,76 +185,52 @@
             </div>
           </article>
         </div>
-      </section>
+      </div>
+    </div>
 
-      <!-- STOP 4: Glimpses of Us (Pre-Wedding Photos & Video) -->
-      <section class="stop" id="stop-4">
-        <div class="stop-node">✧</div>
-        <header class="stop-header reveal">
-          <span class="stop-code" data-i18n="stop4Code">PRE-WEDDING</span>
-          <h2 class="gold-text" data-i18n="stop4Title">Glimpses of Us</h2>
-        </header>
-        
-        <div class="video-container royal-card tilt-card reveal">
-          <div class="card-glare"></div>
-          <div class="video-placeholder">
-            <span class="play-icon">▶</span>
-            <p data-i18n="videoText">Play Pre-Wedding Video</p>
-          </div>
+    <!-- MODAL 4: MEMORIES -->
+    <div class="train-modal hidden" id="modal-gallery">
+      <div class="modal-content royal-card">
+        <button class="close-modal">✖</button>
+        <h2 class="gold-text modal-title" data-i18n="stop4Title">Glimpses of Us</h2>
+        <div class="polaroid-wall">
+          <div class="polaroid"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400&q=80" alt="Couple" loading="lazy"/></div>
+          <div class="polaroid"><img src="https://images.unsplash.com/photo-1606800052052-a08af8348865?w=400&q=80" alt="Rings" loading="lazy"/></div>
+          <div class="polaroid"><img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=400&q=80" alt="Decor" loading="lazy"/></div>
+          <div class="polaroid"><img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=400&q=80" alt="Portrait" loading="lazy"/></div>
         </div>
+      </div>
+    </div>
 
-        <div class="polaroid-wall reveal">
-          <button class="polaroid royal-card tilt-card" data-full="https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&q=85">
-            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400&q=80" alt="Couple" loading="lazy"/>
-          </button>
-          <button class="polaroid royal-card tilt-card polaroid--tilt" data-full="https://images.unsplash.com/photo-1606800052052-a08af8348865?w=1200&q=85">
-            <img src="https://images.unsplash.com/photo-1606800052052-a08af8348865?w=400&q=80" alt="Rings" loading="lazy"/>
-          </button>
-          <button class="polaroid royal-card tilt-card" data-full="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=1200&q=85">
-            <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=400&q=80" alt="Decor" loading="lazy"/>
-          </button>
-          <button class="polaroid royal-card tilt-card polaroid--tilt-r" data-full="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=1200&q=85">
-            <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=400&q=80" alt="Portrait" loading="lazy"/>
-          </button>
-        </div>
-      </section>
-
-      <!-- STOP 5: THE MINI GAME -->
-      <section class="stop" id="stop-game">
-        <div class="stop-node">✧</div>
-        <header class="stop-header reveal">
-          <span class="stop-code" data-i18n="gameCode">THE RINGS</span>
-          <h2 class="gold-text" data-i18n="gameTitle">A Symbol of Forever</h2>
-        </header>
+    <!-- MODAL 5: MINI GAME -->
+    <div class="train-modal hidden" id="modal-game">
+      <div class="modal-content royal-card">
+        <button class="close-modal">✖</button>
+        <h2 class="gold-text modal-title" data-i18n="gameTitle">A Symbol of Forever</h2>
         
-        <div class="game-container royal-card tilt-card reveal">
-          <div class="card-glare"></div>
-          
+        <div class="game-container">
           <div id="gamePlayArea">
-            <p class="game-hint" data-i18n="gameHint">Slide the ring to unite two hearts</p>
+            <p class="game-hint heartbeat" data-i18n="gameHint">Slide the ring exactly to the end</p>
             <div class="ring-track" id="ringTrack">
               <div class="ring-target">💍</div>
-              <div class="ring-thumb heartbeat" id="ringThumb">💍</div>
+              <div class="ring-thumb" id="ringThumb">💍</div>
             </div>
           </div>
-
           <div class="game-success hidden" id="gameSuccessArea">
             <span class="success-icon float-anim">💖</span>
-            <h3 class="gold-text-scroll">#IshqDiChasni</h3>
-            <p class="success-msg" data-i18n="gameSuccess">Two hearts, intertwined forever.</p>
+            <h3 class="gold-text" data-i18n="gameSuccess">Two hearts, intertwined forever.</h3>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
 
-      <!-- STOP 6: Venue -->
-      <section class="stop" id="stop-5">
-        <div class="stop-node">✧</div>
-        <header class="stop-header reveal">
-          <span class="stop-code" data-i18n="stop5Code">LOCATION</span>
-          <h2 class="gold-text" data-i18n="stop5Title">The Grand Venue</h2>
-        </header>
-        <div class="destination-card royal-card tilt-card reveal">
-          <div class="card-glare"></div>
+    <!-- MODAL 6: FINAL STATION -->
+    <div class="train-modal hidden" id="modal-venue">
+      <div class="modal-content royal-card">
+        <button class="close-modal">✖</button>
+        <h2 class="gold-text modal-title" data-i18n="stop5Title">The Grand Venue</h2>
+        
+        <div class="destination-card">
           <div class="dest-img"></div>
           <div class="dest-body">
             <h3 data-i18n="venueName">Bhubaneswar Club</h3>
@@ -280,25 +241,12 @@
             </div>
           </div>
         </div>
-
-        <div class="blessings-section reveal">
-          <button class="btn-blessing heartbeat" id="blessingBtn" data-i18n="btnBlessing">
-            Shower Blessings ✨
-          </button>
+        <div class="blessings-section">
+          <button class="btn-blessing heartbeat" id="blessingBtn" data-i18n="btnBlessing">Shower Blessings ✨</button>
         </div>
+      </div>
+    </div>
 
-        <footer class="journey-end reveal">
-          <h3 class="gold-text"><span data-i18n="nameGroom">Chetan</span> <span class="amp heartbeat">&</span> <span data-i18n="nameBride">Nirbighna</span></h3>
-          <p class="end-date" data-i18n="footerDate">6 July 2026</p>
-          <p class="end-tag">#IshqDiChasni</p>
-        </footer>
-      </section>
-    </main>
-  </div>
-
-  <div class="lightbox hidden" id="lightbox" role="dialog">
-    <button class="lightbox-close" id="lightboxClose">×</button>
-    <img id="lightboxImg" src="" alt=""/>
   </div>
 
   <script src="script.js"></script>
