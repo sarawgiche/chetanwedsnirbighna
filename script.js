@@ -2,232 +2,201 @@
 
 const steps = [
   {
-    title: "Start with the invitation card",
-    text: "Tap the invitation card to reveal the bride and groom details."
+    title: "Tap the ticket",
+    text: "Flip the golden boarding pass to reveal the bride and groom."
   },
   {
-    title: "Tap both family panels",
-    text: "When both family panels glow, the section feels complete."
+    title: "Tap each plaque",
+    text: "Light up both family plaques to complete the family compartment."
   },
   {
-    title: "Choose an event",
-    text: "Tap any celebration event to view its time and venue details."
+    title: "Tap each station",
+    text: "Each station reveals one day of celebrations, timing, and venue."
   },
   {
-    title: "Open the memories",
-    text: "Tap any memory panel to reveal the image behind it."
+    title: "Open the windows",
+    text: "Tap each shutter to reveal a wedding moment inside the moving train."
   },
   {
-    title: "Reveal the blessing",
-    text: "Open the final message and shower blessings for the couple."
+    title: "Pull the chain",
+    text: "Reveal the final destination platform and shower your blessings."
   }
 ];
 
 const events = [
   {
-    chip: "Event 01",
+    chip: "Station 01",
     title: "Lagan Sagai",
-    time: "5:00 P.M. Onwards",
-    place: "Bhubaneswar Club Banquet Hall",
-    desc: "The celebration begins with blessings, welcome, and the first formal gathering."
+    date: "Saturday, 4 July 2026",
+    time: "5:00 PM",
+    place: "Venue: Bhubaneshwar Club, 1, Rajpath, Unit-6, Keshari Nagar, Bhubaneshwar - 751001, Odisha",
+    schedule: [
+      "Lagan Sagai — 5:00 PM"
+    ],
+    desc: "The journey begins with warm welcomes, blessings, and the first ceremonial stop."
   },
   {
-    chip: "Event 02",
-    title: "Haldi · Mehendi · Sangeet",
-    time: "10:00 A.M. Onwards · DJ Night / Sangeet from 7:00 P.M.",
-    place: "Pool Side & Celebration Area",
-    desc: "A lively day of color, rituals, music, dance, and family joy."
+    chip: "Station 02",
+    title: "Haldi · Mehendi · DJ Night",
+    date: "Sunday, 5 July 2026",
+    time: "10:00 AM onwards",
+    place: "Venue: Swimming Pool, Bhubaneshwar Club, 1, Rajpath, Unit-6, Keshari Nagar, Bhubaneshwar - 751001, Odisha",
+    schedule: [
+      "Haldi — 10:00 AM",
+      "Mehendi — 1:00 PM",
+      "DJ Night — 7:00 PM",
+      "Dinner — 8:00 PM"
+    ],
+    desc: "A bright, colorful coach filled with haldi, mehendi, music, dance, and celebration."
   },
   {
-    chip: "Event 03",
-    title: "Nikasi & Wedding",
-    time: "Wedding Day",
-    place: "Tennis Lawn, Bhubaneswar Club",
-    desc: "The grand arrival, sacred vows, and the beginning of forever."
+    chip: "Station 03",
+    title: "Chak Bhat · Ghurchari · Departure of Barat",
+    date: "Monday, 6 July 2026",
+    time: "Wedding Day Route",
+    place: "Venue: Tennis Court, Bhubaneshwar Club, 1, Rajpath, Unit-6, Keshari Nagar, Bhubaneshwar - 751001, Odisha",
+    schedule: [
+      "Chak Bhat — 10:00 AM",
+      "Ghurchari — 6:00 PM",
+      "Departure of Barat — 7:00 PM"
+    ],
+    desc: "The grand wedding route reaches its most awaited stop before the final arrival."
   }
 ];
 
-const introScreen = document.getElementById("introScreen");
-const introGanesha = document.getElementById("introGanesha");
-const enterBtn = document.getElementById("enterBtn");
-const heroShell = document.getElementById("heroShell");
-const mainContent = document.getElementById("mainContent");
-const revealNodes = Array.from(document.querySelectorAll(".reveal"));
+const boardingGate = document.getElementById("boardingGate");
+const boardBtn = document.getElementById("boardBtn");
+const app = document.getElementById("app");
+const coaches = Array.from(document.querySelectorAll(".coach"));
 const stopDots = Array.from(document.querySelectorAll(".stop-dot"));
-const sections = Array.from(document.querySelectorAll(".section-card"));
 const nextButtons = Array.from(document.querySelectorAll(".next-btn"));
 const prevButtons = Array.from(document.querySelectorAll(".prev-btn"));
-const inviteCard = document.getElementById("inviteCard");
-const familyCards = Array.from(document.querySelectorAll(".family-card"));
-const eventStops = Array.from(document.querySelectorAll(".event-stop"));
-const eventPanel = document.getElementById("eventPanel");
-const memoryCards = Array.from(document.querySelectorAll(".memory-card"));
-const blessingTrigger = document.getElementById("blessingTrigger");
-const blessingCard = document.getElementById("blessingCard");
-const blessingsBtn = document.getElementById("blessingsBtn");
-const restartBtn = document.getElementById("restartBtn");
-const petals = document.getElementById("petals");
 const instructionTitle = document.getElementById("instructionTitle");
 const instructionText = document.getElementById("instructionText");
-const progressText = document.getElementById("progressText");
-const musicToggle = document.getElementById("musicToggle");
-const musicLabel = document.getElementById("musicLabel");
-const bgMusic = document.getElementById("bgMusic");
-const bell = new Audio("https://cdn.pixabay.com/download/audio/2022/03/15/audio_4f2f6e8fe2.mp3?filename=temple-bell-110117.mp3");
-
-bell.preload = "auto";
+const progressChip = document.getElementById("progressChip");
+const ticketFlip = document.getElementById("ticketFlip");
+const familyPlaques = Array.from(document.querySelectorAll(".family-plaque"));
+const routeStops = Array.from(document.querySelectorAll(".route-stop"));
+const eventDisplay = document.getElementById("eventDisplay");
+const memoryWindows = Array.from(document.querySelectorAll(".memory-window"));
+const chainPull = document.getElementById("chainPull");
+const arrivalCard = document.getElementById("arrivalCard");
+const blessingsBtn = document.getElementById("blessingsBtn");
+const restartBtn = document.getElementById("restartBtn");
+const topBtn = document.getElementById("topBtn");
 
 let currentStep = 0;
-let musicPlaying = false;
 
 function setStep(index) {
-  currentStep = Math.max(0, Math.min(index, sections.length - 1));
-  sections.forEach((section, i) => section.classList.toggle("active", i === currentStep));
-  stopDots.forEach((dot, i) => {
-    const active = i === currentStep;
-    dot.classList.toggle("active", active);
-    dot.setAttribute("aria-current", active ? "step" : "false");
+  currentStep = Math.max(0, Math.min(index, coaches.length - 1));
+
+  coaches.forEach((coach, i) => {
+    coach.classList.toggle("active", i === currentStep);
   });
+
+  stopDots.forEach((dot, i) => {
+    dot.classList.toggle("active", i === currentStep);
+  });
+
   instructionTitle.textContent = steps[currentStep].title;
   instructionText.textContent = steps[currentStep].text;
-  progressText.textContent = `Section ${String(currentStep + 1).padStart(2, "0")} of ${String(sections.length).padStart(2, "0")}`;
-  if (window.innerWidth < 1040) sections[currentStep]?.scrollIntoView({ behavior: "smooth", block: "start" });
+  progressChip.textContent = `Stop ${currentStep + 1} of ${steps.length}`;
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 function updateEvent(index) {
   const item = events[index];
-  if (!item || !eventPanel) return;
-  eventPanel.innerHTML = `<p class="event-chip">${item.chip}</p><h3>${item.title}</h3><p class="event-time">${item.time}</p><p class="event-place">${item.place}</p><p class="event-desc">${item.desc}</p>`;
-  eventStops.forEach((stop, i) => stop.classList.toggle("active", i === index));
-}
+  if (!item || !eventDisplay) return;
 
-function createPetals(count = 24) {
-  const pieces = ["🌸", "✨", "💛"];
-  for (let i = 0; i < count; i += 1) {
-    const item = document.createElement("div");
-    item.className = "petal";
-    item.textContent = pieces[Math.floor(Math.random() * pieces.length)];
-    item.style.left = `${Math.random() * 100}vw`;
-    item.style.fontSize = `${Math.random() * 10 + 14}px`;
-    item.style.animationDuration = `${Math.random() * 3 + 4}s`;
-    item.style.opacity = `${Math.random() * 0.4 + 0.6}`;
-    petals?.appendChild(item);
-    setTimeout(() => item.remove(), 7200);
-  }
+  eventDisplay.innerHTML = `
+    <p class="event-chip">${item.chip}</p>
+    <h3>${item.title}</h3>
+    <p class="event-time">${item.date} · ${item.time}</p>
+    <p class="event-place">${item.place}</p>
+    <ul class="schedule-list">
+      ${item.schedule.map((line) => `<li>${line}</li>`).join("")}
+    </ul>
+    <p class="event-desc">${item.desc}</p>
+  `;
+
+  routeStops.forEach((stop, i) => {
+    stop.classList.toggle("active", i === index);
+  });
 }
 
 function createBlessingsBurst() {
-  const pieces = ["✨", "💛", "🌸", "🕊️", "💫"];
-  for (let i = 0; i < 30; i += 1) {
-    const item = document.createElement("div");
-    item.className = "confetti";
-    item.textContent = pieces[Math.floor(Math.random() * pieces.length)];
-    item.style.left = `${Math.random() * 100}vw`;
-    item.style.fontSize = `${Math.random() * 16 + 16}px`;
-    item.style.animationDuration = `${Math.random() * 2 + 3}s`;
-    document.body.appendChild(item);
-    setTimeout(() => item.remove(), 5200);
+  const items = ["✨", "💛", "🌸", "🕊️", "💫"];
+  for (let i = 0; i < 34; i += 1) {
+    const piece = document.createElement("div");
+    piece.className = "confetti";
+    piece.textContent = items[Math.floor(Math.random() * items.length)];
+    piece.style.left = `${Math.random() * 100}vw`;
+    piece.style.fontSize = `${Math.random() * 18 + 16}px`;
+    piece.style.animationDuration = `${Math.random() * 2 + 3}s`;
+    piece.style.opacity = `${Math.random() * 0.5 + 0.5}`;
+    document.body.appendChild(piece);
+    setTimeout(() => piece.remove(), 5200);
   }
 }
 
-function playBell() {
-  bell.currentTime = 0;
-  bell.play().catch(() => {});
-}
-
-function tryPlayMusic() {
-  if (!bgMusic) return;
-  bgMusic.play().then(() => {
-    musicPlaying = true;
-    musicToggle?.classList.add("is-playing");
-    musicToggle?.setAttribute("aria-pressed", "true");
-    if (musicLabel) musicLabel.textContent = "Music On";
-  }).catch(() => {
-    musicPlaying = false;
-    musicToggle?.classList.remove("is-playing");
-    musicToggle?.setAttribute("aria-pressed", "false");
-    if (musicLabel) musicLabel.textContent = "Tap for Music";
-  });
-}
-
-function toggleMusic() {
-  if (!bgMusic) return;
-  if (musicPlaying) {
-    bgMusic.pause();
-    musicPlaying = false;
-    musicToggle?.classList.remove("is-playing");
-    musicToggle?.setAttribute("aria-pressed", "false");
-    if (musicLabel) musicLabel.textContent = "Wedding Music";
-  } else {
-    tryPlayMusic();
-  }
-}
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) entry.target.classList.add("visible");
-  });
-}, { threshold: 0.16 });
-
-revealNodes.forEach((node) => observer.observe(node));
-
-enterBtn?.addEventListener("click", () => {
-  introGanesha?.classList.add("show");
-  playBell();
-  createPetals(10);
-  setTimeout(() => {
-    introScreen?.classList.add("hidden");
-    heroShell?.classList.remove("hidden");
-    mainContent?.classList.remove("hidden");
-    createPetals(14);
-    tryPlayMusic();
-  }, 1400);
+boardBtn?.addEventListener("click", () => {
+  boardingGate.classList.add("hidden");
+  app.classList.remove("hidden");
+  setStep(0);
 });
 
-stopDots.forEach((dot, index) => dot.addEventListener("click", () => setStep(index)));
-nextButtons.forEach((button) => button.addEventListener("click", () => setStep(currentStep + 1)));
-prevButtons.forEach((button) => button.addEventListener("click", () => setStep(currentStep - 1)));
+stopDots.forEach((dot, index) => {
+  dot.addEventListener("click", () => setStep(index));
+});
 
-inviteCard?.addEventListener("click", () => inviteCard.classList.toggle("flipped"));
+nextButtons.forEach((button) => {
+  button.addEventListener("click", () => setStep(currentStep + 1));
+});
 
-familyCards.forEach((card) => {
-  card.addEventListener("click", () => {
-    card.classList.toggle("active");
-    if (familyCards.every((item) => item.classList.contains("active"))) {
-      createBlessingsBurst();
-    }
+prevButtons.forEach((button) => {
+  button.addEventListener("click", () => setStep(currentStep - 1));
+});
+
+ticketFlip?.addEventListener("click", () => {
+  ticketFlip.classList.toggle("flipped");
+});
+
+familyPlaques.forEach((plaque) => {
+  plaque.addEventListener("click", () => {
+    plaque.classList.toggle("active");
   });
 });
 
-eventStops.forEach((stop, index) => {
+routeStops.forEach((stop, index) => {
   stop.addEventListener("click", () => updateEvent(index));
 });
 
-memoryCards.forEach((card) => {
-  card.addEventListener("click", () => card.classList.toggle("open"));
+memoryWindows.forEach((windowCard) => {
+  windowCard.addEventListener("click", () => {
+    windowCard.classList.toggle("open");
+  });
 });
 
-blessingTrigger?.addEventListener("click", () => {
-  blessingCard?.classList.remove("hidden");
-  createPetals(18);
+chainPull?.addEventListener("click", () => {
+  chainPull.classList.add("pulled");
+  arrivalCard?.classList.remove("hidden");
+  setTimeout(() => chainPull.classList.remove("pulled"), 500);
 });
 
-blessingsBtn?.addEventListener("click", () => {
-  createBlessingsBurst();
-  createPetals(18);
-});
+blessingsBtn?.addEventListener("click", createBlessingsBurst);
 
 restartBtn?.addEventListener("click", () => {
   setStep(0);
-  inviteCard?.classList.remove("flipped");
-  blessingCard?.classList.add("hidden");
-  familyCards.forEach((card) => card.classList.remove("active"));
-  memoryCards.forEach((card) => card.classList.remove("open"));
+  ticketFlip?.classList.remove("flipped");
+  arrivalCard?.classList.add("hidden");
+  familyPlaques.forEach((plaque) => plaque.classList.remove("active"));
+  memoryWindows.forEach((windowCard) => windowCard.classList.remove("open"));
   updateEvent(0);
-  window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
-musicToggle?.addEventListener("click", toggleMusic);
+topBtn?.addEventListener("click", () => {
+  setStep(0);
+});
 
 document.addEventListener("keydown", (event) => {
   if (event.key === "ArrowRight") setStep(currentStep + 1);

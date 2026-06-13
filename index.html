@@ -2,290 +2,366 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Chetan & Nirbighna wedding invitation" />
-  <title>Chetan & Nirbighna | Wedding Invitation</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+  />
+  <meta
+    name="description"
+    content="Chetan & Nirbighna - Shaadi Express Wedding Invitation"
+  />
+  <title>Chetan & Nirbighna | Shaadi Express</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="ambient ambient-a" aria-hidden="true"></div>
-  <div class="ambient ambient-b" aria-hidden="true"></div>
-  <div class="petals" id="petals" aria-hidden="true"></div>
+  <div class="bg-lights" aria-hidden="true"></div>
+  <div class="bg-steam" aria-hidden="true"></div>
 
-  <a class="skip-link" href="#mainContent">Skip to invitation</a>
+  <div class="boarding-gate" id="boardingGate">
+    <div class="gate-card">
+      <div class="station-badge">SHAADI EXPRESS</div>
+      <p class="eyebrow">Platform No. 06 · Wedding Junction</p>
+      <h1 class="hero-title">Chetan <span>&</span> Nirbighna</h1>
+      <p class="hero-copy">
+        A royal wedding journey through celebration stops, glowing coaches,
+        family blessings, and one unforgettable arrival.
+      </p>
 
-  <div class="intro-screen" id="introScreen" aria-hidden="false">
-    <div class="intro-card reveal visible">
-      <p class="eyebrow">A sacred beginning</p>
-      <div class="intro-ganesha" id="introGanesha">
-        <svg viewBox="0 0 220 240" role="img" aria-label="Lord Ganesha illustration">
-          <defs>
-            <linearGradient id="gStroke" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#f8e2a5"></stop>
-              <stop offset="100%" stop-color="#c99625"></stop>
-            </linearGradient>
-          </defs>
-          <circle cx="110" cy="114" r="86" fill="rgba(255,244,220,.04)" stroke="url(#gStroke)" stroke-width="1.8"></circle>
-          <path d="M110 52 C96 54,86 63,83 79 C80 94,88 108,101 115 C113 121,123 129,123 144 C123 160,111 172,97 177 C81 182,73 194,82 205 C92 216,120 209,131 190 C140 175,142 159,139 147 C135 131,125 118,113 109 C105 103,100 95,101 84 C103 72,113 64,127 64 C142 63,151 72,153 84 C155 96,149 107,140 113" fill="none" stroke="url(#gStroke)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path>
-          <path d="M89 88 C81 77,76 66,78 54 M134 84 C148 77,154 65,154 49" fill="none" stroke="url(#gStroke)" stroke-width="7" stroke-linecap="round"></path>
-          <path d="M96 124 C88 133,85 144,89 155 M131 124 C138 132,141 143,137 155" fill="none" stroke="url(#gStroke)" stroke-width="6" stroke-linecap="round"></path>
-          <circle cx="101" cy="95" r="4" fill="#f8e2a5"></circle>
-          <circle cx="126" cy="95" r="4" fill="#f8e2a5"></circle>
-          <path d="M109 34 L104 24 L110 12 L116 24 Z" fill="#d4af37"></path>
-        </svg>
+      <div class="gate-instructions">
+        <div class="mini-chip">1. Tap the brass stamp</div>
+        <div class="mini-chip">2. Explore every coach</div>
+        <div class="mini-chip">3. Reveal the final platform</div>
       </div>
-      <p class="intro-text">Please take the blessings of Lord Ganesha before opening the invitation.</p>
-      <button class="primary-btn" id="enterBtn" type="button">Enter invitation</button>
+
+      <button class="primary-btn stamp-btn" id="boardBtn" type="button">
+        Tap to Board the Shaadi Express
+      </button>
     </div>
   </div>
 
-  <header class="hero-shell hidden" id="heroShell">
-    <div class="hero-card container reveal visible">
-      <p class="eyebrow">Wedding Invitation · 6 July 2026</p>
-      <p class="blessing">|| Shree Ganeshaya Namah ||</p>
-      <h1 class="hero-title">Chetan <span>&</span> Nirbighna</h1>
-      <p class="hero-copy">
-        A graceful invitation told through a refined celebration journey — elegant,
-        interactive, and beautifully simple on every screen.
-      </p>
-
-      <div class="hero-highlights" role="list" aria-label="Wedding highlights">
-        <div class="chip" role="listitem">Bhubaneswar, Odisha</div>
-        <div class="chip" role="listitem">3 Celebration Days</div>
-        <div class="chip" role="listitem">Tap to Explore</div>
+  <div class="app hidden" id="app">
+    <header class="topbar">
+      <div class="brand-block">
+        <div class="brand-logo" aria-hidden="true">
+          <svg viewBox="0 0 120 120" role="img" aria-label="Shaadi Express logo">
+            <circle cx="60" cy="60" r="54" fill="none" stroke="currentColor" stroke-width="4"></circle>
+            <path d="M28 68h54c14 0 20-8 20-18 0-7-4-12-10-14H44" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"></path>
+            <path d="M28 68c6-15 18-26 35-34" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"></path>
+            <circle cx="43" cy="82" r="7" fill="currentColor"></circle>
+            <circle cx="83" cy="82" r="7" fill="currentColor"></circle>
+          </svg>
+        </div>
+        <div>
+          <p class="eyebrow">Interactive Wedding Invitation</p>
+          <h2>Shaadi Express</h2>
+        </div>
       </div>
 
-      <div class="hero-actions">
-        <a class="primary-btn" href="#mainContent">Open Invitation</a>
-        <button class="ghost-btn" id="musicToggle" type="button" aria-pressed="false">
-          <span class="music-icon">♫</span>
-          <span id="musicLabel">Wedding Music</span>
-        </button>
-      </div>
+      <div class="topbar-badge">Wedding Date · 6 July 2026</div>
+    </header>
 
-      <div class="hero-frame">
-        <div class="frame-panel frame-left"></div>
-        <div class="frame-center">
-          <div class="ganesha-mark" aria-hidden="true">
-            <svg viewBox="0 0 220 240" role="img" aria-label="Lord Ganesha symbol">
-              <defs>
-                <linearGradient id="gStroke2" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#f8e2a5"></stop>
-                  <stop offset="100%" stop-color="#c99625"></stop>
-                </linearGradient>
-              </defs>
-              <circle cx="110" cy="114" r="86" fill="rgba(255,244,220,.04)" stroke="url(#gStroke2)" stroke-width="1.8"></circle>
-              <path d="M110 52 C96 54,86 63,83 79 C80 94,88 108,101 115 C113 121,123 129,123 144 C123 160,111 172,97 177 C81 182,73 194,82 205 C92 216,120 209,131 190 C140 175,142 159,139 147 C135 131,125 118,113 109 C105 103,100 95,101 84 C103 72,113 64,127 64 C142 63,151 72,153 84 C155 96,149 107,140 113" fill="none" stroke="url(#gStroke2)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"></path>
-              <path d="M89 88 C81 77,76 66,78 54 M134 84 C148 77,154 65,154 49" fill="none" stroke="url(#gStroke2)" stroke-width="7" stroke-linecap="round"></path>
-              <path d="M96 124 C88 133,85 144,89 155 M131 124 C138 132,141 143,137 155" fill="none" stroke="url(#gStroke2)" stroke-width="6" stroke-linecap="round"></path>
-              <circle cx="101" cy="95" r="4" fill="#f8e2a5"></circle>
-              <circle cx="126" cy="95" r="4" fill="#f8e2a5"></circle>
-              <path d="M109 34 L104 24 L110 12 L116 24 Z" fill="#d4af37"></path>
-            </svg>
+    <main class="journey-layout">
+      <aside class="journey-panel">
+        <div class="info-card">
+          <p class="eyebrow">Journey guide</p>
+          <h3 id="instructionTitle">Tap the ticket</h3>
+          <p id="instructionText">
+            Each coach has a small interaction. Complete it and move to the next stop.
+          </p>
+          <div class="progress-chip" id="progressChip">Stop 1 of 5</div>
+        </div>
+
+        <nav class="stop-nav" aria-label="Journey stops">
+          <button class="stop-dot active" data-step="0" type="button">
+            <span>01</span>
+            <small>Ticket</small>
+          </button>
+          <button class="stop-dot" data-step="1" type="button">
+            <span>02</span>
+            <small>Families</small>
+          </button>
+          <button class="stop-dot" data-step="2" type="button">
+            <span>03</span>
+            <small>Route</small>
+          </button>
+          <button class="stop-dot" data-step="3" type="button">
+            <span>04</span>
+            <small>Moments</small>
+          </button>
+          <button class="stop-dot" data-step="4" type="button">
+            <span>05</span>
+            <small>Arrival</small>
+          </button>
+        </nav>
+      </aside>
+
+      <section class="coach-stage" aria-live="polite">
+        <article class="coach active" data-step="0">
+          <div class="coach-card ticket-coach">
+            <div class="coach-head">
+              <p class="coach-code">COACH 01 · BOARDING PASS</p>
+              <h2>The Royal Wedding Ticket</h2>
+              <p class="coach-copy">
+                Tap the golden ticket to reveal the bride, groom, and the families behind this beautiful journey.
+              </p>
+            </div>
+
+            <button class="ticket-shell" id="ticketFlip" type="button" aria-label="Flip invitation ticket">
+              <div class="ticket-face ticket-front">
+                <div class="ticket-topline">
+                  <span>Luxury Heritage Line</span>
+                  <span>Boarding Pass</span>
+                </div>
+
+                <div class="ticket-center">
+                  <p class="ticket-label">Passengers</p>
+                  <h3>Chetan <span>&</span> Nirbighna</h3>
+                  <p class="ticket-date">Monday, 6 July 2026</p>
+                </div>
+
+                <div class="ticket-bottomline">
+                  <span>Bhubaneswar Club</span>
+                  <span>Platform Love</span>
+                </div>
+              </div>
+
+              <div class="ticket-face ticket-back">
+                <div class="ticket-reveal-block">
+                  <p class="ticket-label">Groom</p>
+                  <h3>Chetan</h3>
+                  <p>Son of Smt. Manju Devi & Shri Satish Kumar Sarawgi</p>
+                </div>
+
+                <div class="ticket-divider"></div>
+
+                <div class="ticket-reveal-block">
+                  <p class="ticket-label">Bride</p>
+                  <h3>Nirbighna</h3>
+                  <p>Daughter of Smt. Shipranjali Shaw & Shri Purna Chandra Shaw</p>
+                </div>
+              </div>
+            </button>
+
+            <div class="blessing-strip">
+              With blessings of Smt. Rukmani Devi, W/o Late Shri Giridhari Lal Sarawgi
+            </div>
+
+            <div class="coach-actions">
+              <button class="ghost-btn prev-btn" type="button" disabled>Previous</button>
+              <button class="primary-btn next-btn" type="button">Next coach</button>
+            </div>
           </div>
-          <p class="frame-caption">Blessings first, celebration next.</p>
-        </div>
-        <div class="frame-panel frame-right"></div>
-      </div>
-    </div>
-  </header>
+        </article>
 
-  <main id="mainContent" class="container layout hidden">
-    <aside class="side-panel reveal">
-      <section class="info-card">
-        <p class="eyebrow">Journey guide</p>
-        <h2 id="instructionTitle">Start with the invitation card</h2>
-        <p id="instructionText">Each section has one simple interaction designed to feel natural on mobile and desktop.</p>
-        <div class="progress-box">
-          <span>Progress</span>
-          <strong id="progressText">Section 01 of 05</strong>
-        </div>
+        <article class="coach" data-step="1">
+          <div class="coach-card">
+            <div class="coach-head">
+              <p class="coach-code">COACH 02 · FAMILY COMPARTMENT</p>
+              <h2>The Two Families</h2>
+              <p class="coach-copy">
+                Tap each family plaque to light up the compartment and complete this coach.
+              </p>
+            </div>
+
+            <div class="family-grid">
+              <button class="family-plaque" type="button">
+                <span class="plaque-side">Groom's Family</span>
+                <strong>Chetan</strong>
+                <small>Smt. Manju Devi & Shri Satish Kumar Sarawgi</small>
+              </button>
+
+              <button class="family-plaque" type="button">
+                <span class="plaque-side">Bride's Family</span>
+                <strong>Nirbighna</strong>
+                <small>Smt. Shipranjali Shaw & Shri Purna Chandra Shaw</small>
+              </button>
+            </div>
+
+            <div class="family-note">
+              <span class="pulse-dot"></span>
+              <p>When both plaques glow, this compartment is complete.</p>
+            </div>
+
+            <div class="host-panel">
+              <p class="host-label">With best compliments from</p>
+              <p>
+                Pravin Sarawgi, Hemant Sarawgi, Anish Sarawgi, Vishal Sarawgi & Friends
+              </p>
+            </div>
+
+            <div class="coach-actions">
+              <button class="ghost-btn prev-btn" type="button">Previous</button>
+              <button class="primary-btn next-btn" type="button">Next coach</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="coach" data-step="2">
+          <div class="coach-card route-coach">
+            <div class="coach-head">
+              <p class="coach-code">COACH 03 · CELEBRATION ROUTE</p>
+              <h2>Tap Each Station</h2>
+              <p class="coach-copy">
+                Select a station stop to reveal the ceremony details, timings, and venue.
+              </p>
+            </div>
+
+            <div class="route-board">
+              <div class="route-line" aria-hidden="true"></div>
+
+              <div class="route-stops">
+                <button class="route-stop active" type="button" data-event="0">
+                  <span class="route-stop-num">01</span>
+                  <span class="route-stop-name">Lagan Sagai</span>
+                  <small>Saturday · 4 July 2026</small>
+                </button>
+
+                <button class="route-stop" type="button" data-event="1">
+                  <span class="route-stop-num">02</span>
+                  <span class="route-stop-name">Haldi · Mehendi · DJ Night</span>
+                  <small>Sunday · 5 July 2026</small>
+                </button>
+
+                <button class="route-stop" type="button" data-event="2">
+                  <span class="route-stop-num">03</span>
+                  <span class="route-stop-name">Chak Bhat · Ghurchari · Barat</span>
+                  <small>Monday · 6 July 2026</small>
+                </button>
+              </div>
+
+              <div class="event-display" id="eventDisplay"></div>
+            </div>
+
+            <div class="coach-actions">
+              <button class="ghost-btn prev-btn" type="button">Previous</button>
+              <button class="primary-btn next-btn" type="button">Next coach</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="coach" data-step="3">
+          <div class="coach-card memory-coach">
+            <div class="coach-head">
+              <p class="coach-code">COACH 04 · WINDOW MOMENTS</p>
+              <h2>Open the Wedding Windows</h2>
+              <p class="coach-copy">
+                Tap each shutter to reveal a sweet wedding moment waiting inside the moving train.
+              </p>
+            </div>
+
+            <div class="window-grid">
+              <button class="memory-window" type="button">
+                <div class="window-shutter">Open Blessings Window</div>
+                <div class="window-content">
+                  <h3>Blessings</h3>
+                  <p>
+                    The wedding journey begins with love, family warmth, and heartfelt blessings from elders.
+                  </p>
+                </div>
+              </button>
+
+              <button class="memory-window" type="button">
+                <div class="window-shutter">Open Celebration Window</div>
+                <div class="window-content">
+                  <h3>Celebration</h3>
+                  <p>
+                    From haldi to music and dance, every stop on this route is filled with joy and color.
+                  </p>
+                </div>
+              </button>
+
+              <button class="memory-window" type="button">
+                <div class="window-shutter">Open Forever Window</div>
+                <div class="window-content">
+                  <h3>Forever</h3>
+                  <p>
+                    At the final platform, two hearts arrive at one beautiful destination together.
+                  </p>
+                </div>
+              </button>
+            </div>
+
+            <div class="coach-actions">
+              <button class="ghost-btn prev-btn" type="button">Previous</button>
+              <button class="primary-btn next-btn" type="button">Next coach</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="coach" data-step="4">
+          <div class="coach-card">
+            <div class="coach-head">
+              <p class="coach-code">COACH 05 · FINAL ARRIVAL</p>
+              <h2>Destination Platform</h2>
+              <p class="coach-copy">
+                Pull the ceremonial chain to reveal the final destination and shower your blessings.
+              </p>
+            </div>
+
+            <div class="arrival-layout">
+              <button class="chain-pull" id="chainPull" type="button">
+                <div class="chain-link" aria-hidden="true"></div>
+                <div class="chain-ring" aria-hidden="true"></div>
+                <strong>Pull the chain</strong>
+                <small>Reveal the final platform</small>
+              </button>
+
+              <div class="arrival-card hidden" id="arrivalCard">
+                <p class="event-chip">Destination Platform</p>
+                <h3>Bhubaneswar, Odisha</h3>
+                <p class="arrival-date">Wedding Date · Monday, 6 July 2026</p>
+
+                <div class="final-details">
+                  <div class="final-block">
+                    <p class="host-label">A cordial invitation from</p>
+                    <p>Shri Satish Kumar Sarawgi</p>
+                    <p>RZ-63B, Mohan Block, West Sagarpur, New Delhi - 110046</p>
+                  </div>
+
+                  <div class="final-block">
+                    <p class="host-label">Contact</p>
+                    <p>7978679158 · 7008350170</p>
+                    <p>8920165448 · 9937972450</p>
+                  </div>
+
+                  <div class="final-block">
+                    <p class="host-label">RSVP</p>
+                    <p>All Sarawgi Family</p>
+                  </div>
+                </div>
+
+                <div class="arrival-actions">
+                  <button class="primary-btn" id="blessingsBtn" type="button">
+                    Shower blessings
+                  </button>
+                  <button class="ghost-btn" id="restartBtn" type="button">
+                    Restart journey
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <p class="journey-footer">
+              The Shaadi Express warmly awaits your presence and blessings.
+            </p>
+
+            <div class="coach-actions">
+              <button class="ghost-btn prev-btn" type="button">Previous</button>
+              <button class="primary-btn" id="topBtn" type="button">Back to start</button>
+            </div>
+          </div>
+        </article>
       </section>
+    </main>
+  </div>
 
-      <nav class="stop-nav" aria-label="Invitation sections">
-        <button class="stop-dot active" type="button" data-step="0" aria-current="step"><span>01</span><small>Invitation</small></button>
-        <button class="stop-dot" type="button" data-step="1"><span>02</span><small>Families</small></button>
-        <button class="stop-dot" type="button" data-step="2"><span>03</span><small>Events</small></button>
-        <button class="stop-dot" type="button" data-step="3"><span>04</span><small>Memories</small></button>
-        <button class="stop-dot" type="button" data-step="4"><span>05</span><small>Blessings</small></button>
-      </nav>
-    </aside>
-
-    <section class="content-stage" aria-live="polite">
-      <article class="section-card active reveal" data-step="0">
-        <div class="section-head">
-          <p class="section-code">SECTION 01 · THE INVITATION</p>
-          <h2>A beautiful beginning</h2>
-          <p class="section-copy">Tap the invitation card to reveal the bride and groom details.</p>
-        </div>
-
-        <button class="invite-card" id="inviteCard" type="button" aria-label="Flip invitation card">
-          <div class="invite-face invite-front">
-            <p class="ticket-label">With blessings of the families</p>
-            <h3>Chetan <span>&</span> Nirbighna</h3>
-            <p class="invite-date">6 July 2026</p>
-            <div class="invite-meta">
-              <span>Bhubaneswar, Odisha</span>
-              <span>Wedding Celebration</span>
-            </div>
-          </div>
-          <div class="invite-face invite-back">
-            <div>
-              <p class="ticket-label">Groom</p>
-              <h3>Chetan</h3>
-              <p>Son of Mrs. Manju Devi &amp; Mr. Satish Kumar Sarawgi</p>
-            </div>
-            <div class="divider"></div>
-            <div>
-              <p class="ticket-label">Bride</p>
-              <h3>Nirbighna</h3>
-              <p>Daughter of Mrs. Shipranjali Shaw &amp; Mr. Purna Chandra Shaw</p>
-            </div>
-          </div>
-        </button>
-
-        <div class="section-actions">
-          <button class="ghost-btn prev-btn" type="button" disabled>Previous</button>
-          <button class="primary-btn next-btn" type="button">Next section</button>
-        </div>
-      </article>
-
-      <article class="section-card reveal" data-step="1">
-        <div class="section-head">
-          <p class="section-code">SECTION 02 · THE FAMILIES</p>
-          <h2>Two families, one celebration</h2>
-          <p class="section-copy">Tap each panel to illuminate both families.</p>
-        </div>
-
-        <div class="family-grid">
-          <button class="family-card" type="button">
-            <span class="card-tag">Groom's Family</span>
-            <strong>Chetan</strong>
-            <small>Mrs. Manju Devi &amp; Mr. Satish Kumar Sarawgi</small>
-          </button>
-          <button class="family-card" type="button">
-            <span class="card-tag">Bride's Family</span>
-            <strong>Nirbighna</strong>
-            <small>Mrs. Shipranjali Shaw &amp; Mr. Purna Chandra Shaw</small>
-          </button>
-        </div>
-
-        <p class="soft-note"><span class="pulse-dot"></span> When both panels glow, the family section feels complete.</p>
-
-        <div class="section-actions">
-          <button class="ghost-btn prev-btn" type="button">Previous</button>
-          <button class="primary-btn next-btn" type="button">Next section</button>
-        </div>
-      </article>
-
-      <article class="section-card reveal" data-step="2">
-        <div class="section-head">
-          <p class="section-code">SECTION 03 · CELEBRATION SCHEDULE</p>
-          <h2>The event timeline</h2>
-          <p class="section-copy">Choose a celebration moment to view time and venue details.</p>
-        </div>
-
-        <div class="events-layout">
-          <div class="event-list">
-            <button class="event-stop active" type="button" data-event="0">
-              <span>01</span>
-              <strong>Lagan Sagai</strong>
-              <small>4 July 2026</small>
-            </button>
-            <button class="event-stop" type="button" data-event="1">
-              <span>02</span>
-              <strong>Haldi · Mehendi · Sangeet</strong>
-              <small>5 July 2026</small>
-            </button>
-            <button class="event-stop" type="button" data-event="2">
-              <span>03</span>
-              <strong>Nikasi &amp; Wedding</strong>
-              <small>6 July 2026</small>
-            </button>
-          </div>
-
-          <div class="event-panel" id="eventPanel">
-            <p class="event-chip">Event 01</p>
-            <h3>Lagan Sagai</h3>
-            <p class="event-time">5:00 P.M. Onwards</p>
-            <p class="event-place">Bhubaneswar Club Banquet Hall</p>
-            <p class="event-desc">The celebration begins with blessings, welcome, and the first formal gathering.</p>
-          </div>
-        </div>
-
-        <div class="section-actions">
-          <button class="ghost-btn prev-btn" type="button">Previous</button>
-          <button class="primary-btn next-btn" type="button">Next section</button>
-        </div>
-      </article>
-
-      <article class="section-card reveal" data-step="3">
-        <div class="section-head">
-          <p class="section-code">SECTION 04 · MEMORIES</p>
-          <h2>Open the moments</h2>
-          <p class="section-copy">Tap any memory panel to reveal the moment behind it.</p>
-        </div>
-
-        <div class="memory-grid">
-          <button class="memory-card" type="button">
-            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80" alt="Celebration memory" loading="lazy" width="900" height="1200" />
-            <div class="memory-cover">Memory One</div>
-          </button>
-          <button class="memory-card" type="button">
-            <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=80" alt="Couple memory" loading="lazy" width="900" height="1200" />
-            <div class="memory-cover">Memory Two</div>
-          </button>
-          <button class="memory-card" type="button">
-            <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=900&q=80" alt="Wedding memory" loading="lazy" width="900" height="1200" />
-            <div class="memory-cover">Memory Three</div>
-          </button>
-        </div>
-
-        <div class="section-actions">
-          <button class="ghost-btn prev-btn" type="button">Previous</button>
-          <button class="primary-btn next-btn" type="button">Next section</button>
-        </div>
-      </article>
-
-      <article class="section-card reveal" data-step="4">
-        <div class="section-head">
-          <p class="section-code">SECTION 05 · WITH BLESSINGS</p>
-          <h2>The celebration arrives here</h2>
-          <p class="section-copy">Reveal the final message and shower blessings.</p>
-        </div>
-
-        <div class="blessing-layout">
-          <button class="blessing-trigger" id="blessingTrigger" type="button">
-            <div class="blessing-ring"></div>
-            <strong>Reveal blessing</strong>
-            <span>Tap to open the final message</span>
-          </button>
-
-          <div class="blessing-card hidden" id="blessingCard">
-            <p class="event-chip">Final Invitation</p>
-            <h3>Bhubaneswar, Odisha</h3>
-            <p class="event-time">Wedding Date · 6 July 2026</p>
-            <p class="event-place">Your presence will make our celebration complete.</p>
-            <p class="event-desc">We warmly invite you to bless the couple and join the family in joy, prayer, and celebration.</p>
-
-            <div class="hero-actions">
-              <button class="primary-btn" id="blessingsBtn" type="button">Shower blessings</button>
-              <button class="ghost-btn" id="restartBtn" type="button">Restart journey</button>
-            </div>
-          </div>
-        </div>
-      </article>
-    </section>
-  </main>
-
-  <audio id="bgMusic" loop preload="none">
-    <source src="https://cdn.pixabay.com/download/audio/2022/11/22/audio_3ef5f0b6e1.mp3?filename=indian-wedding-ambient-128379.mp3" type="audio/mpeg" />
-  </audio>
-
-  <script src="script.js" defer></script>
+  <script src="script.js"></script>
 </body>
 </html>
